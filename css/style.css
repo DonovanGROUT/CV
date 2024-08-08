@@ -56,6 +56,15 @@ a {
     margin-bottom: 1rem;
 }
 
+/* Compétences */
+
+.comp {
+    transition: transform 0.2s ease-in-out;
+}
+.comp:hover {
+    transform: translateY(-5px);
+}
+
 /* Timeline */
 
 .timeline {
@@ -79,6 +88,11 @@ a {
     position: relative;
     width: 50%;
     padding-left: 40px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.timeline-item:hover {
+    transform: translateY(-5px);
 }
 
 .timeline-item.timeline-inverted {
