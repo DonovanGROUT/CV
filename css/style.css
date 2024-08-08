@@ -129,16 +129,16 @@ body {
     background: #fff;
 }
 
-.education-block {
+.formation-block {
     text-align: center;
     margin-bottom: 30px;
 }
 
-.education-block h5, .education-block h3, .education-block h4 {
+.formation-block h5, .formation-block h3, .formation-block h4 {
     margin: 10px 0;
 }
 
-.education-block .bi-award-fill {
+.formation-block .bi-award-fill {
     font-size: 2em;
     color: #007bff;
 }
