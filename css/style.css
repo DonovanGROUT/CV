@@ -16,12 +16,22 @@ body {
 }
 
 .bg-primary {
-    background-color: #007bff !important;
+    background-color: #283593 !important; /* Dark blue */
 }
 
 .text-white {
-    color: #fff !important;
+    color: #f5f5f5 !important; /* Off white */
 }
+
+.section-white {
+    background: #f8f9fa !important; /* Light grey */
+}
+
+.section-dark {
+    background: #212121 !important; /* Dark grey */
+    color: #f5f5f5 !important; /* Off white */
+}
+
 
 .text-muted {
     color: #6c757d !important;
@@ -30,11 +40,14 @@ body {
 .profile-picture img {
     width: 150px;
     height: 150px;
+    border: 5px solid #fff;
+    border-radius: 50%;
 }
 
 .heading {
-    margin-bottom: 40px;
+    margin-top: 20px;
 }
+
 
 .heading h1, .heading h2, .heading h3, .heading h4, .heading h5 {
     margin: 10px 0;
@@ -118,6 +131,12 @@ body {
     border-left-color: #fff;
 }
 
+#experience .timeline-panel {
+    background: #f8f9fa; /* Change background to light grey */
+    color: #343a40; /* Change text color to dark grey */
+}
+
+
 .divider {
     width: 60px;
     height: 3px;
@@ -130,9 +149,12 @@ body {
 }
 
 .formation-block {
-    text-align: center;
-    margin-bottom: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 20px;
+    background: #fff;
 }
+
 
 .formation-block h5, .formation-block h3, .formation-block h4 {
     margin: 10px 0;
@@ -167,12 +189,35 @@ body {
     margin-bottom: 10px;
 }
 
+.social-sidebar {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    background: #343a40;
+    padding: 10px;
+    border-radius: 0 5px 5px 0;
+}
+
+.social-sidebar a {
+    display: block;
+    color: #fff;
+    font-size: 1.5em;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.social-sidebar a:hover {
+    color: #007bff;
+}
+
+
 footer {
     background: #343a40;
     padding: 20px 0;
 }
 
-footer .social-links a {
+/* footer .social-links a {
     font-size: 1.5em;
     color: #fff;
     margin: 0 10px;
@@ -180,4 +225,4 @@ footer .social-links a {
 
 footer .social-links a:hover {
     color: #007bff;
-}
+} */
