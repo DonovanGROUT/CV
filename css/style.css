@@ -1,6 +1,6 @@
 /* Style global */
 body {
-    font-family: 'Space Mono', monospace;
+    font-family: 'Narnoor', serif;
     background-color: #F5F5F5;
     color: #333333;
     margin: 0;
@@ -11,41 +11,61 @@ a {
     text-decoration: none;
 }
 
+p {
+    font-size: 18px;
+}
+
+.glob {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
 .navbar {
-    background-color: #2C2C2C !important;
+    background-color: #f88e55;
 }
 
-.navbar-logo {
-    width: 40px;
-    height: 40px;
-}
-
-.navbar-brand span {
+.navbar-brand {
     font-size: 1.2rem;
-    color: #FFFFFF;
+    color: #333333;
+}
+
+.navbar-toggler {
+    font-size: 1.2rem;
+    color: #333333;
 }
 
 .nav-link {
-    font-weight: 600;
+    font-weight: 500;
     text-transform: uppercase;
+    text-color: #333333;
 }
 
 .nav-link:hover {
-    color: #00BCD4 !important;
+    color: #FFFFFF;
 }
 
 /* Style des sections */
-.section-white {
-    background-color: #F5F5F5;
+section {
+    border-radius: 10px;
+    border-color: #000000;
+    border-width: 4px;
+    background-color: #FF600010;
+    color: #333333;
+}
+ .section-white {
+    background-color: #FF55001E;
     color: #333333;
 }
 
 .section-dark {
-    background-color: #2C2C2C;
-    color: #FFFFFF;
+    background-color: #FF600010;
+    color: #333333;
 }
 
 /* Titres et heading */
+.heading {
+    font-family: 'Noto Sans Tagbanwa';
+}
 .heading h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
@@ -55,6 +75,12 @@ a {
     font-size: 1.5rem;
     margin-bottom: 1rem;
 }
+
+/* About */
+
+/* #about {
+    background-color: #FF4E0063;
+} */
 
 /* Compétences */
 
@@ -211,11 +237,13 @@ a {
 /* Divers */
 .divider {
     width: 60px;
-    height: 4px;
-    background-color: #00BCD4;
+    height: 2px;
+    background-color: #333333;
     margin: 0 auto 20px;
+    border: 4px solid #bbb;
+    border-radius: 5px;
 }
 
-.divider.white {
+/* .divider.white {
     background-color: #FFFFFF;
-}
+} */
