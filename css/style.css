@@ -5,6 +5,23 @@ body {
     color: #333333;
     margin: 0;
     padding: 0;
+    background-image: url('../images/wallpaper.jpg'); /* Image de fond */
+    background-size: cover; /* L'image couvre toute la page */
+    background-repeat: no-repeat; /* Pas de répétition de l'image */
+    background-attachment: fixed; /* L'image reste fixe lors du scroll */
+    background-position: center; /* L'image est centrée */
+}
+
+/* Optionnel: Couche de transparence pour le texte */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5); /* Couche blanche avec transparence */
+    z-index: -1; /* Placer la couche en arrière-plan */
 }
 
 a {
@@ -19,10 +36,34 @@ button:hover {
     background-color: #457B9D !important; 
 }
 
+
 .glob {
     padding-left: 10%;
     padding-right: 10%;
 }
+
+/* Boutons principaux (CTA) */
+.btn-primary {
+    background-color: #FF8552; /* Couleur principale */
+    border: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #457B9D; /* Couleur survol */
+    transform: scale(1.05); /* Légère augmentation de taille au survol */
+}
+
+.btn-lg {
+    font-size: 1.2rem;
+    padding: 12px 30px;
+}
+
+/* Barre de navigation */
 
 .navbar {
     background-color: #FF8552;
