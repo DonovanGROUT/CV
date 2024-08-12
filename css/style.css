@@ -1,7 +1,7 @@
 /* Style global */
 body {
-    font-family: 'Narnoor', serif;
-    background-color: #F5F5F5;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #FFFFFF;
     color: #333333;
     margin: 0;
     padding: 0;
@@ -15,18 +15,26 @@ p {
     font-size: 18px;
 }
 
+button:hover {
+    background-color: #457B9D !important; 
+}
+
 .glob {
     padding-left: 10%;
     padding-right: 10%;
 }
 
 .navbar {
-    background-color: #f88e55;
+    background-color: #FF8552;
 }
 
 .navbar-brand {
     font-size: 1.2rem;
     color: #333333;
+}
+
+.navbar-brand:hover {
+    background-color: #457B9D;
 }
 
 .navbar-toggler {
@@ -37,35 +45,51 @@ p {
 .nav-link {
     font-weight: 500;
     text-transform: uppercase;
-    text-color: #333333;
+    color: #333333;
 }
 
 .nav-link:hover {
+   /* color: #FFFFFF; */
+    background-color: #457B9D;
+}
+
+.navbar-nav .dropdown-menu {
+    background-color: #FF8552; /* Match the navbar background */
+}
+
+.navbar-nav .dropdown-item {
+    color: #333333;
+}
+
+.navbar-nav .dropdown-item:hover {
     color: #FFFFFF;
+    background-color: #457B9D; /* Change to match CTA colors */
 }
 
 /* Style des sections */
 section {
     border-radius: 10px;
-    border-color: #000000;
+    border-color: #4A4A4A;
     border-width: 4px;
-    background-color: #FF600010;
+    background-color: #FF8552;
     color: #333333;
 }
- .section-white {
-    background-color: #FF55001E;
+
+.section-white {
+    background-color: #F0F0F0;
     color: #333333;
 }
 
 .section-dark {
-    background-color: #FF600010;
+    background-color: #FF8552;
     color: #333333;
 }
 
 /* Titres et heading */
 .heading {
-    font-family: 'Noto Sans Tagbanwa';
+    font-family: 'Montserrat', sans-serif;
 }
+
 .heading h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
@@ -76,14 +100,7 @@ section {
     margin-bottom: 1rem;
 }
 
-/* About */
-
-/* #about {
-    background-color: #FF4E0063;
-} */
-
 /* Compétences */
-
 .comp {
     transition: transform 0.2s ease-in-out;
 }
@@ -92,7 +109,6 @@ section {
 }
 
 /* Timeline */
-
 .timeline {
     list-style: none;
     padding: 0;
@@ -107,6 +123,7 @@ section {
     bottom: 0;
     left: 50%;
     margin-left: -1.5px;
+    background-color: #4A4A4A;
 }
 
 .timeline-item {
@@ -135,10 +152,6 @@ section {
     text-align: left;
 }
 
-/* .timeline-item.timeline-inverted .timeline-panel {
-    float: right;
-} */
-
 .timeline-item .timeline-badge {
     color: #fff;
     width: 30px;
@@ -150,7 +163,7 @@ section {
     top: 10px;
     left: 80%;
     margin-left: -15px;
-    background-color: #007bff;
+    background-color: #457B9D;
     border-radius: 50%;
 }
 
@@ -163,7 +176,6 @@ section {
 .timeline-item .timeline-badge .bi {
     font-size: 1rem;
 }
-
 
 /* Portfolio */
 .card {
@@ -191,10 +203,9 @@ section {
 .card img {
     height: 200px;
     object-fit: cover;
-} */
+}
 
 /* Recommandations */
-
 .recommendation {
     background: #f8f9fa;
     padding: 20px;
@@ -211,7 +222,6 @@ section {
 }
 
 /* Barre réseaux sociaux */
-
 .social-sidebar {
     position: fixed;
     top: 50%;
@@ -231,7 +241,7 @@ section {
 }
 
 .social-sidebar a:hover {
-    color: #007bff;
+    color: #457B9D;
 }
 
 /* Divers */
@@ -243,7 +253,3 @@ section {
     border: 4px solid #bbb;
     border-radius: 5px;
 }
-
-/* .divider.white {
-    background-color: #FFFFFF;
-} */

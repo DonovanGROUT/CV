@@ -1,14 +1,28 @@
 document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.nav-link');
+    const dropdownItems = document.querySelectorAll('.dropdown-item');
+
+    const updateActiveLink = (links, current) => {
+        links.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').substring(1) === current) {
+                link.classList.add('active');
+            }
+        });
+    };
 
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
-            navLinks.forEach(nav => nav.classList.remove('active'));
-            this.classList.add('active');
+            updateActiveLink(navLinks, this.getAttribute('href').substring(1));
         });
     });
 
-    // Highlight the section on scroll
+    dropdownItems.forEach(item => {
+        item.addEventListener('click', function() {
+            updateActiveLink(dropdownItems, this.getAttribute('href').substring(1));
+        });
+    });
+
     const sections = document.querySelectorAll('section');
     window.onscroll = () => {
         let current = '';
@@ -20,11 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href').substring(1) === current) {
-                link.classList.add('active');
-            }
-        });
+        updateActiveLink(navLinks, current);
+        updateActiveLink(dropdownItems, current);
     };
 });
