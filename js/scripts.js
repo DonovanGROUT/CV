@@ -12,13 +12,21 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     navLinks.forEach(link => {
-        link.addEventListener('click', function() {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
             updateActiveLink(navLinks, this.getAttribute('href').substring(1));
         });
     });
 
     dropdownItems.forEach(item => {
-        item.addEventListener('click', function() {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
             updateActiveLink(dropdownItems, this.getAttribute('href').substring(1));
         });
     });
