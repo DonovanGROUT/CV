@@ -46,3 +46,22 @@ document.addEventListener('DOMContentLoaded', function() {
         updateActiveLink(dropdownItems, current);
     };
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const skillsSection = document.querySelector('#skills');
+    const progressBars = document.querySelectorAll('.progress-bar');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                progressBars.forEach(bar => {
+                    const targetWidth = bar.getAttribute('data-width'); // Lire depuis un data-attribute
+                    bar.style.width = targetWidth; // Appliquer la largeur cible
+                });
+            }
+        });
+    }, { threshold: 0.1 });
+
+    observer.observe(skillsSection);
+});
+
