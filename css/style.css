@@ -228,8 +228,8 @@ section {
 }
 
 
-/* Portfolio */
-.card {
+/* Styles pour les cartes du Portfolio */
+.portfolio-card {
     position: relative;
     background-color: #FFFFFF;
     border: none;
@@ -237,53 +237,91 @@ section {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card:hover {
+.portfolio-card:hover {
     transform: scale(1.05);
     box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.3);
 }
 
-.card .card-body {
+.portfolio-card .card-body {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.card:hover .card-body {
+.portfolio-card:hover .card-body {
     opacity: 1;
     transform: translateY(0);
 }
 
-.card-title {
+.portfolio-card-title {
+    text-align: center;
     font-size: 1.25rem;
     color: #333333;
     margin-bottom: 0.5rem;
 }
 
-.card-text {
+.portofolio-card-text {
     font-size: 0.9rem;
     color: #555555;
 }
 
-.card img {
+.portfolio-card img {
     height: 200px;
     object-fit: cover;
 }
 
-/* Recommandations */
-.recommendation {
+/* Styles pour les cartes des Recommandations */
+.recommendation-card {
     background: #f8f9fa;
     padding: 20px;
     border-radius: 5px;
     margin-bottom: 20px;
 }
 
-.recommendation h5 {
+.recommendation-card h5 {
     margin: 10px 0 5px;
 }
 
-.recommendation p {
+.recommendation-card p {
     margin-bottom: 10px;
 }
+
+/* Icônes de défilement pour le carousel des recommandations */
+
+#carouselExampleControls {
+    position: relative;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+}
+
+.carousel-control-prev-icon {
+    margin-left: 35px;
+}
+
+.carousel-control-next-icon {
+    margin-right: 35px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: auto;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    opacity: 1;
+}
+
+
 
 /* Barre réseaux sociaux */
 .social-sidebar {
