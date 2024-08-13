@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const dropdownItems = document.querySelectorAll('.dropdown-item');
     const sections = document.querySelectorAll('section');
     const progressBars = document.querySelectorAll('.progress-bar');
+    const timelineItems = document.querySelectorAll('.timeline-item');
 
     // Fonction pour mettre à jour les liens actifs
     const updateActiveLink = (links, current) => {
@@ -37,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     // Observer pour les barres de progression
-    const observer = new IntersectionObserver(entries => {
+    const progressObserver = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const bar = entry.target;
@@ -49,8 +50,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, { threshold: 0.1 });
 
-    // Observer pour les barres de progression
     progressBars.forEach(bar => {
-        observer.observe(bar);
+        progressObserver.observe(bar);
+    });
+
+    // Observer pour les timelines
+    const timelineObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    timelineItems.forEach(item => {
+        timelineObserver.observe(item);
     });
 });

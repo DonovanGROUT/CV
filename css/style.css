@@ -175,7 +175,14 @@ section {
     position: relative;
     width: 50%;
     padding-left: 40px;
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+    opacity: 0; /* Initialisation de l'animation */
+    transform: translateX(-50px); /* Position initiale pour l'animation */
+}
+
+.timeline-item.in-view {
+    opacity: 1;
+    transform: translateX(0); /* Fin de l'animation */
 }
 
 .timeline-item.timeline-inverted {
@@ -184,12 +191,15 @@ section {
     padding-left: 0;
 }
 
+.timeline-item.timeline-inverted .timeline-panel {
+    text-align: left;
+}
+
 .timeline-item .timeline-panel {
     position: relative;
     border: 1px solid #d4d4d4;
     border-radius: 5px;
     padding: 20px;
-    text-align: left;
 }
 
 .timeline-item .timeline-badge {
@@ -216,6 +226,7 @@ section {
 .timeline-item .timeline-badge .bi {
     font-size: 1rem;
 }
+
 
 /* Portfolio */
 .card {
