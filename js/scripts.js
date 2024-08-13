@@ -6,6 +6,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const progressBars = document.querySelectorAll('.progress-bar');
     const timelineItems = document.querySelectorAll('.timeline-item');
 
+    // Ajout de la fonction de rafraîchissement pour le bouton Accueil
+    const homeButton = document.querySelector('.navbar-brand');
+    homeButton.addEventListener('click', function() {
+        location.reload();
+    });
+
     // Fonction pour mettre à jour les liens actifs
     const updateActiveLink = (links, current) => {
         links.forEach(link => {
