@@ -5,14 +5,13 @@ body {
     color: #333333;
     margin: 0;
     padding: 0;
-    background-image: url('../images/wallpaper.jpg'); /* Image de fond */
-    background-size: cover; /* L'image couvre toute la page */
-    background-repeat: no-repeat; /* Pas de répétition de l'image */
-    background-attachment: fixed; /* L'image reste fixe lors du scroll */
-    background-position: center; /* L'image est centrée */
+    background-image: url('../images/wallpaper.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
 }
 
-/* Optionnel: Couche de transparence pour le texte */
 body::before {
     content: '';
     position: fixed;
@@ -20,8 +19,8 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.5); /* Couche blanche avec transparence */
-    z-index: -1; /* Placer la couche en arrière-plan */
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: -1;
 }
 
 a {
@@ -36,30 +35,30 @@ button:hover {
     background-color: #457B9D; 
 }
 
-
 .glob {
     padding-left: 10%;
     padding-right: 10%;
 }
 
-/* Boutons principaux (CTA) */
+/* Boutons principaux et navbar-brand */
+.navbar-brand,
 .btn-primary {
-    background-color: #FF8552; /* Couleur principale */
-    border: 2px solid #333333; /* Contour pour plus de visibilité */
-    border: none;
-    color:#FFFFFF;
+    background-color: #FF8552;
+    border: 2px solid #333333;
+    color: #FFFFFF;
     font-weight: bold;
     font-size: 1.1rem;
     padding: 10px 20px;
     border-radius: 5px;
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère pour l'effet de profondeur */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.navbar-brand:hover,
 .btn-primary:hover {
-    background-color: #457B9D; /* Couleur survol */
-    transform: scale(1.05); /* Légère augmentation de taille au survol */
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus marquée*/
+    background-color: #457B9D;
+    transform: scale(1.05);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .btn-lg {
@@ -68,33 +67,8 @@ button:hover {
 }
 
 /* Barre de navigation */
-
 .navbar {
     background-color: #FF8552;
-}
-
-/* .navbar-brand {
-    font-size: 1.2rem;
-    color: #333333;
-} */
-
-.navbar-brand {
-    background-color: #FF8552; /* Couleur principale */
-    border: 2px solid #333333; /* Contour pour plus de visibilité */
-    border: none;
-    color:#FFFFFF;
-    font-weight: bold;
-    font-size: 1.1rem;
-    padding: 10px 20px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère pour l'effet de profondeur */
-}
-
-.navbar-brand:hover {
-    background-color: #457B9D;
-    transform: scale(1.05); /* Légère augmentation de taille au survol */
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus marquée*/
 }
 
 .navbar-toggler {
@@ -108,17 +82,17 @@ button:hover {
     color: #333333;
     border-radius: 5px;
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Ombre pour l'effet de profondeur */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .nav-link:hover {
-    background-color: #457B9D; /* Couleur survol */
-    transform: scale(1.05); /* Légère augmentation de taille au survol */
-    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3); /* Accentuation de l'ombre au survol */
+    background-color: #457B9D;
+    transform: scale(1.05);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
 }
 
 .navbar-nav .dropdown-menu {
-    background-color: #FF8552; /* Match the navbar background */
+    background-color: #FF8552;
 }
 
 .navbar-nav .dropdown-item {
@@ -127,7 +101,7 @@ button:hover {
 
 .navbar-nav .dropdown-item:hover {
     color: #FFFFFF;
-    background-color: #457B9D; /* Change to match CTA colors */
+    background-color: #457B9D;
 }
 
 /* Style des sections */
@@ -169,16 +143,14 @@ section {
     transition: transform 0.2s ease-in-out;
 }
 
-/* Animation barres de compétences */
 .progress-bar {
-    width: 0; /* Initialisation à 0% */
+    width: 0;
     transition: width 2s ease-in-out;
 }
 
 .comp:hover .progress-bar {
     width: 100%;
 }
-
 
 /* Timeline */
 .timeline {
@@ -205,7 +177,6 @@ section {
     padding-left: 40px;
     transition: transform 0.2s ease-in-out;
 }
-
 
 .timeline-item.timeline-inverted {
     left: 50%;
@@ -254,12 +225,10 @@ section {
     transition: transform 0.2s ease-in-out;
 }
 
-/* Animation portfolio */
 .card:hover {
-    transform: scale(1.1) rotate(3deg); /* Agrandissement et légère rotation */
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); /* Ombre accentuée au survol */
+    transform: scale(1.1) rotate(3deg);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
 }
-
 
 .card-title {
     font-size: 1.25rem;
@@ -292,7 +261,6 @@ section {
 .recommendation p {
     margin-bottom: 10px;
 }
-
 
 /* Barre réseaux sociaux */
 .social-sidebar {
