@@ -73,9 +73,22 @@ button:hover {
     background-color: #FF8552;
 }
 
-.navbar-brand {
+/* .navbar-brand {
     font-size: 1.2rem;
     color: #333333;
+} */
+
+.navbar-brand {
+    background-color: #FF8552; /* Couleur principale */
+    border: 2px solid #333333; /* Contour pour plus de visibilité */
+    border: none;
+    color:#FFFFFF;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère pour l'effet de profondeur */
 }
 
 .navbar-brand:hover {
