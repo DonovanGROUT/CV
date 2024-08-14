@@ -8,7 +8,7 @@
     --secondary-color: #457B9D;
     --text-color: #333333;
     --light-background: #F0F0F0;
-    --dark-background: #FF8552;
+    --dark-background: #FFD9C8;
     --border-color: #4A4A4A;
     --shadow-light: rgba(0, 0, 0, 0.1);
     --shadow-dark: rgba(0, 0, 0, 0.3);
@@ -125,7 +125,7 @@ section {
     border-radius: 10px;
     border-color: var(--border-color);
     border-width: 4px;
-    background-color: var(--primary-color);
+    background-color: var(--dark-background);
     color: var(--text-color);
 }
 
@@ -135,7 +135,7 @@ section {
 }
 
 .section-dark {
-    background-color: var(--primary-color);
+    background-color: var(--dark-background);
     color: var(--text-color);
 }
 
@@ -204,10 +204,6 @@ section {
     padding-left: 0;
 }
 
-.timeline-item.timeline-inverted .timeline-panel {
-    text-align: left;
-}
-
 .timeline-item .timeline-panel {
     position: relative;
     border: 1px solid #d4d4d4;
@@ -225,16 +221,15 @@ section {
     text-align: center;
     position: absolute;
     top: 10px;
-    left: 80%;
+    left: 50%; /* Centrer la badge */
     margin-left: -15px;
     background-color: var(--secondary-color);
     border-radius: 50%;
 }
 
 .timeline-item.timeline-inverted .timeline-badge {
-    left: auto;
-    right: 20%;
-    margin-right: -15px;
+    left: 50%;
+    margin-left: -15px;
 }
 
 .timeline-item .timeline-badge .bi {
@@ -244,15 +239,15 @@ section {
 /* Masquer les paragraphes de la timeline par défaut */
 .timeline-item .timeline-body p {
     opacity: 0;
-    height: 0;
+    max-height: 0;
     overflow: hidden;
-    transition: opacity 0.6s ease, height 0.6s ease;
+    transition: opacity 0.6s ease, max-height 0.6s ease;
 }
 
 /* Afficher les paragraphes lors du survol */
 .timeline-item:hover .timeline-body p {
     opacity: 1;
-    height: auto;
+    max-height: 500px; /* Valeur arbitraire pour permettre l'affichage complet */
 }
 
 /* Ajuster la taille des titres pour mieux s'intégrer dans la réduction */
@@ -369,16 +364,29 @@ form textarea {
 }
 
 form input[type="text"]#phone {
-    width: 15%;
+    width: 25%;
 }
 
 form input[type="email"]#email {
-    width: 30%;
+    width: 50%;
 }
 
 form input[type="text"],
 form textarea[name="message"] {
-    width: 60%;
+    width: 75%;
+}
+
+/* Ajustements du formulaire pour les petits écrans */
+@media (max-width: 768px) {
+    form input[type="text"]#phone {
+        width: 50%; /* Prend la moitié de la largeur disponible */
+    }
+
+    form input[type="text"],
+    form input[type="email"]#email,
+    form textarea[name="message"] {
+        width: 100%;
+    }
 }
 
 /* Barre réseaux sociaux */
@@ -401,7 +409,7 @@ form textarea[name="message"] {
 }
 
 .social-sidebar a:hover {
-    color: var(--primary-color);
+    color: var(--dark-background);
 }
 
 /* Divers */
@@ -420,18 +428,51 @@ button:focus,
 .nav-link:focus,
 .navbar-brand:focus,
 .btn-primary:focus {
-    outline: 2px solid var(--primary-color);
+    outline: 2px solid var(--dark-background);
     outline-offset: 2px;
     box-shadow: none;
 }
 
 form input:focus,
 form textarea:focus {
-    border-color: var(--primary-color);
+    border-color: var(--dark-background);
     box-shadow: none;
 }
 
 .navbar-toggler:focus {
     outline: none;
     box-shadow: none;
+}
+
+/* Ajustement des titres sur les petits écrans */
+@media (max-width: 768px) {
+    .heading h2, .heading h3 {
+        font-size: 1.8rem;
+        padding: 0 10px;
+    }
+}
+
+/* Ajustements des icônes et de la barre centrale dans la timeline pour petits écrans */
+@media (max-width: 768px) {
+    .timeline:before {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .timeline-item.timeline-inverted .timeline-badge {
+        left: 50%;
+        margin-left: -15px;
+    }
+
+    .timeline-item .timeline-panel {
+        padding-left: 30px; /* Centrer l'icône par rapport au texte */
+    }
+}
+
+/* Ajustement de l'ancrage pour compenser la barre de navigation sticky */
+:target:before {
+    content: "";
+    display: block;
+    height: 80px;
+    margin-top: -80px;
 }
