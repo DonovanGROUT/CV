@@ -28,7 +28,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const targetId = e.currentTarget.getAttribute('href').substring(1);
         const targetElement = document.getElementById(targetId);
         if (targetElement) {
-            targetElement.scrollIntoView({ behavior: 'smooth' });
+            const offset = document.querySelector('.navbar').offsetHeight;  // Offset pour la navbar sticky
+            window.scrollTo({
+                top: targetElement.offsetTop - offset,
+                behavior: 'smooth'
+            });
             updateActiveLink(navLinks, targetId);
             updateActiveLink(dropdownItems, targetId);
         }
@@ -76,4 +80,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.1 });
 
     timelineItems.forEach(item => timelineObserver.observe(item));
+
+    // Correction de la position des badges et des barres de la timeline sur petits écrans
+    const adjustTimelineLayout = () => {
+        const isSmallScreen = window.innerWidth < 768;
+
+        timelineItems.forEach(item => {
+            const badge = item.querySelector('.timeline-badge');
+            const panel = item.querySelector('.timeline-panel');
+
+            if (isSmallScreen) {
+                badge.style.left = '50%';
+                badge.style.transform = 'translateX(-50%)';
+                panel.style.paddingLeft = '30px';
+            } else {
+                badge.style.left = '';
+                badge.style.transform = '';
+                panel.style.paddingLeft = '';
+            }
+        });
+    };
+
+    // Appel initial pour ajuster la timeline au chargement de la page
+    adjustTimelineLayout();
+
+    // Ré-ajuster la timeline lors du redimensionnement de la fenêtre
+    window.addEventListener('resize', adjustTimelineLayout);
 });

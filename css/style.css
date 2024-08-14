@@ -41,7 +41,7 @@ body::before {
 
 a {
     text-decoration: none;
-    color: inherit; /* Assure que les liens héritent de la couleur du texte */
+    color: inherit;
 }
 
 p {
@@ -65,7 +65,6 @@ button:hover,
 }
 
 /* Boutons principaux et navbar-brand */
-
 .navbar-toggler,
 .btn-primary,
 .nav-link {
@@ -140,7 +139,6 @@ section {
 }
 
 /* Titres et heading */
-
 .heading h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
@@ -166,6 +164,7 @@ section {
 }
 
 /* Timeline */
+/* Timeline */
 .timeline {
     list-style: none;
     padding: 0;
@@ -189,13 +188,13 @@ section {
     width: 50%;
     padding: 10px 20px;
     transition: transform 0.6s ease-out, opacity 0.6s ease-out;
-    opacity: 0; /* Initialisation de l'animation */
-    transform: translateX(-50px); /* Position initiale pour l'animation */
+    opacity: 0;
+    transform: translateX(-50px);
 }
 
 .timeline-item.in-view {
     opacity: 1;
-    transform: translateX(0); /* Fin de l'animation */
+    transform: translateX(0);
 }
 
 .timeline-item.timeline-inverted {
@@ -208,23 +207,20 @@ section {
     position: relative;
     border: 1px solid #d4d4d4;
     border-radius: 5px;
-    padding: 15px;
+    padding: 10px 20px; /* Ajustez le padding */
     font-size: 0.9rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajoutez une ombre légère */
+    background-color: #ffffff; /* Assurez-vous que le fond est blanc ou clair */
 }
 
 .timeline-item .timeline-badge {
-    color: #fff;
-    width: 25px;
-    height: 25px;
-    line-height: 25px;
-    font-size: 1rem;
-    text-align: center;
-    position: absolute;
-    top: 10px;
-    left: 50%; /* Centrer la badge */
-    margin-left: -15px;
     background-color: var(--secondary-color);
     border-radius: 50%;
+    width: 20px; /* Réduisez la taille du badge */
+    height: 20px;
+    line-height: 20px;
+    font-size: 0.8rem;
+    text-align: center;
 }
 
 .timeline-item.timeline-inverted .timeline-badge {
@@ -237,17 +233,17 @@ section {
 }
 
 /* Masquer les paragraphes de la timeline par défaut */
-.timeline-item .timeline-body p {
-    opacity: 0;
+.timeline-item .timeline-body {
     max-height: 0;
     overflow: hidden;
     transition: opacity 0.6s ease, max-height 0.6s ease;
+    opacity: 0;
 }
 
 /* Afficher les paragraphes lors du survol */
-.timeline-item:hover .timeline-body p {
+.timeline-item:hover .timeline-body {
     opacity: 1;
-    max-height: 500px; /* Valeur arbitraire pour permettre l'affichage complet */
+    max-height: 500px; /* Vous pouvez ajuster cette valeur si nécessaire */
 }
 
 /* Ajuster la taille des titres pour mieux s'intégrer dans la réduction */
@@ -255,6 +251,37 @@ section {
 .timeline-item .timeline-heading h4 {
     font-size: 1.1rem;
 }
+
+/* Ajustements pour les petits écrans */
+@media (max-width: 768px) {
+    .timeline-item {
+        width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .timeline-item.timeline-inverted {
+        left: 0;
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    .timeline-item .timeline-badge {
+        left: 10px;
+        margin-left: 0;
+    }
+
+    .timeline-item.timeline-inverted .timeline-badge {
+        left: auto;
+        right: 10px;
+    }
+
+    .timeline-item .timeline-body {
+        max-height: none; /* Supprimez la limite de hauteur pour les petits écrans */
+        overflow: visible; /* Assurez-vous que le texte est entièrement visible */
+    }
+}
+
 
 /* Styles pour les cartes du portfolio */
 .portfolio-card {
@@ -315,7 +342,6 @@ section {
 }
 
 /* Icônes de défilement pour le carousel des recommandations */
-
 #carouselExampleControls {
     position: relative;
 }
@@ -350,7 +376,6 @@ section {
 }
 
 /* Formulaire de contact */
-
 form .form-group {
     margin-bottom: 15px;
 }
@@ -379,7 +404,7 @@ form textarea[name="message"] {
 /* Ajustements du formulaire pour les petits écrans */
 @media (max-width: 768px) {
     form input[type="text"]#phone {
-        width: 50%; /* Prend la moitié de la largeur disponible */
+        width: 50%;
     }
 
     form input[type="text"],
@@ -389,7 +414,14 @@ form textarea[name="message"] {
     }
 }
 
-/* Barre réseaux sociaux */
+/* Footer + barre réseaux sociaux */
+
+footer {
+    background-color: transparent; /* Supprime la couleur noire */
+    color: var(--text-color); /* Assure que le texte reste lisible */
+    padding: 20px 0;
+}
+
 .social-sidebar {
     position: fixed;
     top: 50%;
@@ -409,14 +441,17 @@ form textarea[name="message"] {
 }
 
 .social-sidebar a:hover {
-    color: var(--dark-background);
+    color: var(--primary-color);
 }
+
+
+
 
 /* Divers */
 .divider {
     width: 60px;
     height: 2px;
-    background-color: #333333;
+    background-color: --text-color;
     margin: 0 auto 20px;
     border: 4px solid #bbb;
     border-radius: 5px;
@@ -453,7 +488,7 @@ form textarea:focus {
 }
 
 /* Ajustements des icônes et de la barre centrale dans la timeline pour petits écrans */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     .timeline:before {
         left: 50%;
         transform: translateX(-50%);
@@ -465,9 +500,48 @@ form textarea:focus {
     }
 
     .timeline-item .timeline-panel {
-        padding-left: 30px; /* Centrer l'icône par rapport au texte */
+        padding-left: 30px;
+    }
+} */
+
+@media (max-width: 768px) {
+    .timeline-item {
+        width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .timeline-item.timeline-inverted {
+        left: 0;
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    .timeline-item .timeline-badge {
+        left: 10px;
+        margin-left: 0;
+    }
+
+    .timeline-item.timeline-inverted .timeline-badge {
+        left: auto;
+        right: 10px;
     }
 }
+
+@media (min-width: 769px) {
+    .timeline-item.timeline-inverted {
+        left: 50%;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .timeline-item {
+        padding-left: 30px;
+        padding-right: 20px;
+    }
+}
+
+
 
 /* Ajustement de l'ancrage pour compenser la barre de navigation sticky */
 :target:before {
