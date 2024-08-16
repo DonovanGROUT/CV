@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const progressBars = document.querySelectorAll('.progress-bar');
     const timelineItems = document.querySelectorAll('.timeline-item');
     const homeButton = document.querySelector('.navbar-brand');
+    const input = document.querySelector("#phone");
 
     // Fonction pour rafraîchir la page
     if (homeButton) {
@@ -81,4 +82,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     timelineItems.forEach(item => timelineObserver.observe(item));
 
+    // Formulaire - intl-tel-input avec détection IP
+    const iti = window.intlTelInput(input, {
+        initialCountry: "auto", // Détection automatique du pays
+        geoIpLookup: function(callback) {
+            fetch('https://ipinfo.io?token=2ee5851481d61d') // Jeton d'API IPinfo
+                .then(response => response.json())
+                .then(data => {
+                    const countryCode = data.country ? data.country.toLowerCase() : "fr";
+                    callback(countryCode);
+                })
+                .catch(() => {
+                    callback("fr"); // Fallback sur la France en cas d'échec
+                });
+        },
+        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/utils.js"
+    });
+
+    // Changer la longueur maximale du champ en fonction du pays sélectionné
+    input.addEventListener("countrychange", function() {
+        const maxLength = iti.getSelectedCountryData().maxNumberLength;
+        input.maxLength = maxLength ? maxLength : 15; // Utilise 15 comme longueur maximale par défaut si aucune valeur spécifique n'est disponible
+    });
 });
