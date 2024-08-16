@@ -144,6 +144,14 @@ section {
     color: var(--text-color);
 }
 
+.section-badge {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-right: 10px;
+    vertical-align: middle; /* Pour aligner le badge avec le texte */
+}
+
+
 /* Titres et heading */
 
 .heading h1 {
@@ -239,6 +247,7 @@ section {
     line-height: 20px;
     font-size: 0.8rem;
     text-align: center;
+    display: none;
 }
 
 .timeline-item.timeline-inverted .timeline-badge {
@@ -248,6 +257,7 @@ section {
 
 .timeline-item .timeline-badge .bi {
     font-size: 1rem;
+    display: none;
 }
 
 /* Masquer les paragraphes de la timeline par défaut */
@@ -287,6 +297,7 @@ section {
     .timeline-item .timeline-badge {
         left: 10px;
         margin-left: 0;
+        display: none;
     }
 
     .timeline-item.timeline-inverted .timeline-badge {
@@ -521,6 +532,7 @@ form textarea:focus {
     .timeline-item .timeline-badge {
         left: 10px;
         margin-left: 0;
+        display: none;
     }
 
     .timeline-item.timeline-inverted .timeline-badge {
