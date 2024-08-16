@@ -77,8 +77,8 @@ button:hover,
     border: 2px solid var(--text-color);
     color: #FFFFFF;
     font-weight: bold;
-    font-size: 1.1rem;
-    padding: 10px 20px;
+    font-size: 1rem;
+    padding: 5px 10px;
     border-radius: 5px;
     box-shadow: 0px 4px 6px var(--shadow-light);
 }
@@ -91,19 +91,25 @@ button:hover,
 /* Barre de navigation */
 .navbar {
     background-color: var(--primary-color);
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .navbar-toggler {
     font-size: 1.2rem;
     color: var(--text-color);
+    padding: 5px 10px;
 }
 
 .nav-link {
     font-weight: 500;
     text-transform: uppercase;
     color: var(--text-color);
-    border-radius: 5px;
+    border-radius: 4px;
     box-shadow: 0px 4px 6px var(--shadow-light);
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    /* border: 0px solid var(--text-color); */
 }
 
 .navbar-nav .dropdown-menu {
@@ -221,14 +227,14 @@ section {
     border-radius: 5px;
     padding: 10px 20px; /* Ajustez le padding */
     font-size: 0.9rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajoutez une ombre légère */
-    background-color: #ffffff; /* Assurez-vous que le fond est blanc ou clair */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    background-color: #ffffff; 
 }
 
 .timeline-item .timeline-badge {
     background-color: var(--secondary-color);
     border-radius: 50%;
-    width: 20px; /* Réduisez la taille du badge */
+    width: 20px; 
     height: 20px;
     line-height: 20px;
     font-size: 0.8rem;
@@ -255,7 +261,7 @@ section {
 /* Afficher les paragraphes lors du survol */
 .timeline-item:hover .timeline-body {
     opacity: 1;
-    max-height: 500px; /* Vous pouvez ajuster cette valeur si nécessaire */
+    max-height: 500px;
 }
 
 /* Ajuster la taille des titres pour mieux s'intégrer dans la réduction */
@@ -289,8 +295,8 @@ section {
     }
 
     .timeline-item .timeline-body {
-        max-height: none; /* Supprimez la limite de hauteur pour les petits écrans */
-        overflow: visible; /* Assurez-vous que le texte est entièrement visible */
+        /* max-height: none; */
+        overflow: visible;
     }
 }
 
@@ -337,7 +343,7 @@ section {
     object-fit: cover;
 }
 
-/* Styles pour les cartes des Recommandations */
+/* Styles pour les cartes des recommandations */
 .recommendation-card {
     background: #f8f9fa;
     padding: 20px;
@@ -498,23 +504,6 @@ form textarea:focus {
         padding: 0 10px;
     }
 }
-
-/* Ajustements des icônes et de la barre centrale dans la timeline pour petits écrans */
-/* @media (max-width: 768px) {
-    .timeline:before {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .timeline-item.timeline-inverted .timeline-badge {
-        left: 50%;
-        margin-left: -15px;
-    }
-
-    .timeline-item .timeline-panel {
-        padding-left: 30px;
-    }
-} */
 
 @media (max-width: 768px) {
     .timeline-item {
