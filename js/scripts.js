@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const timelineItems = document.querySelectorAll('.timeline-item');
     const homeButton = document.querySelector('.navbar-brand');
     const input = document.querySelector("#phone");
+    const form = document.querySelector('form'); // Remplace 'form' par le sélecteur de ton formulaire si nécessaire
 
     // Fonction pour rafraîchir la page
     if (homeButton) {
@@ -103,5 +104,14 @@ document.addEventListener('DOMContentLoaded', () => {
     input.addEventListener("countrychange", function() {
         const maxLength = iti.getSelectedCountryData().maxNumberLength;
         input.maxLength = maxLength ? maxLength : 15; // Utilise 15 comme longueur maximale par défaut si aucune valeur spécifique n'est disponible
+    });
+
+    // Gestion de la soumission du formulaire
+    form.addEventListener('submit', (event) => {
+        // Avant de soumettre le formulaire, remplace la valeur du champ téléphone par le numéro complet
+        const fullNumber = iti.getNumber(); // Obtenez le numéro complet avec l'indicatif
+        input.value = fullNumber;
+
+        // Le formulaire est ensuite soumis normalement
     });
 });
