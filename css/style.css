@@ -180,9 +180,15 @@ section {
     transition: transform 0.2s ease-in-out;
 }
 
+.comp p {
+    font-size: 1.5rem;
+}
+
 .progress-bar {
     width: 0;
     transition: width 2s ease-in-out;
+    font-weight: bold;
+    background-color: var(--primary-color);
 }
 
 .comp:hover .progress-bar {
@@ -332,7 +338,7 @@ section {
         margin-bottom: 1rem;
     }
     p {
-        font-size: 0.8rem;
+        font-size: 0.85rem;
     }
 }
 
