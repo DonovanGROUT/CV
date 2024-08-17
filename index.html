@@ -1,335 +1,340 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="CV de Donovan, Développeur full-stack en formation. Découvrez mes compétences, expériences professionnelles, formations, et mon portfolio.">
-        <title>CV de Donovan</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/css/intlTelInput.css">
-        <script src="js/scripts.js" defer></script>
-    </head>
-    <body data-bs-spy="scroll" data-bs-target="#myNavbar">
-        <!-- Container global -->
-        <div class="glob container-fluid">
-            <!-- Barre de navigation -->
-            <nav id="myNavbar" class="navbar navbar-expand-lg navbar-dark sticky-top">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#" aria-label="Aller à la page d'accueil">Accueil</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#about">À propos</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Parcours
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#experience">Expérience</a></li>
-                                    <li><a class="dropdown-item" href="#formation">Formation</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#portfolio">Portfolio</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#contact">Contact</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-            <br>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CV de Donovan, Développeur full-stack en formation. Découvrez mes compétences, expériences professionnelles, formations, et mon portfolio.">
+    <title>CV de Donovan</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/css/intlTelInput.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/intlTelInput.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/utils.js" defer></script>
+    <script src="js/scripts.js" defer></script>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#myNavbar">
 
-            <!-- Section à propos -->
-            <section id="about" class="container-fluid section-white text-center py-5">
-                <div class="heading mt-4">
-                    <h1>Donovan GROUT</h1>
-                    <h2>Développeur full-stack en formation</h2>
-                </div>
-            </section>
-            <br>
-
-            <!-- Section Présentation -->
-
-            <section id="presentation" class="section-dark py-5">
-                <div class="heading text-center">
-                    <h2>Présentation</h2>
-                </div>
-                <div class="container">
-                    <p>Passionné par le domaine du développement informatique, j'ai entamé ma reconversion professionnelle vers le métier de développeur. <br>Je vous laisse découvrir la première version de mon site professionnel, codé avant d'intégrer la formation de l'école O'Clock. </p>
-                    <p>Je recherche un stage de fin de formation du 03 mars au 28 avril 2025.</p>
-                    <p style="text-align: center"><a href="docs/CV_recherche_stage.pdf" target="_blank" class="btn btn-primary btn-lg">Télécharger mon CV</a></p>
-                </div>
-            </section>
-            <br>
-
-            <!-- Section Compétences -->
-            <section id="skills" class="section-white py-5">
-                <div class="container">
-                    <div class="divider mx-auto"></div>
-                    <div class="heading text-center">
-                        <h2>Compétences</h2>
-                    </div>
-                    <div class="row">
-                        <div class="comp col-lg-3"><p style="text-align: center">Le front</p>
-                            <div class="progress mb-4">
-                                <div class="progress-bar" data-width="80%">HTML</div>
-                            </div>
-                            <div class="progress mb-4">
-                                <div class="progress-bar" data-width="80%">CSS</div>
-                            </div>
-                            <div class="progress mb-4">
-                                <div class="progress-bar" data-width="75%">JavaScript</div>
-                            </div>
-                        </div>
-                        <div class="comp col-lg-3"><p style="text-align: center">Le back</p>
-                            <div class="progress mb-4">
-                                <div class="progress-bar" data-width="60%">SQL</div>
-                            </div>
-                            <div class="progress mb-4">
-                                <div class="progress-bar" data-width="40%">PHP</div>
-                            </div>
-                            <div class="progress mb-4">
-                                <div class="progress-bar" data-width="40%">Python</div>
-                            </div>
-                        </div>
-                        <div class="comp col-lg-3"><p style="text-align: center">Les frameworks</p>
-                            <div class="progress mb-4">
-                                <div class="progress-bar" data-width="50%">Bootstrap</div>
-                            </div>
-                            <div class="progress mb-4">
-                                <div class="progress-bar" data-width="35%">jQuery</div>
-                            </div>
-                        </div>
-                        <div class="comp col-lg-3"><p style="text-align: center">Les outils</p>
-                            <div class="progress mb-4">
-                                <div class="progress-bar" data-width="65%">Visual Studio Code</div>
-                            </div>
-                            <div class="progress mb-4">
-                                <div class="progress-bar" data-width="50%">Git/Github</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <br>
-
-            <!-- Section Expérience -->
-            <section id="experience" class="section-dark py-5">
-                <div class="container">
-                    <div class="divider mx-auto"></div>
-                    <div class="heading text-center">
-                        <h2>
-                            <span class="section-badge bi-briefcase-fill"></span><br>
-                            Expérience professionnelle<br>en développement</h2>
-                    </div>
-                    <ul class="timeline">
-                        <li class="timeline-item">
-                            <div class="timeline-badge"><span class="bi-briefcase-fill"></span></div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h3>Développeur stagiaire</h3>
-                                    <h4>Entreprise accueillante</h4>
-                                    <p><span class="bi-clock-fill"></span> Mars et avril 2025</p>
-                                </div>
-                                <div class="timeline-body">
-                                    <p>Mise en application de l'apprentissage de la formation O'clock à travers les projets de l'entreprise accueillante.</p>
-                                </div>
-                            </div>
+    <!-- Container global -->
+    <div class="glob container-fluid">
+        <!-- Barre de navigation -->
+        <nav id="myNavbar" class="navbar navbar-expand-lg navbar-dark sticky-top" aria-label="Navigation principale">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#" aria-label="Aller à la page d'accueil">Accueil</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#about">À propos</a>
                         </li>
-                        <li class="timeline-item timeline-inverted"> <!-- Timeline inversée pour alternance gauche-droite -->
-                            <div class="timeline-badge"><span class="bi-briefcase-fill"></span></div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h3>Référent technique</h3>
-                                    <h4>Agaphone</h4>
-                                    <p><span class="bi-clock-fill"></span> 2017-2024</p>
-                                </div>
-                                <div class="timeline-body">
-                                    <p>Développement de scripts d'appels en Javascript</p>
-                                    <p>Résolution de problèmes techniques.</p>
-                                    <p>Contact référent avec le prestataire technique.</p>
-                                </div>
-                            </div>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Parcours</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#experience">Expérience</a></li>
+                                <li><a class="dropdown-item" href="#formation">Formation</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#portfolio">Portfolio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
                         </li>
                     </ul>
                 </div>
-            </section>
-            <br>
+            </div>
+        </nav>
+        <br>
 
-            <!-- Section Formation -->
-            <section id="formation" class="section-white py-5">
-                <div class="container">
-                    <div class="divider mx-auto"></div>
-                    <div class="heading text-center">
-                        <h2>
-                            <span class="section-badge bi-book-fill"></span><br>
-                            Formation</h2>
-                    </div>
-                    <ul class="timeline">
-                        <li class="timeline-item">
-                            <div class="timeline-badge"><span class="bi-book-fill"></span></div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h3>Titre professionnel Développeur web et web mobile (niv. 5, Bac+2)</h3>
-                                    <h4>Ecole O'clock</h4>
-                                    <p class="text-muted"><span class="bi-clock-fill"></span> 2024-2025</p>
-                                </div>
-                                <div class="timeline-body">
-                                    <p>Formation intensive en téléprésentiel, labellisée Grande École du Numérique.</p>
-                                    <p>HTML, CSS, Javascript, NodeJS, SQL, APIRest, MVC, POO, React, DevOps, CMS etc. </p>
-                                    <p>Stage de fin de formation du 03/03/2025 au 28/04/2025 : en recherche</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="timeline-item timeline-inverted"> <!-- Timeline inversée pour alternance gauche-droite -->
-                            <div class="timeline-badge"><span class="bi-book-fill"></span></div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h3>100 Days of Code : The Complete Python Pro Bootcamp</h3>
-                                    <h4>Udemy - Dr Angela Yu</h4>
-                                    <p class="text-muted"><span class="bi-clock-fill"></span> 2024 (en cours)</p>
-                                </div>
-                                <div class="timeline-body">
-                                    <p>Bootcamp de découverte du langage Python en cours</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="timeline-item">
-                            <div class="timeline-badge"><span class="bi-book-fill"></span></div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h3>Formation Développeur Web</h3>
-                                    <h4>Udemy - John Taieb</h4>
-                                    <p class="text-muted"><span class="bi-clock-fill"></span> 2024</p>
-                                </div>
-                                <div class="timeline-body">
-                                    <p>Découverte du métier de développeur</p>
-                                    <p>HTML, CSS, Javascript, JQuery, Bootstrap, SQL, PHP</p>
-                                    <p>Projets pratiques : page web statique, jeu du Snake, site de commande de fast-food</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="timeline-item timeline-inverted"> <!-- Timeline inversée pour alternance gauche-droite -->
-                            <div class="timeline-badge"><span class="bi-book-fill"></span></div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h3>Sécurité informatique</h3>
-                                    <h4>ANSSI</h4>
-                                    <p class="text-muted"><span class="bi-clock-fill"></span> 2024</p>
-                                </div>
-                                <div class="timeline-body">
-                                    <p>Concepts de sécurité des systèmes d'information</p>
-                                    <p>Pratiques de sécurisation des infrastructures</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="timeline-item">
-                            <div class="timeline-badge"><span class="bi-book-fill"></span></div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h3>Baccalauréat scientifique</h3>
-                                    <h4>Lycée Raymond Queneau<br>Yvetot (76)</h4>
-                                    <p class="text-muted"><span class="bi-clock-fill"></span> 2008-2009</p>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </section>
-            <br>
+        <!-- Section à propos -->
+        <section id="about" class="container-fluid section-white text-center py-5">
+            <div class="heading mt-4">
+                <h1>Donovan GROUT</h1>
+                <h2>Développeur full-stack en formation</h2>
+            </div>
+        </section>
+        <br>
 
-            <!-- Section Portfolio -->
-            <section id="portfolio" class="section-dark py-5">
-                <div class="container">
-                    <div class="divider mx-auto"></div>
-                    <div class="heading text-center">
-                        <h2>Portfolio</h2>
-                    </div>
-                    <div class="row justify-content-center">
-                        <!-- Projets -->
-                        <div class="col-md-6 col-lg-4">
-                            <div class="card portfolio-card bg-light text-dark">
-                                <a href="https://donovangrout.github.io/snake_game/" target="_blank">
-                                    <img src="images/snake.png" class="card-img-top" alt="Image jeu Snake">
-                                </a>
-                                <div class="portfolio-card-body">
-                                    <h5 class="portfolio-card-title">Jeu Snake revisité</h5>
-                                    <p class="portfolio-card-text">Un petit jeu Snake revisité, codé en Javascript, uniquement sur ordinateur (pour le moment). Des nouveautés à venir !</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4">
-                            <div class="card portfolio-card bg-light text-dark">
-                                <a href="https://sitepro-donovangrout.netlify.app/" target = "_blank">
-                                    <img src="images/professional-site2.png" class="card-img-top" alt="Image site professionnel">
-                                </a>
-                                <div class="portfolio-card-body">
-                                    <h5 class="portfolio-card-title">Site professionnel</h5>
-                                    <p class="portfolio-card-text">Mon site professionnel "from scratch" avec mon CV, mon parcours, mes compétences. Vous le visitez actuellement !</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <br>
+        <!-- Section Présentation -->
+        <section id="presentation" class="section-dark py-5">
+            <div class="heading text-center">
+                <h2>Présentation</h2>
+            </div>
+            <div class="container">
+                <p>Passionné par le domaine du développement informatique, j'ai entamé ma reconversion professionnelle vers le métier de développeur. <br>Je vous laisse découvrir la première version de mon site professionnel, codé avant d'intégrer la formation de l'école O'Clock.</p>
+                <p>Je recherche un stage de fin de formation du 03 mars au 28 avril 2025.</p>
+                <p class="text-center"><a href="docs/CV_recherche_stage.pdf" target="_blank" class="btn btn-primary btn-lg">Télécharger mon CV</a></p>
+            </div>
+        </section>
+        <br>
 
-            <!-- Section Recommandations -->
-            <section id="recommendations" class="section-white py-5">
+        <!-- Section Compétences -->
+        <section id="skills" class="section-white py-5">
+            <div class="container">
                 <div class="divider mx-auto"></div>
                 <div class="heading text-center">
-                    <h2>Recommandations</h2>
+                    <h2>Compétences</h2>
                 </div>
-                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="card recommendation-card">
-                                <div class="card-body">
-                                    <h5 class="card-title text-center">Eléonore MAUPIN, Directrice Production, Agaphone</h5>
-                                    <p class="card-text text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                </div>
-                            </div>
+                <div class="row">
+                    <div class="comp col-lg-3">
+                        <p class="text-center">Le front</p>
+                        <div class="progress mb-4">
+                            <div class="progress-bar" data-width="80%">HTML</div>
                         </div>
-                        <div class="carousel-item">
-                            <div class="card recommendation-card">
-                                <div class="card-body">
-                                    <h5 class="card-title text-center">Marianne GOST, Chargée de service clients, Agaphone</h5>
-                                    <p class="card-text text-center">Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                                </div>
-                            </div>
+                        <div class="progress mb-4">
+                            <div class="progress-bar" data-width="80%">CSS</div>
                         </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Précédent</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Suivant</span>
-                    </button>
-                </div>
-            </section>
-            <br>
-
-            <!-- Section formulaire de contact -->
-
-            <section id="contact" class="section-dark py-5">
-                <div class="container">
-                    <div class="heading text-center">
-                        <h2>Contactez-moi</h2>
+                        <div class="progress mb-4">
+                            <div class="progress-bar" data-width="75%">JavaScript</div>
+                        </div>
                     </div>
-                    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                    <div class="comp col-lg-3">
+                        <p class="text-center">Le back</p>
+                        <div class="progress mb-4">
+                            <div class="progress-bar" data-width="60%">SQL</div>
+                        </div>
+                        <div class="progress mb-4">
+                            <div class="progress-bar" data-width="40%">PHP</div>
+                        </div>
+                        <div class="progress mb-4">
+                            <div class="progress-bar" data-width="40%">Python</div>
+                        </div>
+                    </div>
+                    <div class="comp col-lg-3">
+                        <p class="text-center">Les frameworks</p>
+                        <div class="progress mb-4">
+                            <div class="progress-bar" data-width="50%">Bootstrap</div>
+                        </div>
+                        <div class="progress mb-4">
+                            <div class="progress-bar" data-width="35%">jQuery</div>
+                        </div>
+                    </div>
+                    <div class="comp col-lg-3">
+                        <p class="text-center">Les outils</p>
+                        <div class="progress mb-4">
+                            <div class="progress-bar" data-width="65%">Visual Studio Code</div>
+                        </div>
+                        <div class="progress mb-4">
+                            <div class="progress-bar" data-width="50%">Git/Github</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <br>
+
+        <!-- Section Expérience -->
+        <section id="experience" class="section-dark py-5">
+            <div class="container">
+                <div class="divider mx-auto"></div>
+                <div class="heading text-center">
+                    <h2>
+                        <span class="section-badge bi-briefcase-fill"></span><br>
+                        Expérience professionnelle<br>en développement
+                    </h2>
+                </div>
+                <ul class="timeline">
+                    <li class="timeline-item">
+                        <div class="timeline-badge"></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h3>Développeur stagiaire</h3>
+                                <h4>Entreprise accueillante</h4>
+                                <p><span class="bi-clock-fill"></span> Mars et avril 2025</p>
+                            </div>
+                            <div class="timeline-body">
+                                <p>Mise en application de l'apprentissage de la formation O'clock à travers les projets de l'entreprise accueillante.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="timeline-item timeline-inverted">
+                        <div class="timeline-badge"></span></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h3>Référent technique</h3>
+                                <h4>Agaphone</h4>
+                                <p><span class="bi-clock-fill"></span> 2017-2024</p>
+                            </div>
+                            <div class="timeline-body">
+                                <p>Développement de scripts d'appels en Javascript</p>
+                                <p>Résolution de problèmes techniques.</p>
+                                <p>Contact référent avec le prestataire technique.</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <br>
+
+        <!-- Section Formation -->
+        <section id="formation" class="section-white py-5">
+            <div class="container">
+                <div class="divider mx-auto"></div>
+                <div class="heading text-center">
+                    <h2>
+                        <span class="section-badge bi-book-fill"></span><br>
+                        Formation
+                    </h2>
+                </div>
+                <ul class="timeline">
+                    <li class="timeline-item">
+                        <div class="timeline-badge"></span></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h3>Titre professionnel Développeur web et web mobile (niv. 5, Bac+2)</h3>
+                                <h4>Ecole O'clock</h4>
+                                <p class="text-muted"></span> 2024-2025</p>
+                            </div>
+                            <div class="timeline-body">
+                                <p>Formation intensive en téléprésentiel, labellisée Grande École du Numérique.</p>
+                                <p>HTML, CSS, Javascript, NodeJS, SQL, APIRest, MVC, POO, React, DevOps, CMS etc.</p>
+                                <p>Stage de fin de formation du 03/03/2025 au 28/04/2025 : en recherche</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="timeline-item timeline-inverted">
+                        <div class="timeline-badge"></span></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h3>100 Days of Code : The Complete Python Pro Bootcamp</h3>
+                                <h4>Udemy - Dr Angela Yu</h4>
+                                <p class="text-muted"><span class="bi-clock-fill"></span> 2024 (en cours)</p>
+                            </div>
+                            <div class="timeline-body">
+                                <p>Bootcamp de découverte du langage Python en cours</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="timeline-item">
+                        <div class="timeline-badge"></span></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h3>Formation Développeur Web</h3>
+                                <h4>Udemy - John Taieb</h4>
+                                <p class="text-muted"></span> 2024</p>
+                            </div>
+                            <div class="timeline-body">
+                                <p>Découverte du métier de développeur</p>
+                                <p>HTML, CSS, Javascript, JQuery, Bootstrap, SQL, PHP</p>
+                                <p>Projets pratiques : page web statique, jeu du Snake, site de commande de fast-food</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="timeline-item timeline-inverted">
+                        <div class="timeline-badge"></span></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h3>Sécurité informatique</h3>
+                                <h4>ANSSI</h4>
+                                <p class="text-muted"></span> 2024</p>
+                            </div>
+                            <div class="timeline-body">
+                                <p>Concepts de sécurité des systèmes d'information</p>
+                                <p>Pratiques de sécurisation des infrastructures</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="timeline-item">
+                        <div class="timeline-badge"></span></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h3>Baccalauréat scientifique</h3>
+                                <h4>Lycée Raymond Queneau<br>Yvetot (76)</h4>
+                                <p class="text-muted"></span> 2008-2009</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <br>
+
+        <!-- Section Portfolio -->
+        <section id="portfolio" class="section-dark py-5">
+            <div class="container">
+                <div class="divider mx-auto"></div>
+                <div class="heading text-center">
+                    <h2>Portfolio</h2>
+                </div>
+                <div class="row justify-content-center">
+                    <!-- Projets -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card portfolio-card bg-light text-dark">
+                            <a href="https://donovangrout.github.io/snake_game/" target="_blank">
+                                <img src="images/snake.png" class="card-img-top" alt="Capture d'écran du jeu Snake revisité">
+                            </a>
+                            <div class="portfolio-card-body">
+                                <h5 class="portfolio-card-title">Jeu Snake revisité</h5>
+                                <p class="portfolio-card-text">Un petit jeu Snake revisité, codé en Javascript, uniquement sur ordinateur (pour le moment). Des nouveautés à venir !</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card portfolio-card bg-light text-dark">
+                            <a href="https://sitepro-donovangrout.netlify.app/" target="_blank">
+                                <img src="images/professional-site2.png" class="card-img-top" alt="Capture d'écran du site professionnel">
+                            </a>
+                            <div class="portfolio-card-body">
+                                <h5 class="portfolio-card-title">Site professionnel</h5>
+                                <p class="portfolio-card-text">Mon site professionnel "from scratch" avec mon CV, mon parcours, mes compétences. Vous le visitez actuellement !</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <br>
+
+        <!-- Section Recommandations -->
+        <section id="recommendations" class="section-white py-5">
+            <div class="divider mx-auto"></div>
+            <div class="heading text-center">
+                <h2>Recommandations</h2>
+            </div>
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" role="region" aria-label="Recommandations">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="card recommendation-card">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">Eléonore MAUPIN, Directrice Production, Agaphone</h5>
+                                <p class="card-text text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card recommendation-card">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">Marianne GOST, Chargée de service clients, Agaphone</h5>
+                                <p class="card-text text-center">Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                            </div>
+                        </div>
+                    </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Précédent</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Suivant</span>
+                </button>
+            </div>
+        </section>
+        <br>
+
+        <!-- Section formulaire de contact -->
+        <section id="contact" class="section-dark py-5">
+            <div class="container">
+                <div class="heading text-center">
+                    <h2>Contactez-moi</h2>
+                </div>
+                <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
                     <input type="hidden" name="form-name" value="contact">
                     <input type="hidden" name="bot-field">
                     <div class="form-group">
@@ -347,8 +352,6 @@
                     <div class="form-group">
                         <label for="phone">Téléphone:</label><br>
                         <input type="tel" id="phone" name="phone" class="form-control">
-                        <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/intlTelInput.min.js"></script>
-                        <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/utils.js"></script>
                     </div>
                     <div class="form-group">
                         <label for="email">Email:</label>
@@ -358,22 +361,21 @@
                         <label for="message">Message:</label>
                         <textarea id="message" name="message" class="form-control" required></textarea>
                     </div>
-                    <p style="text-align: center"><button type="submit" class="btn btn-primary btn-lg">Envoyer</button></p>
-                    </form>
-                </div>
-            </section>
-        </div>
-
-
-        <!-- Footer réseaux sociaux -->
-
-        <footer class="text-white py-4">
-            <div class="container text-center">
-                <div class="social-sidebar">
-                    <a href="https://github.com/DonovanGROUT" target="_blank" class="bi-github"></a>
-                    <a href="#" class="bi-linkedin"></a>
-                </div>
+                    <p class="text-center"><button type="submit" class="btn btn-primary btn-lg">Envoyer</button></p>
+                </form>
             </div>
-        </footer>
-    </body>
+        </section>
+    </div>
+
+    <!-- Footer réseaux sociaux -->
+    <footer class="text-white py-4">
+        <div class="container text-center">
+            <div class="social-sidebar">
+                <a href="https://github.com/DonovanGROUT" target="_blank" class="bi-github" aria-label="GitHub"></a>
+                <a href="#" class="bi-linkedin"></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
 </html>

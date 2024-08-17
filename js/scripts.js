@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Sélecteurs
     const navLinks = document.querySelectorAll('.nav-link');
     const dropdownItems = document.querySelectorAll('.dropdown-item');
     const sections = document.querySelectorAll('section');
@@ -7,16 +6,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const timelineItems = document.querySelectorAll('.timeline-item');
     const homeButton = document.querySelector('.navbar-brand');
     const input = document.querySelector("#phone");
-    const form = document.querySelector('form'); // Remplace 'form' par le sélecteur de ton formulaire si nécessaire
+    const form = document.querySelector('form');
 
-    // Fonction pour rafraîchir la page
+    // Rafraîchissement de la page au clic sur le bouton Accueil
     if (homeButton) {
-        homeButton.addEventListener('click', () => {
-            location.reload();
-        });
+        homeButton.addEventListener('click', () => location.reload());
     }
 
-    // Fonction pour mettre à jour les liens actifs
+    // Mettre à jour les liens actifs
     const updateActiveLink = (links, currentId) => {
         links.forEach(link => {
             const href = link.getAttribute('href').substring(1);
@@ -24,13 +21,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    // Fonction de défilement fluide
+    // Défilement fluide vers les sections
     const scrollToSection = (e) => {
         e.preventDefault();
         const targetId = e.currentTarget.getAttribute('href').substring(1);
         const targetElement = document.getElementById(targetId);
         if (targetElement) {
-            const offset = document.querySelector('.navbar').offsetHeight;  // Offset pour la navbar sticky
+            const offset = document.querySelector('.navbar').offsetHeight;
             window.scrollTo({
                 top: targetElement.offsetTop - offset,
                 behavior: 'smooth'
@@ -40,12 +37,32 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Ajout d'événements de clic pour défilement fluide
     navLinks.forEach(link => link.addEventListener('click', scrollToSection));
     dropdownItems.forEach(item => item.addEventListener('click', scrollToSection));
 
-    // Gestion du défilement de la fenêtre
-    window.addEventListener('scroll', () => {
+    // Observer pour les sections visibles
+    const observerCallback = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                if (entry.target.classList.contains('progress-bar')) {
+                    const bar = entry.target;
+                    const targetWidth = bar.getAttribute('data-width');
+                    bar.style.width = targetWidth;
+                } else if (entry.target.classList.contains('timeline-item')) {
+                    entry.target.classList.add('in-view');
+                }
+            }
+        });
+    };
+
+    const observerOptions = { threshold: 0.1 };
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    progressBars.forEach(bar => observer.observe(bar));
+    timelineItems.forEach(item => observer.observe(item));
+
+    // Gestion du défilement de la fenêtre pour les sections
+    const handleScroll = () => {
         let currentSection = '';
         sections.forEach(section => {
             const sectionTop = section.offsetTop - 60;
@@ -55,63 +72,36 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         updateActiveLink(navLinks, currentSection);
         updateActiveLink(dropdownItems, currentSection);
-    });
+    };
 
-    // Observer pour les barres de progression
-    const progressObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const bar = entry.target;
-                const targetWidth = bar.getAttribute('data-width');
-                if (bar.style.width !== targetWidth) {
-                    bar.style.width = targetWidth;
-                }
-            }
-        });
-    }, { threshold: 0.1 });
+    window.addEventListener('scroll', handleScroll);
 
-    progressBars.forEach(bar => progressObserver.observe(bar));
-
-    // Observer pour les éléments de la timeline
-    const timelineObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('in-view');
-            }
-        });
-    }, { threshold: 0.1 });
-
-    timelineItems.forEach(item => timelineObserver.observe(item));
-
-    // Formulaire - intl-tel-input avec détection IP
+    // Intl-Tel-Input Configuration
     const iti = window.intlTelInput(input, {
-        initialCountry: "auto", // Détection automatique du pays
-        geoIpLookup: function(callback) {
-            fetch('https://ipinfo.io?token=2ee5851481d61d') // Jeton d'API IPinfo
+        initialCountry: "auto",
+        geoIpLookup(callback) {
+            fetch('https://ipinfo.io?token=2ee5851481d61d')
                 .then(response => response.json())
                 .then(data => {
                     const countryCode = data.country ? data.country.toLowerCase() : "fr";
                     callback(countryCode);
                 })
                 .catch(() => {
-                    callback("fr"); // Fallback sur la France en cas d'échec
+                    callback("fr");
                 });
         },
         utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/utils.js"
     });
 
-    // Changer la longueur maximale du champ en fonction du pays sélectionné
-    input.addEventListener("countrychange", function() {
+    // Mettre à jour la longueur maximale en fonction du pays sélectionné
+    input.addEventListener("countrychange", () => {
         const maxLength = iti.getSelectedCountryData().maxNumberLength;
-        input.maxLength = maxLength ? maxLength : 15; // Utilise 15 comme longueur maximale par défaut si aucune valeur spécifique n'est disponible
+        input.maxLength = maxLength ? maxLength : 15;
     });
 
     // Gestion de la soumission du formulaire
     form.addEventListener('submit', (event) => {
-        // Avant de soumettre le formulaire, remplace la valeur du champ téléphone par le numéro complet
-        const fullNumber = iti.getNumber(); // Obtenez le numéro complet avec l'indicatif
+        const fullNumber = iti.getNumber();
         input.value = fullNumber;
-
-        // Le formulaire est ensuite soumis normalement
     });
 });
