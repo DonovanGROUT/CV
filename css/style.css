@@ -452,12 +452,12 @@ form textarea {
     font-size: 1rem;
 }
 
-form input[type="text"]#phone {
-    width: 25%;
+form input[type="tel"]#phone {
+    width: 75%;
 }
 
 form input[type="email"]#email {
-    width: 50%;
+    width: 75%;
 }
 
 form input[type="text"],
@@ -465,13 +465,14 @@ form textarea[name="message"] {
     width: 75%;
 }
 
+form label {
+    font-weight: bold;
+}
+
 /* Ajustements du formulaire pour les petits écrans */
 @media (max-width: 768px) {
-    form input[type="text"]#phone {
-        width: 50%;
-    }
-
     form input[type="text"],
+    form input[type="tel"]#phone,
     form input[type="email"]#email,
     form textarea[name="message"] {
         width: 100%;
