@@ -259,6 +259,9 @@ section {
     border: none;
     box-shadow: 0 4px 8px var(--shadow-light);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-bottom: 10%;
 }
 
 .portfolio-card:hover {
@@ -287,6 +290,7 @@ section {
 .portfolio-card-text {
     font-size: 0.9rem;
     color: #555555;
+    padding: 5%;
 }
 
 .portfolio-card img {
