@@ -346,7 +346,7 @@ section {
 
 /* Form Styles */
 form .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 form input,
@@ -355,13 +355,7 @@ form textarea {
     border: 1px solid #ddd;
     padding: 10px;
     font-size: 1rem;
-}
-
-form input[type="tel"]#phone,
-form input[type="email"]#email,
-form input[type="text"],
-form textarea[name="message"] {
-    width: 75%;
+    width: 100%;
 }
 
 form label {
@@ -414,9 +408,42 @@ form label {
         font-size: 0.85rem;
     }
 
-    form input,
-    form textarea {
-        width: 100%;
+    form {
+        padding: 0 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group#nameForm {
+        order: 1;
+    }
+
+    .form-group#surnameForm {
+        order: 2;
+    }
+
+    .form-group#phoneForm {
+        order: 3;
+    }
+
+    .form-group#emailForm {
+        order: 4;
+    }
+
+    .form-group#societyForm {
+        order: 5;
+    }
+
+    .form-group#messageForm {
+        order: 6;
+    }
+
+    button[type="submit"] {
+        order: 7;
     }
 }
 
@@ -429,6 +456,35 @@ form label {
     .timeline-item {
         padding-left: 30px;
         padding-right: 20px;
+    }
+    form {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Deux colonnes égales */
+        gap: 5px; /* Espacement entre les éléments */
+        padding: 0 10px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .form-group input, .form-group textarea {
+        width: 100%;
+    }
+
+    .form-group.full-width {
+        grid-column: span 2; /* Étendre sur les deux colonnes */
+    }
+
+    button[type="submit"] {
+        grid-column: span 2; /* Le bouton "Envoyer" doit s'étendre sur les deux colonnes */
+        width: 100%;
+        margin: 0 50%;
     }
 }
 
