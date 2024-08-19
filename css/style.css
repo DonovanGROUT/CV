@@ -7,6 +7,7 @@
 :root {
     --primary-color: #FF8552;
     --secondary-color: #457B9D;
+    --secondary-color-rgba: rgba(69, 123, 157, 0.3);
     --text-color: #333333;
     --light-background: #F0F0F0;
     --dark-background: #FFD9C8;
@@ -246,6 +247,11 @@ section {
 
 .comp p {
     font-size: 1.5rem;
+}
+
+.progress {
+    background-color: var(--secondary-color-rgba);
+    height: 20px;
 }
 
 .progress-bar {
@@ -488,10 +494,6 @@ form label {
         display: block;
         margin-bottom: 5px;
     }
-
-/*     .form-group input, .form-group textarea {
-        width: 100%;
-    } */
 
     .form-group.full-width {
         grid-column: span 2; /* Étendre sur les deux colonnes */
