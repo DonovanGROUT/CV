@@ -158,6 +158,13 @@ section {
     margin-bottom: 1rem;
 }
 
+/* Presentation styles */
+
+#presentation .container p {
+    text-align: justify;
+}
+
+
 /* Timeline Styles */
 .timeline {
     list-style: none;
