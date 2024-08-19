@@ -378,7 +378,7 @@ form label {
     .glob {
         padding: 0 10%;
     }
-
+    /* Timelines + headings */
     .timeline-item {
         width: 100%;
         padding-left: 20px;
@@ -418,47 +418,51 @@ form label {
     p {
         font-size: 0.85rem;
     }
-
+    /* Formulaire */
     form {
+        display: grid;
+        grid-template-columns: 1fr; /* Une seule colonne pour les petits écrans */
+        gap: 15px;
         padding: 0 10px;
-        display: flex;
-        flex-direction: column;
     }
 
     .form-group {
+        order: initial; /* Réinitialiser l'ordre pour s'assurer qu'il n'est pas surchargé */
         margin-bottom: 15px;
     }
 
     .form-group#nameForm {
-        order: 1;
+        grid-row: 1;
     }
 
     .form-group#surnameForm {
-        order: 2;
+        grid-row: 2;
     }
 
     .form-group#phoneForm {
-        order: 3;
+        grid-row: 3;
     }
 
     .form-group#emailForm {
-        order: 4;
+        grid-row: 4;
     }
 
     .form-group#societyForm {
-        order: 5;
+        grid-row: 5;
     }
 
     .form-group#messageForm {
-        order: 6;
+        grid-row: 6;
     }
 
     button[type="submit"] {
-        order: 7;
+        grid-row: 7;
+        justify-self: center;
     }
 }
 
 @media (min-width: 769px) {
+    /* Timeline */
     .timeline-item.timeline-inverted {
         left: 50%;
         padding-left: 20px;
@@ -468,6 +472,7 @@ form label {
         padding-left: 30px;
         padding-right: 20px;
     }
+    /* Formulaire */
     form {
         display: grid;
         grid-template-columns: 1fr 1fr; /* Deux colonnes égales */
@@ -475,18 +480,18 @@ form label {
         padding: 0 10px;
     }
 
-    .form-group {
+     .form-group {
         margin-bottom: 15px;
     }
 
-    .form-group label {
+     .form-group label {
         display: block;
         margin-bottom: 5px;
     }
 
-    .form-group input, .form-group textarea {
+/*     .form-group input, .form-group textarea {
         width: 100%;
-    }
+    } */
 
     .form-group.full-width {
         grid-column: span 2; /* Étendre sur les deux colonnes */
@@ -494,8 +499,8 @@ form label {
 
     button[type="submit"] {
         grid-column: span 2; /* Le bouton "Envoyer" doit s'étendre sur les deux colonnes */
-        width: 100%;
-        margin: 0 50%;
+        /* margin: 0 50%; */
+        justify-self: center;
     }
 }
 
