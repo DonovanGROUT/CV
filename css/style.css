@@ -532,6 +532,12 @@ form label {
     }
 }
 
+@media (min-width: 769px) and (max-width: 959px) {
+    .glob {
+        padding: 0 12%;
+    }
+}
+
 @media (min-width: 769px) {
     /* Timeline */
     .timeline-item.timeline-inverted {
@@ -569,6 +575,12 @@ form label {
     button[type="submit"] {
         grid-column: span 2;
         justify-self: center;
+    }
+}
+
+@media (min-width: 960px) {
+    .glob {
+        padding: 0 15%;
     }
 }
 
