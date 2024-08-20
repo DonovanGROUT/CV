@@ -426,8 +426,9 @@ section {
 }
 
 /* Form Styles */
+
 form .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 form input,
@@ -492,7 +493,7 @@ form label {
     form {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 15px;
+        gap: 0px;
         padding: 0 10px;
     }
 
@@ -547,7 +548,8 @@ form label {
     form {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 5px;
+        row-gap: 0px;
+        column-gap: 5px;
         padding: 0 10px;
     }
 
