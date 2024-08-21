@@ -18,6 +18,9 @@
 
 /* Global Style */
 body {
+/*     display: flex;
+    align-items: center;
+    min-height: 100vh; */
     font-family: 'Montserrat', sans-serif;
     background-color: #FFFFFF;
     color: var(--text-color);
@@ -267,112 +270,44 @@ section {
 }
 
 /* Portfolio Carousel Styles */
-#portfolio .carousel-inner {
-    position: relative;
+#portfolio .wrapper {
     width: 100%;
-    overflow: hidden;
 }
 
-#portfolio .carousel-item {
-    position: absolute;
-    width: 100%;
-    display: none;
-    transition: transform 0.3s ease-in-out;
-    justify-content: center;
+#portfolio .wrapper .carousel {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 30px;
 }
 
-#portfolio .carousel-item.active {
-    display: flex; /* Affiche l'élément actif */
-    position: relative;
-}
-
-#portfolio .carousel-item img {
-    width: 100%; /* Assure que l'image prend toute la largeur de l'élément */
-    height: auto; /* Maintient le ratio de l'image */
-}
-
-#portfolio .portfolio-card {
-    background-color: #FFFFFF;
-    border: none;
-    box-shadow: 0 4px 8px var(--shadow-light);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin: 0 15px; /* Espacement entre les cards */
-    width: 400px; /* Largeur fixe pour chaque card */
-}
-
-#portfolio .portfolio-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 12px 24px var(--shadow-dark);
-}
-
-#portfolio .portfolio-card img {
-    height: 200px;
-    object-fit: cover;
-}
-
-#portfolio .portfolio-card-body {
-    padding: 15px;
-}
-
-#portfolio .portfolio-card-title {
+#portfolio .carousel .card {
+    line-height: 250px;
     text-align: center;
-    font-size: 1.25rem;
-    color: var(--text-color);
-    margin-bottom: 0.5rem;
+    color: #fff;
+    font-size: 90px;
+    font-weight: 600;
+    margin: 20px 0;
+    box-shadow: 0px 4px 15px rga(0,0,0,0.2);
 }
 
-#portfolio .portfolio-card-text {
-    font-size: 0.9rem;
-    color: #555555;
-    text-align: center;
+#portfolio .carousel .card-1 {
+    
 }
 
-/* Custom controls for portfolio carousel */
-
-
-#portfolio .carousel-control-prev,
-#portfolio .carousel-control-next {
-    position: absolute; /* Position absolue pour les contrôles */
-    top: 50%;
-    transform: translateY(-50%);
-    width: auto;
-    background-color: rgba(0, 0, 0, 0.5);
-    border: none;
-    z-index: 2; /* Assure que les contrôles sont au-dessus des images */
+#portfolio .carousel .card-2 {
+    
 }
 
-#portfolio .carousel-control-prev {
-    left: 10px;
+#portfolio .carousel .card-3 {
+    
 }
 
-#portfolio .carousel-control-next {
-    right: 10px;
+#portfolio .carousel .card-4 {
+    background: #f26522;
 }
 
-#portfolioCarousel {
-    position: relative;
-}
-
-#portfolio .carousel-control-prev-icon,
-#portfolio .carousel-control-next-icon {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 50%;
-}
-
-#portfolio .carousel-control-prev-icon {
-    margin-left: 100px;
-}
-
-#portfolio .carousel-control-next-icon {
-    margin-right: 100px;
-}
-
-#portfolio .carousel-control-prev:hover,
-#portfolio .carousel-control-next:hover {
-    opacity: 1;
+#portfolio .carousel .card-5 {
+    background: #630460;
 }
 
 /* Recommendation Card Styles */
