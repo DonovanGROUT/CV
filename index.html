@@ -265,6 +265,31 @@
                                 <img src="images/professional-site.png" class="d-block w-100" alt="Capture d'écran du site professionnel">
                             </a>
                         </div>
+                        <div class="card card-3">
+                            <a href="https://sitepro-donovangrout.netlify.app/" target="_blank">
+                                <img src="images/professional-site.png" class="d-block w-100" alt="Capture d'écran du site professionnel">
+                            </a>
+                        </div>
+                        <div class="card card-4">
+                            <a href="https://sitepro-donovangrout.netlify.app/" target="_blank">
+                                <img src="images/professional-site.png" class="d-block w-100" alt="Capture d'écran du site professionnel">
+                            </a>
+                        </div>
+                        <div class="card card-5">
+                            <a href="https://sitepro-donovangrout.netlify.app/" target="_blank">
+                                <img src="images/professional-site.png" class="d-block w-100" alt="Capture d'écran du site professionnel">
+                            </a>
+                        </div>
+                        <div class="card card-6">
+                            <a href="https://sitepro-donovangrout.netlify.app/" target="_blank">
+                                <img src="images/snake.png" class="d-block w-100" alt="Capture d'écran du site professionnel">
+                            </a>
+                        </div>
+                        <div class="card card-7">
+                            <a href="https://sitepro-donovangrout.netlify.app/" target="_blank">
+                                <img src="images/wallpaper.jpg" class="d-block w-100" alt="Capture d'écran du site professionnel">
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <script>
@@ -274,16 +299,21 @@
                         autoplay: true,
                         autoplayTimeout: 4000,
                         autoplayHoverPause: true,
+                        dots: true,
+                        onInitialized: function(event) {
+                            console.log("OwlCarousel initialized", event);
+                            console.log("Dots elements: ", $(".owl-dots").length);
+                        },
                         responsive: {
-                            0:{
+                            0: {
                                 items: 1,
                                 nav: false
                             },
-                            769:{
+                            769: {
                                 items: 2,
                                 nav: false
                             },
-                            960:{
+                            960: {
                                 items: 3,
                                 nav: false
                             }
