@@ -16,6 +16,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/intlTelInput.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/utils.js" defer></script>
     <script src="js/scripts.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 </head>
 <body data-bs-spy="scroll" data-bs-target="#myNavbar">
 
@@ -250,43 +253,58 @@
                 <div class="heading text-center">
                     <h2>Portfolio</h2>
                 </div>
-                <div class="row justify-content-center">
-                    <div id="portfolioCarousel" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <div class="card portfolio-card bg-light text-dark">
-                                    <a href="https://donovangrout.github.io/snake_game/" target="_blank">
-                                        <img src="images/snake.png" class="d-block w-100" alt="Capture d'écran du jeu Snake revisité">
-                                    </a>
-                                    <div class="portfolio-card-body">
-                                        <h5 class="portfolio-card-title">Jeu Snake revisité</h5>
-                                        <p class="portfolio-card-text">Un petit jeu Snake revisité, codé en Javascript, uniquement sur ordinateur (pour le moment). Des nouveautés à venir !</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="card portfolio-card bg-light text-dark">
-                                    <a href="https://sitepro-donovangrout.netlify.app/" target="_blank">
-                                        <img src="images/professional-site.png" class="d-block w-100" alt="Capture d'écran du site professionnel">
-                                    </a>
-                                    <div class="portfolio-card-body">
-                                        <h5 class="portfolio-card-title">Site professionnel</h5>
-                                        <p class="portfolio-card-text">Mon site professionnel "from scratch" avec mon CV, mon parcours, mes compétences. Vous le visitez actuellement !</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Ajouter d'autres éléments carousel-item ici si nécessaire -->
+                <div class="wrapper">
+                    <div class="carousel owl-carousel">
+                        <div class="card card-snake">
+                            <a href="https://donovangrout.github.io/snake_game/" target="_blank">
+                                <img src="images/snake.png" class="d-block w-100" alt="Capture d'écran du jeu Snake revisité">
+                            </a>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#portfolioCarousel" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Précédent</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#portfolioCarousel" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Suivant</span>
-                        </button>
+                        <div class="card card-voyage">
+                            <a href="https://donovangrout.github.io/page_web_voyage/" target="_blank">
+                                <img src="images/page_web_voyage.png" class="d-block w-100" alt="Page web statique d'agence de voyage factice">
+                            </a>
+                        </div>
+                        <div class="card card-burger">
+                            <a href="https://github.com/DonovanGROUT/BurgerCode/" target="_blank">
+                                <img src="images/BurgerCode.png" class="d-block w-100" alt="Capture d'écran du site de commande de fast-food factice">
+                            </a>
+                        </div>
+                        <div class="card card-site">
+                            <a href="https://sitepro-donovangrout.netlify.app/" target="_blank">
+                                <img src="images/professional-site.png" class="d-block w-100" alt="Capture d'écran du site professionnel">
+                            </a>
+                        </div>
                     </div>
                 </div>
+                <script>
+                    $(".carousel").owlCarousel({
+                        margin: 10,
+                        loop: true,
+                        autoplay: true,
+                        autoplayTimeout: 3000,
+                        autoplayHoverPause: true,
+                        dots: true,
+                        onInitialized: function(event) {
+                            console.log("OwlCarousel initialized", event);
+                            console.log("Dots elements: ", $(".owl-dots").length);
+                        },
+                        responsive: {
+                            0: {
+                                items: 1,
+                                nav: false
+                            },
+                            769: {
+                                items: 2,
+                                nav: false
+                            },
+                            960: {
+                                items: 3,
+                                nav: false
+                            }
+                        }
+                    });
+                </script>
             </div>
         </section>
         <br>
