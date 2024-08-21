@@ -288,6 +288,13 @@ section {
     font-weight: 600;
     margin: 20px 0;
     box-shadow: 0px 4px 15px rga(0,0,0,0.2);
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#portfolio .carousel .card:hover {
+    transform: scale(1.05);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 
@@ -296,18 +303,6 @@ section {
     height: 300px;
     object-fit: cover;
 }
-
-/* #portfolio .carousel .card-1 {
-    
-}
-
-#portfolio .carousel .card-2 {
-    
-}
-
-#portfolio .carousel .card-3 {
-    
-} */
 
 .owl-dots {
     text-align: center;
