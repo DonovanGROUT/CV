@@ -7,6 +7,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const homeButton = document.querySelector('.navbar-brand');
     const input = document.querySelector("#phone");
     const form = document.querySelector('form');
+    const toggleButton = document.getElementById('theme-toggle');
+    const currentTheme = localStorage.getItem('theme') || 'light';
+
+
+    // Mode sombre
+    if (currentTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        toggleButton.textContent = "Mode Clair";
+    }
+
+    toggleButton.addEventListener('click', () => {
+        const theme = document.documentElement.getAttribute('data-theme');
+        const isDark = theme === 'dark';
+
+        document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+        localStorage.setItem('theme', isDark ? 'light' : 'dark');
+        toggleButton.textContent = isDark ? "Mode Sombre" : "Mode Clair";
+    });
 
     // Rafraîchissement de la page au clic sur le bouton Accueil
     if (homeButton) {

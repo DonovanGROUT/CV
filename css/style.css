@@ -18,9 +18,6 @@
 
 /* Global Style */
 body {
-/*     display: flex;
-    align-items: center;
-    min-height: 100vh; */
     font-family: 'Montserrat', sans-serif;
     background-color: #FFFFFF;
     color: var(--text-color);
@@ -602,3 +599,121 @@ form textarea:focus {
     height: 80px;
     margin-top: -80px;
 }
+
+/* Mode sombre */
+[data-theme="dark"] {
+    --primary-color: #3D63DD;
+    --secondary-color: #457B9D;
+    --text-color: #FFFFFF;
+    --light-background: #1D3557;
+    --dark-background: #1D2E5C;
+    --border-color: #333333;
+    --shadow-light: rgba(255, 255, 255, 0.1);
+    --shadow-dark: rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Calque semi-transparent pour assombrir l'image */
+    z-index: -1; /* Derrière le contenu principal */
+}
+
+
+/* Fond pour le corps */
+[data-theme="dark"] body {
+    background-image: url('../images/wallpaper.jpg');
+}
+
+/* Spécifique à la timeline */
+[data-theme="dark"] .timeline-item .timeline-panel {
+    background-color: var(--primary-color); /* Fond de la timeline */
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .timeline-item .timeline-heading h3,
+[data-theme="dark"] .timeline-item .timeline-heading h4 {
+    color: #FFFFFF; /* Heading des timelines en blanc */
+}
+
+/* Couleur des icônes de la valise et du livre */
+[data-theme="dark"] .section-badge.bi-briefcase-fill,
+[data-theme="dark"] .section-badge.bi-book-fill {
+    color: var(--primary-color); /* Icônes de la valise et du livre en primary-color */
+}
+
+/* Couleur des icônes bi-clock-fill */
+[data-theme="dark"] .bi-clock-fill {
+    color: #FFFFFF; /* Toutes les icônes bi-clock-fill en blanc */
+}
+
+[data-theme="dark"] .timeline-item .timeline-panel p,
+[data-theme="dark"] .timeline-item .timeline-panel .text-muted {
+    color: #FFFFFF !important; /* Texte en blanc */
+}
+
+
+/* Effet de transparence pour les images du portfolio */
+[data-theme="dark"] #portfolio .carousel .card img {
+    opacity: 0.6; /* Réduction de la luminosité avec de la transparence */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+[data-theme="dark"] #portfolio .carousel .card img:hover {
+    opacity: 1; /* Rendre les images plus lumineuses au survol */
+    transform: scale(1.05);
+}
+
+/* Adaptation des recommandations */
+
+[data-theme="dark"] #recommendations .carousel .card {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] #recommendations .carousel .card h3,
+[data-theme="dark"] #recommendations .carousel .card p {
+    color: #FFFFFF;
+}
+
+
+/* Adaptation du formulaire */
+
+[data-theme="dark"] form input,
+[data-theme="dark"] form textarea {
+    background-color: var(--primary-color); /* Fond des inputs en primary-color */
+    color: var(--text-color); /* Texte en blanc */
+    border: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] form input::placeholder,
+[data-theme="dark"] form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7); /* Placeholder en blanc mais plus clair */
+}
+
+[data-theme="dark"] form input:focus,
+[data-theme="dark"] form textarea:focus {
+    outline: 2px solid var(--secondary-color); /* Bordure d'accentuation au focus */
+}
+
+
+/* Adaptation de la barre de réseaux sociaux */
+
+[data-theme="dark"] .social-sidebar {
+    background-color: var(--primary-color); /* Arrière-plan en primary-color */
+}
+
+[data-theme="dark"] .social-sidebar a {
+    color: var(--text-color); /* Icônes en blanc */
+}
+
+[data-theme="dark"] .social-sidebar a:hover {
+    transform: scale(1.1);
+}
+
