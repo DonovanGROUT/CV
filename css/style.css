@@ -534,6 +534,19 @@ form label {
     }
 }
 
+@media (max-width: 960px) {
+    .timeline-item {
+        width: 100%; /* Pleine largeur pour les moyens écrans */
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .timeline-item.timeline-inverted {
+        left: 0;
+    }
+}
+
+
 /* Footer + Social Sidebar */
 footer {
     background-color: transparent;
