@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mode sombre
     if (currentTheme === 'dark') {
         document.documentElement.setAttribute('data-theme', 'dark');
-        toggleButton.textContent = "Mode Clair";
+        toggleButton.textContent = "Clair";
     }
 
     toggleButton.addEventListener('click', () => {
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
         localStorage.setItem('theme', isDark ? 'light' : 'dark');
-        toggleButton.textContent = isDark ? "Mode Sombre" : "Mode Clair";
+        toggleButton.textContent = isDark ? "Sombre" : "Clair";
     });
 
     // Rafraîchissement de la page au clic sur le bouton Accueil
