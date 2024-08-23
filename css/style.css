@@ -23,7 +23,7 @@ body {
     color: var(--text-color);
     margin: 0;
     padding: 0;
-    background-image: url('../images/wallpaper.jpg');
+    background-image: url('../images/wallpaper.webp');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
