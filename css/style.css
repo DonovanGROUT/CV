@@ -1,4 +1,4 @@
-/* Global Styles */
+/* Global */
 *, *::before, *::after {
     box-sizing: border-box;
 }
@@ -52,7 +52,7 @@ p {
     text-align: justified;
 }
 
-/* Hover Effects */
+/* Effets au survol */
 button:hover,
 .nav-link:hover,
 .navbar-brand:hover,
@@ -63,12 +63,12 @@ button:hover,
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Container Padding */
+/* Container principal */
 .glob {
     padding: 0 15%;
 }
 
-/* Button and Navbar Styles */
+/* Boutons et navbar */
 .navbar-toggler,
 .btn-primary,
 .nav-link {
@@ -87,12 +87,7 @@ button:hover,
     box-shadow: 0px 4px 6px var(--shadow-light);
 }
 
-/* .btn-lg {
-    font-size: 1.2rem;
-    padding: 12px 30px;
-} */
-
-/* Navbar Styles */
+/* Navbar */
 .navbar {
     background-color: var(--primary-color);
     padding: 5px 0;
@@ -127,7 +122,7 @@ button:hover,
     background-color: var(--secondary-color);
 }
 
-/* Section Styles */
+/* Sections */
 section {
     background-color: var(--dark-background);
     color: var(--text-color);
@@ -148,7 +143,7 @@ section {
     vertical-align: middle;
 }
 
-/* Heading Styles */
+/* Headings */
 .heading h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
@@ -159,7 +154,7 @@ section {
     margin-bottom: 1rem;
 }
 
-/* Presentation styles */
+/* Presentation */
 
 #presentation .container p {
     text-align: justify;
@@ -167,7 +162,7 @@ section {
     margin-right: 5%;
 }
 
-/* Timeline Styles */
+/* Timeline */
 .timeline {
     list-style: none;
     padding: 0;
@@ -241,7 +236,7 @@ section {
     text-align: center;
 }
 
-/* Competence Section */
+/* Compétences */
 .comp {
     transition: transform 0.2s ease-in-out;
 }
@@ -266,7 +261,7 @@ section {
     width: 100%;
 }
 
-/* Portfolio Carousel Styles */
+/* Styles du carousel du portfolio */
 #portfolio .wrapper {
     width: 100%;
 }
@@ -325,7 +320,7 @@ section {
     transform: scale(1.2);
 }
 
-/* Recommendation Card Styles */
+/* Styles des cards pour recommendations */
 .recommendation-card {
     background: #f8f9fa;
     padding: 20px;
@@ -341,7 +336,7 @@ section {
     margin-bottom: 10px;
 }
 
-/* Carousel Controls for Recommendations */
+/* Carousel recommendations */
 #carouselExampleControls {
     position: relative;
 }
@@ -375,7 +370,7 @@ section {
     opacity: 1;
 }
 
-/* Form Styles */
+/* Styles du formulaire */
 
 form .form-group {
     margin-bottom: 10px;
@@ -394,7 +389,7 @@ form label {
     font-weight: bold;
 }
 
-/* Responsive Adjustments */
+/* Responsive */
 @media (max-width: 768px) {
     .glob {
         padding: 0 10%;
@@ -480,6 +475,11 @@ form label {
         grid-row: 7;
         justify-self: center;
     }
+
+    #theme-toggle {
+        padding: 5px 10px;
+        font-size: 0.85rem;
+    }
 }
 
 @media (min-width: 769px) and (max-width: 959px) {
@@ -550,7 +550,7 @@ form label {
 }
 
 
-/* Footer + Social Sidebar */
+/* Footer + barre de réseaux sociaux */
 footer {
     background-color: transparent;
     color: var(--text-color);
@@ -635,7 +635,7 @@ form textarea:focus {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9); /* Calque semi-transparent pour assombrir l'image */
+    background-color: rgba(0, 0, 0, 0.7); /* Calque semi-transparent pour assombrir l'image */
     z-index: -1; /* Derrière le contenu principal */
 }
 
@@ -643,11 +643,16 @@ form textarea:focus {
 /* Fond pour le corps */
 [data-theme="dark"] body {
     background-image: url('../images/wallpaper.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
 }
 
 /* Spécifique à la timeline */
 [data-theme="dark"] .timeline-item .timeline-panel {
-    background-color: var(--primary-color); /* Fond de la timeline */
+    background-color: var(--primary-color);
     color: var(--text-color);
     border: 1px solid var(--border-color);
 }
@@ -660,28 +665,28 @@ form textarea:focus {
 /* Couleur des icônes de la valise et du livre */
 [data-theme="dark"] .section-badge.bi-briefcase-fill,
 [data-theme="dark"] .section-badge.bi-book-fill {
-    color: var(--primary-color); /* Icônes de la valise et du livre en primary-color */
+    color: var(--primary-color);
 }
 
 /* Couleur des icônes bi-clock-fill */
 [data-theme="dark"] .bi-clock-fill {
-    color: #FFFFFF; /* Toutes les icônes bi-clock-fill en blanc */
+    color: #FFFFFF;
 }
 
 [data-theme="dark"] .timeline-item .timeline-panel p,
 [data-theme="dark"] .timeline-item .timeline-panel .text-muted {
-    color: #FFFFFF !important; /* Texte en blanc */
+    color: #FFFFFF !important;
 }
 
 
 /* Effet de transparence pour les images du portfolio */
 [data-theme="dark"] #portfolio .carousel .card img {
-    opacity: 0.6; /* Réduction de la luminosité avec de la transparence */
+    opacity: 0.6;
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 [data-theme="dark"] #portfolio .carousel .card img:hover {
-    opacity: 1; /* Rendre les images plus lumineuses au survol */
+    opacity: 1;
     transform: scale(1.05);
 }
 
@@ -703,30 +708,30 @@ form textarea:focus {
 
 [data-theme="dark"] form input,
 [data-theme="dark"] form textarea {
-    background-color: var(--primary-color); /* Fond des inputs en primary-color */
-    color: var(--text-color); /* Texte en blanc */
+    background-color: var(--primary-color);
+    color: var(--text-color);
     border: 1px solid var(--border-color);
 }
 
 [data-theme="dark"] form input::placeholder,
 [data-theme="dark"] form textarea::placeholder {
-    color: rgba(255, 255, 255, 0.7); /* Placeholder en blanc mais plus clair */
+    color: rgba(255, 255, 255, 0.7);
 }
 
 [data-theme="dark"] form input:focus,
 [data-theme="dark"] form textarea:focus {
-    outline: 2px solid var(--secondary-color); /* Bordure d'accentuation au focus */
+    outline: 2px solid var(--secondary-color);
 }
 
 
 /* Adaptation de la barre de réseaux sociaux */
 
 [data-theme="dark"] .social-sidebar {
-    background-color: var(--primary-color); /* Arrière-plan en primary-color */
+    background-color: var(--primary-color);
 }
 
 [data-theme="dark"] .social-sidebar a {
-    color: var(--text-color); /* Icônes en blanc */
+    color: var(--text-color);
 }
 
 [data-theme="dark"] .social-sidebar a:hover {
