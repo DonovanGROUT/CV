@@ -486,6 +486,9 @@ form label {
     .glob {
         padding: 0 12%;
     }
+    .carousel owl-carousel card {
+        width: 100%;
+    }
 }
 
 @media (min-width: 769px) {
@@ -536,7 +539,7 @@ form label {
 
 @media (max-width: 960px) {
     .timeline-item {
-        width: 100%; /* Pleine largeur pour les moyens écrans */
+        width: 100%;
         padding-left: 20px;
         padding-right: 20px;
     }
