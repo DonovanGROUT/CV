@@ -16,7 +16,7 @@
     --shadow-dark: rgba(0, 0, 0, 0.3);
 }
 
-/* Global Style */
+/* Global */
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: #FFFFFF;
@@ -39,6 +39,17 @@ body::before {
     height: 100%;
     background-color: rgba(255, 255, 255, 0.5);
     z-index: -1;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
 }
 
 a {
@@ -582,8 +593,6 @@ footer {
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Divers */
-
 
 /* Styles de focus */
 a:focus,
@@ -594,9 +603,9 @@ button:focus,
 form input:focus,
 form textarea:focus,
 .navbar-toggler:focus {
-    outline: 2px solid var(--dark-background);
+    outline: 2px solid var(--secondary-color);
     outline-offset: 2px;
-    box-shadow: none;
+    box-shadow: 0 0 5px var(--primary-color);
 }
 
 form input:focus,
