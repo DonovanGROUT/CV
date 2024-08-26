@@ -421,6 +421,8 @@ form label {
     text-align: center;
     max-width: 400px;
     width: 100%;
+    position: relative;
+    z-index: 2; /* S'assure que le cadre est au-dessus de tout */
 }
 
 /* Style des titres et paragraphes */
