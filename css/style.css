@@ -398,6 +398,32 @@ form textarea {
 form label {
     font-weight: bold;
 }
+/* Page de remerciement du formulaire */
+
+/* Cadre blanc centré */
+.thank-you-box {
+    background-color: var(--light-background);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+/* Style des titres et paragraphes */
+.thank-you-box h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.thank-you-box p {
+    font-size: 16px;
+    margin-bottom: 30px;
+    color: var(--text-color);
+}
 
 /* Responsive */
 @media (max-width: 768px) {
