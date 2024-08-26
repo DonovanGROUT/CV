@@ -407,6 +407,9 @@ form label {
     align-items: center;
     min-height: 100vh; /* S'assure que le conteneur prend toute la hauteur de la fenêtre */
     padding: 20px; /* Ajout d'un padding pour éviter que le contenu touche les bords sur mobile */
+    background-color: rgba(255, 255, 255, 0.8); /* Ajout d'un fond blanc semi-transparent */
+    position: relative; /* Ajoute cette ligne */
+    z-index: 1; /* S'assure que le conteneur est au-dessus de l'arrière-plan */
 }
 
 /* Cadre blanc centré */
@@ -421,8 +424,8 @@ form label {
 }
 
 /* Style des titres et paragraphes */
-.thank-you-box h1 {
-    font-size: 24px;
+.thank-you-box h2 {
+    font-size: 20px;
     margin-bottom: 20px;
     font-weight: 600;
     color: var(--text-color);
