@@ -18,6 +18,10 @@
 
 /* Global */
 body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
     font-family: 'Montserrat', sans-serif;
     background-color: #FFFFFF;
     color: var(--text-color);
@@ -402,14 +406,12 @@ form label {
 
 /* Conteneur centré uniquement pour la page de remerciement */
 .thank-you-container {
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* S'assure que le conteneur prend toute la hauteur de la fenêtre */
     padding: 20px; /* Ajout d'un padding pour éviter que le contenu touche les bords sur mobile */
-    background-color: rgba(255, 255, 255, 0.8); /* Ajout d'un fond blanc semi-transparent */
-    position: relative; /* Ajoute cette ligne */
-    z-index: 1; /* S'assure que le conteneur est au-dessus de l'arrière-plan */
 }
 
 /* Cadre blanc centré */
