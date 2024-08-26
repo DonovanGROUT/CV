@@ -801,7 +801,7 @@ and (-webkit-min-device-pixel-ratio: 3) {
     body {
         background-position: top center;
         background-size: cover;
-    }
+}
 }
 
 
