@@ -400,6 +400,15 @@ form label {
 }
 /* Page de remerciement du formulaire */
 
+/* Conteneur centré uniquement pour la page de remerciement */
+.thank-you-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* S'assure que le conteneur prend toute la hauteur de la fenêtre */
+    padding: 20px; /* Ajout d'un padding pour éviter que le contenu touche les bords sur mobile */
+}
+
 /* Cadre blanc centré */
 .thank-you-box {
     background-color: var(--light-background);
