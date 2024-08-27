@@ -17,20 +17,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // Mode sombre
-    if (currentTheme === 'dark') {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        toggleButton.textContent = "Clair";
+// Mode sombre initial
+if (currentTheme === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    toggleButton.classList.remove('bi-moon-stars-fill');
+    toggleButton.classList.add('bi-sun-fill');
+}
+
+// Gestion du clic sur le bouton
+toggleButton.addEventListener('click', () => {
+    const theme = document.documentElement.getAttribute('data-theme');
+    const isDark = theme === 'dark';
+
+    document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    localStorage.setItem('theme', isDark ? 'light' : 'dark');
+
+    // Changer l'icône selon le thème
+    if (isDark) {
+        toggleButton.classList.remove('bi-sun-fill');
+        toggleButton.classList.add('bi-moon-stars-fill');
+    } else {
+        toggleButton.classList.remove('bi-moon-stars-fill');
+        toggleButton.classList.add('bi-sun-fill');
     }
+});
 
-    toggleButton.addEventListener('click', () => {
-        const theme = document.documentElement.getAttribute('data-theme');
-        const isDark = theme === 'dark';
-
-        document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
-        localStorage.setItem('theme', isDark ? 'light' : 'dark');
-        toggleButton.textContent = isDark ? "Sombre" : "Clair";
-    });
 
     // Rafraîchissement de la page au clic sur le bouton Accueil
     if (homeButton) {
