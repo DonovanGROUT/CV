@@ -19,10 +19,6 @@
 /* Global */
 
 body {
-/*     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%; */
     font-family: 'Montserrat', sans-serif;
     background-color: #FFFFFF;
     color: var(--text-color);
@@ -766,47 +762,4 @@ form textarea:focus {
 
 [data-theme="dark"] .social-sidebar a:hover {
     transform: scale(1.1);
-}
-
-
-/* Adaptation pour les Iphone */
-
-/* iPhone 5/SE */
-@media only screen 
-and (min-device-width: 320px) 
-and (max-device-width: 568px) 
-and (-webkit-min-device-pixel-ratio: 2) {
-    /* Ajustements spécifiques */
-    body {
-        background-position: top center;
-        background-size: cover;
-    }
-}
-
-
-/* iPhone 6/7/8/X/XS/11 Pro/12 Mini (taille de base) */
-
-@media only screen 
-and (min-device-width: 375px) 
-and (max-device-width: 812px) 
-and (-webkit-min-device-pixel-ratio: 3) {
-    /* Ajustements spécifiques */
-    body {
-        background-position: top center;
-        background-size: cover;
-}
-}
-
-
-/* iPhone 6+/7+/8+/XR/XS Max/11/11 Pro Max/12/12 Pro Max */
-
-@media only screen 
-and (min-device-width: 414px) 
-and (max-device-width: 896px) 
-and (-webkit-min-device-pixel-ratio: 3) {
-    /* Ajustements spécifiques */
-    body {
-        background-position: top center;
-        background-size: cover;
-    }
 }

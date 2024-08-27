@@ -9,12 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('form');
     const toggleButton = document.getElementById('theme-toggle');
     const currentTheme = localStorage.getItem('theme') || 'light';
-    var isIOS = /iPad|iPhone|iPod/.test(navigator.platform) || 
-    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-
-    if (isIOS) {
-    document.body.style.backgroundImage = 'url("../images/wallpaper.webp")';
-    }
 
 // Mode clair/sombre
 
