@@ -23,6 +23,7 @@ if (currentTheme === 'dark') {
     document.documentElement.setAttribute('data-theme', 'dark');
     toggleButton.classList.remove('bi-moon-stars-fill');
     toggleButton.classList.add('bi-sun-fill');
+    toggleButton.textContent = '';
 }
 
     // Gestion du clic sur le bouton
@@ -32,6 +33,7 @@ toggleButton.addEventListener('click', () => {
 
     document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
     localStorage.setItem('theme', isDark ? 'light' : 'dark');
+    toggleButton.textContent = '';
 
     // Changer l'icône selon le thème
     if (isDark) {
