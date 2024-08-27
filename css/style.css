@@ -640,7 +640,7 @@ form textarea:focus {
 
 /* Sticky Navbar Offset */
 :target:before {
-    /* content: ""; */
+    content: "";
     display: block;
     height: 80px;
     margin-top: -80px;
@@ -659,7 +659,7 @@ form textarea:focus {
 }
 
 [data-theme="dark"] body::before {
-    /* content: ''; */
+    content: '';
     position: fixed;
     top: 0;
     left: 0;
