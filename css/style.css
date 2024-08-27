@@ -17,11 +17,12 @@
 }
 
 /* Global */
+
 body {
-    display: flex;
+/*     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    height: 100%; */
     font-family: 'Montserrat', sans-serif;
     background-color: #FFFFFF;
     color: var(--text-color);
@@ -46,17 +47,6 @@ body::before {
     height: 100%;
     background-color: rgba(255, 255, 255, 0.5);
     z-index: -1;
-}
-
-.visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
 }
 
 a {
@@ -419,7 +409,7 @@ form label {
 }
 
 .thank-you-box {
-    background-color: #ffffff; /* Fond blanc pour la box */
+    background-color: var(--light-background);
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -427,7 +417,7 @@ form label {
 
 .thank-you-box h2, .thank-you-box p {
     margin: 0 0 20px;
-    color: #333333; /* Texte en gris foncé */
+    color: var(--text-color);
 }
 
 
