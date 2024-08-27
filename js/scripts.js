@@ -16,15 +16,16 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.backgroundImage = 'url("../images/wallpaper.webp")';
     }
 
+// Mode clair/sombre
 
-// Mode sombre initial
+    // Mode sombre initial
 if (currentTheme === 'dark') {
     document.documentElement.setAttribute('data-theme', 'dark');
     toggleButton.classList.remove('bi-moon-stars-fill');
     toggleButton.classList.add('bi-sun-fill');
 }
 
-// Gestion du clic sur le bouton
+    // Gestion du clic sur le bouton
 toggleButton.addEventListener('click', () => {
     const theme = document.documentElement.getAttribute('data-theme');
     const isDark = theme === 'dark';
@@ -43,12 +44,12 @@ toggleButton.addEventListener('click', () => {
 });
 
 
-    // Rafraîchissement de la page au clic sur le bouton Accueil
+// Rafraîchissement de la page au clic sur le bouton Accueil
     if (homeButton) {
         homeButton.addEventListener('click', () => location.reload());
     }
 
-    // Mettre à jour les liens actifs
+// Mettre à jour les liens actifs
     const updateActiveLink = (links, currentId) => {
         links.forEach(link => {
             const href = link.getAttribute('href').substring(1);
@@ -56,7 +57,7 @@ toggleButton.addEventListener('click', () => {
         });
     };
 
-    // Défilement fluide vers les sections
+// Défilement fluide vers les sections
     const scrollToSection = (e) => {
         e.preventDefault();
         const targetId = e.currentTarget.getAttribute('href').substring(1);
@@ -75,7 +76,7 @@ toggleButton.addEventListener('click', () => {
     navLinks.forEach(link => link.addEventListener('click', scrollToSection));
     dropdownItems.forEach(item => item.addEventListener('click', scrollToSection));
 
-    // Observer pour les sections visibles
+// Observer pour les sections visibles
     const observerCallback = (entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -96,7 +97,7 @@ toggleButton.addEventListener('click', () => {
     progressBars.forEach(bar => observer.observe(bar));
     timelineItems.forEach(item => observer.observe(item));
 
-    // Gestion du défilement de la fenêtre pour les sections
+// Gestion du défilement de la fenêtre pour les sections
     const handleScroll = () => {
         let currentSection = '';
         sections.forEach(section => {
@@ -110,6 +111,8 @@ toggleButton.addEventListener('click', () => {
     };
 
     window.addEventListener('scroll', handleScroll);
+
+// Formulaire
 
     // Intl-Tel-Input Configuration
     const iti = window.intlTelInput(input, {
