@@ -23,9 +23,7 @@ if (currentTheme === 'dark') {
     document.documentElement.setAttribute('data-theme', 'dark');
     toggleButton.classList.remove('bi-moon-stars-fill');
     toggleButton.classList.add('bi-sun-fill');
-    toggleButton.textContent = '\u00A0'; // Remplacer le texte par un espace insécable
-} else {
-    toggleButton.textContent = '\u00A0'; // Remplacer le texte par un espace insécable
+    toggleButton.textContent = '';
 }
 
     // Gestion du clic sur le bouton
@@ -35,17 +33,15 @@ toggleButton.addEventListener('click', () => {
 
     document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
     localStorage.setItem('theme', isDark ? 'light' : 'dark');
-    toggleButton.textContent = '\u00A0';
+    toggleButton.textContent = '';
 
     // Changer l'icône selon le thème
     if (isDark) {
         toggleButton.classList.remove('bi-sun-fill');
         toggleButton.classList.add('bi-moon-stars-fill');
-        toggleButton.setAttribute('aria-label', 'Passer en mode clair');
     } else {
         toggleButton.classList.remove('bi-moon-stars-fill');
         toggleButton.classList.add('bi-sun-fill');
-        toggleButton.setAttribute('aria-label', 'Passer en mode sombre');
     }
 });
 
