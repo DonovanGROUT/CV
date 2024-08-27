@@ -32,6 +32,9 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: top center;
+    -webkit-background-size: cover;
+    -webkit-background-attachment: fixed;
+    -webkit-background-position: top center;
 }
 
 body::before {
