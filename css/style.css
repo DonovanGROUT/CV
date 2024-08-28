@@ -9,6 +9,7 @@
     --secondary-color: #457B9D;
     --secondary-color-rgba: rgba(69, 123, 157, 0.3);
     --text-color: #333333;
+    --text-color-switch: #FFFFFF;
     --light-background: #F0F0F0;
     --dark-background: #FFD9C8;
     --border-color: #4A4A4A;
@@ -136,7 +137,7 @@ button:hover,
 .theme-switch {
     position: relative;
     display: inline-block;
-    width: 40px; /* Réduction de la taille */
+    width: 40px;
     height: 20px;
 }
 
@@ -153,7 +154,7 @@ button:hover,
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: var(--primary-color);
+    background-color: #3D63DD;
     transition: .4s;
     border-radius: 34px;
 }
@@ -165,13 +166,14 @@ button:hover,
     width: 16px;
     left: 2px;
     bottom: 2px;
-    background-color: white;
+    background-color: var(--text-color-switch);
     transition: .4s;
     border-radius: 50%;
 }
 
+
 input:checked + .slider {
-    background-color: var(--secondary-color);
+    background-color: #FF8552;
 }
 
 input:checked + .slider:before {
@@ -186,11 +188,11 @@ input:checked + .slider:before {
 }
 
 .sun-icon {
-    left: 4px;
+    left: 1.5px;
 }
 
 .moon-icon {
-    right: 4px;
+    right: 3px;
     opacity: 0;
     transition: opacity 0.4s ease;
 }
@@ -724,6 +726,7 @@ form textarea:focus {
     --primary-color: #3D63DD;
     --secondary-color: #457B9D;
     --text-color: #FFFFFF;
+    --text-color-switch: #333333;
     --light-background: #1D3557;
     --dark-background: #1D2E5C;
     --border-color: #333333;
