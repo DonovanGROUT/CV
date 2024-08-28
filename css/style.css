@@ -9,6 +9,7 @@
     --secondary-color: #457B9D;
     --secondary-color-rgba: rgba(69, 123, 157, 0.3);
     --text-color: #333333;
+    --text-color-switch: #FFFFFF;
     --light-background: #F0F0F0;
     --dark-background: #FFD9C8;
     --border-color: #4A4A4A;
@@ -126,6 +127,84 @@ button:hover,
     color: #FFFFFF;
     background-color: var(--secondary-color);
 }
+
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #3D63DD;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: var(--text-color-switch);
+    transition: .4s;
+    border-radius: 50%;
+}
+
+
+input:checked + .slider {
+    background-color: #FF8552;
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px); /* Ajustement de la translation */
+}
+
+.sun-icon, .moon-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px; /* Taille des icônes */
+}
+
+.sun-icon {
+    left: 1.5px;
+}
+
+.moon-icon {
+    right: 3px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+input:checked + .slider .moon-icon {
+    opacity: 1;
+}
+
+input:checked + .slider .sun-icon {
+    opacity: 0;
+}
+
 
 /* Sections */
 section {
@@ -685,6 +764,7 @@ form textarea:focus {
     --primary-color: #3D63DD;
     --secondary-color: #457B9D;
     --text-color: #FFFFFF;
+    --text-color-switch: #333333;
     --light-background: #1D3557;
     --dark-background: #1D2E5C;
     --border-color: #333333;
