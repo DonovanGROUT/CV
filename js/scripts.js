@@ -7,35 +7,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const homeButton = document.querySelector('.navbar-brand');
     const input = document.querySelector("#phone");
     const form = document.querySelector('form');
-    const toggleButton = document.getElementById('theme-toggle');
+    const toggleSwitch = document.querySelector('#theme-toggle');
     const currentTheme = localStorage.getItem('theme') || 'light';
 
 // Mode clair/sombre
 
-    // Mode sombre initial
 if (currentTheme === 'dark') {
     document.documentElement.setAttribute('data-theme', 'dark');
-    toggleButton.classList.remove('bi-moon-stars-fill');
-    toggleButton.classList.add('bi-sun-fill');
-    toggleButton.textContent = '';
+    toggleSwitch.checked = true;
 }
 
-    // Gestion du clic sur le bouton
-toggleButton.addEventListener('click', () => {
-    const theme = document.documentElement.getAttribute('data-theme');
-    const isDark = theme === 'dark';
-
-    document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
-    localStorage.setItem('theme', isDark ? 'light' : 'dark');
-    toggleButton.textContent = '';
-
-    // Changer l'icône selon le thème
-    if (isDark) {
-        toggleButton.classList.remove('bi-sun-fill');
-        toggleButton.classList.add('bi-moon-stars-fill');
+toggleSwitch.addEventListener('change', () => {
+    if (toggleSwitch.checked) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
     } else {
-        toggleButton.classList.remove('bi-moon-stars-fill');
-        toggleButton.classList.add('bi-sun-fill');
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
     }
 });
 
