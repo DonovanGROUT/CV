@@ -1,7 +1,10 @@
-/*
+<!-- /*
   Cache-Control: public, max-age=0, must-revalidate
   Link: </css/style.css>; rel=preload; as=style
   Link: </js/scripts.js>; rel=preload; as=script
 
 /js/scripts.js
-  Cache-Control: no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0
+  Cache-Control: no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0 -->
+
+/*
+Cache-Control: no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0
