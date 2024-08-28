@@ -348,6 +348,7 @@ section {
 /* Styles du carousel du portfolio */
 #portfolio .wrapper {
     width: 100%;
+    position: relative;
 }
 
 #portfolio .wrapper .carousel {
@@ -402,6 +403,35 @@ section {
     background-color: var(--secondary-color) !important;
     transform: scale(1.2);
 }
+
+.custom-owl-prev, .custom-owl-next {
+    position: absolute;
+    top: 40%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--light-background);
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.custom-owl-prev {
+    left: -10px;
+}
+
+.custom-owl-next {
+    right: -10px;
+}
+
+.custom-owl-prev:hover, .custom-owl-next:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.owl-carousel .owl-nav {
+    display: none;
+}
+
 
 /* Styles des cards pour recommendations */
 .recommendation-card {
@@ -653,6 +683,14 @@ form label {
 
     .timeline-item.timeline-inverted {
         left: 0;
+    }
+
+    .carousel-control-prev-icon {
+        margin-left: 50px;
+    }
+    
+    .carousel-control-next-icon {
+        margin-right: 50px;
     }
 }
 
