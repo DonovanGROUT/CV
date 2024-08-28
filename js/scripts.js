@@ -21,7 +21,7 @@ if (currentTheme === 'dark') {
 }
 
     // Gestion du clic sur le bouton
-toggleButton.addEventListener('click', () => {
+    toggleButton.addEventListener('click', () => {
     const theme = document.documentElement.getAttribute('data-theme');
     const isDark = theme === 'dark';
 
