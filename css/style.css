@@ -380,7 +380,7 @@ section {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -30%); /* Recentre le label */
+    transform: translate(-50%, -50%); /* Recentre le label */
     width: calc(100% - 20px);
     background: rgba(0, 0, 0, 0.6);
     color: #fff;
