@@ -251,6 +251,7 @@
                             <h2>Portfolio</h2>
                         </div>
                         <div class="wrapper">
+                            <button class="custom-owl-prev" aria-label="Précédent"><b>←</b></button>
                             <div class="carousel owl-carousel">
                                 <div class="card card-snake">
                                     <a href="https://donovangrout.github.io/snake_game/" target="_blank" aria-label="Lien vers le jeu Snake revisité">
@@ -273,6 +274,7 @@
                                     </a>
                                 </div>
                             </div>
+                            <button class="custom-owl-next" aria-label="Suivant"><b>→</b></button>
                         </div>
                         <script>
                             $(".carousel").owlCarousel({
@@ -282,6 +284,8 @@
                                 autoplayTimeout: 3000,
                                 autoplayHoverPause: true,
                                 dots: true,
+                                nav: false,
+                                navText: ['←', '→'],
                                 onInitialized: function(event) {
                                     console.log("OwlCarousel initialized", event);
                                     console.log("Dots elements: ", $(".owl-dots").length);
@@ -289,17 +293,21 @@
                                 responsive: {
                                     0: {
                                         items: 1,
-                                        nav: false
                                     },
                                     800: {
                                         items: 2,
-                                        nav: false
                                     },
                                     1200: {
                                         items: 3,
-                                        nav: false
                                     }
                                 }
+                            });
+                            $(".custom-owl-next").click(function() {
+                                $(".carousel").trigger("next.owl.carousel");
+                            });
+
+                            $(".custom-owl-prev").click(function() {
+                                $(".carousel").trigger("prev.owl.carousel");
                             });
                         </script>
                     </div>
