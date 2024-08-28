@@ -51,15 +51,15 @@
                                 <li class="nav-item">
                                     <a class="nav-link active" aria-current="page" href="#about" aria-label="En savoir plus sur Donovan">À propos</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#portfolio" aria-label="Portfolio de Donovan">Portfolio</a>
+                                </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Parcours</a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><a class="dropdown-item" href="#experience" aria-label="Expérience de Donovan">Expérience</a></li>
                                         <li><a class="dropdown-item" href="#formation" aria-label="Formation de Donovan">Formation</a></li>
+                                        <li><a class="dropdown-item" href="#experience" aria-label="Expérience de Donovan">Expérience</a></li>
                                     </ul>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#portfolio" aria-label="Portfolio de Donovan">Portfolio</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#contact" aria-label="Contacter Donovan">Contact</a>
@@ -142,44 +142,71 @@
                     </div>
                 </section>
                 <br>
-                <section id="experience" class="section-dark py-3">
+                <section id="portfolio" class="section-dark py-3">
                     <div class="container">
                         <div class="heading text-center">
-                            <h2>
-                                <span class="section-badge bi-briefcase-fill"></span><br>
-                                Expérience professionnelle<br>en développement
-                            </h2>
+                            <h2>Portfolio</h2>
                         </div>
-                        <ul class="timeline">
-                            <li class="timeline-item">
-                                <div class="timeline-badge"></div>
-                                <div class="timeline-panel">
-                                    <div class="timeline-heading">
-                                        <h3>Développeur stagiaire</h3>
-                                        <h4>Entreprise accueillante</h4>
-                                        <p><span class="bi-clock-fill"></span> Mars et avril 2025</p>
-                                    </div>
-                                    <div class="timeline-body">
-                                        <p>Mise en application de l'apprentissage de la formation O'clock à travers les projets de l'entreprise accueillante.</p>
-                                    </div>
+                        <div class="wrapper">
+                            <button class="custom-owl-prev" aria-label="Précédent"><b>←</b></button>
+                            <div class="carousel owl-carousel">
+                                <div class="card card-snake">
+                                    <a href="https://donovangrout.github.io/snake_game/" target="_blank" aria-label="Lien vers le jeu Snake revisité">
+                                        <img src="images/snake.webp" class="d-block w-100" alt="Capture d'écran du jeu Snake revisité">
+                                    </a>
                                 </div>
-                            </li>
-                            <li class="timeline-item timeline-inverted">
-                                <div class="timeline-badge"></div>
-                                <div class="timeline-panel">
-                                    <div class="timeline-heading">
-                                        <h3>Référent technique</h3>
-                                        <h4>Agaphone</h4>
-                                        <p><span class="bi-clock-fill"></span> 2017-2024</p>
-                                    </div>
-                                    <div class="timeline-body">
-                                        <p>Développement de scripts d'appels en Javascript.</p>
-                                        <p>Résolution de problèmes techniques.</p>
-                                        <p>Contact référent avec le prestataire technique.</p>
-                                    </div>
+                                <div class="card card-voyage">
+                                    <a href="https://donovangrout.github.io/page_web_voyage/" target="_blank" aria-label="Lien vers la page web statique d'agence de voyage factice">
+                                        <img src="images/page_web_voyage.webp" class="d-block w-100" alt="Page web statique d'agence de voyage factice">
+                                    </a>
                                 </div>
-                            </li>
-                        </ul>
+                                <div class="card card-burger">
+                                    <a href="https://github.com/DonovanGROUT/BurgerCode/" target="_blank" aria-label="Lien vers le site de commande de fast-food factice">
+                                        <img src="images/BurgerCode.webp" class="d-block w-100" alt="Capture d'écran du site de commande de fast-food factice">
+                                    </a>
+                                </div>
+                                <div class="card card-site">
+                                    <a href="https://sitepro-donovangrout.netlify.app/" target="_blank" aria-label="Lien vers le site professionnel">
+                                        <img src="images/professional-site.webp" class="d-block w-100" alt="Capture d'écran du site professionnel">
+                                    </a>
+                                </div>
+                            </div>
+                            <button class="custom-owl-next" aria-label="Suivant"><b>→</b></button>
+                        </div>
+                        <script>
+                            $(".carousel").owlCarousel({
+                                margin: 10,
+                                loop: true,
+                                autoplay: true,
+                                autoplayTimeout: 3000,
+                                autoplayHoverPause: true,
+                                dots: true,
+                                nav: false,
+                                navText: ['←', '→'],
+                                onInitialized: function(event) {
+                                    console.log("OwlCarousel initialized", event);
+                                    console.log("Dots elements: ", $(".owl-dots").length);
+                                },
+                                responsive: {
+                                    0: {
+                                        items: 1,
+                                    },
+                                    800: {
+                                        items: 2,
+                                    },
+                                    1200: {
+                                        items: 3,
+                                    }
+                                }
+                            });
+                            $(".custom-owl-next").click(function() {
+                                $(".carousel").trigger("next.owl.carousel");
+                            });
+
+                            $(".custom-owl-prev").click(function() {
+                                $(".carousel").trigger("prev.owl.carousel");
+                            });
+                        </script>
                     </div>
                 </section>
                 <br>
@@ -253,71 +280,44 @@
                     </div>
                 </section>
                 <br>
-                <section id="portfolio" class="section-dark py-3">
+                <section id="experience" class="section-dark py-3">
                     <div class="container">
                         <div class="heading text-center">
-                            <h2>Portfolio</h2>
+                            <h2>
+                                <span class="section-badge bi-briefcase-fill"></span><br>
+                                Expérience professionnelle<br>en développement
+                            </h2>
                         </div>
-                        <div class="wrapper">
-                            <button class="custom-owl-prev" aria-label="Précédent"><b>←</b></button>
-                            <div class="carousel owl-carousel">
-                                <div class="card card-snake">
-                                    <a href="https://donovangrout.github.io/snake_game/" target="_blank" aria-label="Lien vers le jeu Snake revisité">
-                                        <img src="images/snake.webp" class="d-block w-100" alt="Capture d'écran du jeu Snake revisité">
-                                    </a>
+                        <ul class="timeline">
+                            <li class="timeline-item">
+                                <div class="timeline-badge"></div>
+                                <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <h3>Développeur stagiaire</h3>
+                                        <h4>Entreprise accueillante</h4>
+                                        <p><span class="bi-clock-fill"></span> Mars et avril 2025</p>
+                                    </div>
+                                    <div class="timeline-body">
+                                        <p>Mise en application de l'apprentissage de la formation O'clock à travers les projets de l'entreprise accueillante.</p>
+                                    </div>
                                 </div>
-                                <div class="card card-voyage">
-                                    <a href="https://donovangrout.github.io/page_web_voyage/" target="_blank" aria-label="Lien vers la page web statique d'agence de voyage factice">
-                                        <img src="images/page_web_voyage.webp" class="d-block w-100" alt="Page web statique d'agence de voyage factice">
-                                    </a>
+                            </li>
+                            <li class="timeline-item timeline-inverted">
+                                <div class="timeline-badge"></div>
+                                <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <h3>Référent technique</h3>
+                                        <h4>Agaphone</h4>
+                                        <p><span class="bi-clock-fill"></span> 2017-2024</p>
+                                    </div>
+                                    <div class="timeline-body">
+                                        <p>Développement de scripts d'appels en Javascript.</p>
+                                        <p>Résolution de problèmes techniques.</p>
+                                        <p>Contact référent avec le prestataire technique.</p>
+                                    </div>
                                 </div>
-                                <div class="card card-burger">
-                                    <a href="https://github.com/DonovanGROUT/BurgerCode/" target="_blank" aria-label="Lien vers le site de commande de fast-food factice">
-                                        <img src="images/BurgerCode.webp" class="d-block w-100" alt="Capture d'écran du site de commande de fast-food factice">
-                                    </a>
-                                </div>
-                                <div class="card card-site">
-                                    <a href="https://sitepro-donovangrout.netlify.app/" target="_blank" aria-label="Lien vers le site professionnel">
-                                        <img src="images/professional-site.webp" class="d-block w-100" alt="Capture d'écran du site professionnel">
-                                    </a>
-                                </div>
-                            </div>
-                            <button class="custom-owl-next" aria-label="Suivant"><b>→</b></button>
-                        </div>
-                        <script>
-                            $(".carousel").owlCarousel({
-                                margin: 10,
-                                loop: true,
-                                autoplay: true,
-                                autoplayTimeout: 3000,
-                                autoplayHoverPause: true,
-                                dots: true,
-                                nav: false,
-                                navText: ['←', '→'],
-                                onInitialized: function(event) {
-                                    console.log("OwlCarousel initialized", event);
-                                    console.log("Dots elements: ", $(".owl-dots").length);
-                                },
-                                responsive: {
-                                    0: {
-                                        items: 1,
-                                    },
-                                    800: {
-                                        items: 2,
-                                    },
-                                    1200: {
-                                        items: 3,
-                                    }
-                                }
-                            });
-                            $(".custom-owl-next").click(function() {
-                                $(".carousel").trigger("next.owl.carousel");
-                            });
-
-                            $(".custom-owl-prev").click(function() {
-                                $(".carousel").trigger("prev.owl.carousel");
-                            });
-                        </script>
+                            </li>
+                        </ul>
                     </div>
                 </section>
                 <br>
