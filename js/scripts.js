@@ -10,6 +10,60 @@ document.addEventListener('DOMContentLoaded', () => {
     const toggleSwitch = document.querySelector('#theme-toggle');
     const currentTheme = localStorage.getItem('theme') || 'light';
 
+    // Code pour le carousel Owl
+    $(".carousel").owlCarousel({
+        margin: 10,
+        loop: true,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        autoplayHoverPause: true,
+        dots: true,
+        nav: false,
+        navText: ['←', '→'],
+        onInitialized: function(event) {
+            console.log("OwlCarousel initialized", event);
+            console.log("Dots elements: ", $(".owl-dots").length);
+        },
+        responsive: {
+            0: {
+                items: 1,
+            },
+            800: {
+                items: 2,
+            },
+            1200: {
+                items: 3,
+            }
+        }
+    });
+
+    $(".custom-owl-next").click(function() {
+        $(".carousel").trigger("next.owl.carousel");
+    });
+
+    $(".custom-owl-prev").click(function() {
+        $(".carousel").trigger("prev.owl.carousel");
+    });
+
+    // Code pour les labels
+    const viewLabelButtons = document.querySelectorAll('.view-label-btn');
+
+    viewLabelButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.stopPropagation(); // Empêche la navigation par le lien
+
+            const card = button.closest('.card');
+            const cardLabel = card.querySelector('.card-label');
+
+            // Bascule l'affichage du label
+            if (cardLabel.style.display === 'block') {
+                cardLabel.style.display = 'none';
+            } else {
+                cardLabel.style.display = 'block';
+            }
+        });
+    });
+
 // Mode clair/sombre
 
 if (currentTheme === 'dark') {
