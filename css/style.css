@@ -290,7 +290,7 @@ section {
     position: relative;
     border: 1px solid #d4d4d4;
     border-radius: 5px;
-    padding: 10px 20px 50px;
+    padding: 10px 20px;
     font-size: 0.9rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #ffffff;
@@ -771,6 +771,9 @@ form label {
 @media (pointer: coarse) {
     .view-label-btn {
         display: block; /* Affiché uniquement sur les appareils tactiles */
+    }
+    .timeline-panel {
+        padding: 10px 20px 50px; /* Augmente le padding en bas pour les appareils tactiles */
     }
 }
 
