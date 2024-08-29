@@ -768,8 +768,14 @@ form label {
     }
 }
 
+
+
 /* Styles pour les appareils non tactiles (définir une largeur minimale si nécessaire) */
 @media (pointer: fine) {
+    #portfolio .carousel .view-label-btn {
+        display: none !important; /* Assure que le bouton reste caché */
+    }
+
     #portfolio .carousel .card:hover .card-label {
         display: block;
         opacity: 1;
