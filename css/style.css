@@ -294,6 +294,7 @@ section {
     font-size: 0.9rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #ffffff;
+    z-index: 1;
 }
 
 .timeline-item .timeline-body {
@@ -773,7 +774,7 @@ form label {
         display: block; /* Affiché uniquement sur les appareils tactiles */
     }
     .timeline-item.timeline-panel {
-        padding: 10px 20px 50px; /* Augmente le padding en bas pour les appareils tactiles */
+        padding-bottom: 50px; /* Augmente le padding en bas pour les appareils tactiles */
     }
 }
 
