@@ -51,23 +51,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Code pour les labels
-    const viewLabelButtons = document.querySelectorAll('.view-label-btn');
-
-    viewLabelButtons.forEach(button => {
+    document.querySelectorAll('.view-label-btn').forEach(button => {
         button.addEventListener('click', (e) => {
             e.stopPropagation(); // Empêche la navigation par le lien
 
-            const card = button.closest('.card');
-            const cardLabel = card.querySelector('.card-label');
+            const card = button.closest('.timeline-panel') || button.closest('.card');
+            const cardLabel = card.querySelector('.timeline-body') || card.querySelector('.card-label');
 
             // Bascule l'affichage du label
-            if (cardLabel.style.display === 'block') {
+            if (cardLabel.style.display === 'block' || cardLabel.style.display === '') {
                 cardLabel.style.display = 'none';
             } else {
                 cardLabel.style.display = 'block';
             }
         });
     });
+
 
     // Mode clair/sombre
     if (currentTheme === 'dark') {
