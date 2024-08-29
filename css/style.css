@@ -290,7 +290,7 @@ section {
     position: relative;
     border: 1px solid #d4d4d4;
     border-radius: 5px;
-    padding: 10px 20px;
+    padding: 10px 20px 50px;
     font-size: 0.9rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #ffffff;
