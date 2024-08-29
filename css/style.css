@@ -897,7 +897,7 @@ form textarea:focus {
 
 /* Fond pour le corps */
 [data-theme="dark"] body {
-    background-image: url('../images/wallpaper.jpg');
+    background-image: url('../images/wallpaper.webp');
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
