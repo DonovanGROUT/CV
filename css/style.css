@@ -408,7 +408,7 @@ section {
     opacity: 1;
 }
 
-#portfolio .carousel .view-label-btn {
+.view-label-btn {
     display: none; /* Caché par défaut */
     position: absolute;
     bottom: 10px;
@@ -426,11 +426,11 @@ section {
     transition: background 0.3s ease, transform 0.3s ease;
 }
 
-#portfolio .carousel .card:hover .view-label-btn {
+.view-label-btn {
     display: block;
 }
 
-#portfolio .carousel .view-label-btn:hover {
+.view-label-btn:hover {
     background: rgba(0, 0, 0, 0.9); /* Changement de couleur au survol */
     transform: translateX(-50%) scale(1.05); /* Légère augmentation au survol */
 }
@@ -757,13 +757,13 @@ form label {
 }
 
 /* Styles par défaut pour les appareils non tactiles */
-#portfolio .carousel .view-label-btn {
+.view-label-btn {
     display: none; /* Caché par défaut */
 }
 
 /* Styles pour les appareils tactiles */
 @media (pointer: coarse) {
-    #portfolio .carousel .view-label-btn {
+    .view-label-btn {
         display: block; /* Affiché uniquement sur les appareils tactiles */
     }
 }
@@ -772,7 +772,7 @@ form label {
 
 /* Styles pour les appareils non tactiles (définir une largeur minimale si nécessaire) */
 @media (pointer: fine) {
-    #portfolio .carousel .view-label-btn {
+    .view-label-btn {
         display: none !important; /* Assure que le bouton reste caché */
     }
 
