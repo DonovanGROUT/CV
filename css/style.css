@@ -35,11 +35,13 @@ body {
     -webkit-background-position: top center;
 }
 
+/* Hack pour iOS uniquement */
 @supports (-webkit-background-clip: text) {
-    body {
-        background-attachment: scroll;
+    .your-background-class {
+        background-size: auto; /* Ajuste en fonction des besoins */
     }
 }
+
 
 body::before {
     content: '';
