@@ -297,6 +297,12 @@ section {
     z-index: 1;
 }
 
+/* Classe spéciale pour les appareils tactiles */
+.touch-device .timeline-panel {
+    padding-bottom: 50px; /* Plus grand padding en bas */
+}
+
+
 .timeline-item .timeline-body {
     max-height: 0;
     overflow: hidden;
@@ -772,9 +778,6 @@ form label {
 @media (pointer: coarse) {
     .view-label-btn {
         display: block; /* Affiché uniquement sur les appareils tactiles */
-    }
-    .timeline-item.timeline-panel {
-        padding-bottom: 50px; /* Augmente le padding en bas pour les appareils tactiles */
     }
 }
 
