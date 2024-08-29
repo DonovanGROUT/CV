@@ -29,10 +29,16 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-position: top center;
+    background-position: center;
     -webkit-background-size: cover;
     -webkit-background-attachment: fixed;
     -webkit-background-position: top center;
+}
+
+@supports (-webkit-background-clip: text) {
+    body {
+        background-attachment: scroll;
+    }
 }
 
 body::before {
