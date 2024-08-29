@@ -50,63 +50,43 @@ document.addEventListener('DOMContentLoaded', () => {
         $(".carousel").trigger("prev.owl.carousel");
     });
 
-// Code pour les labels du Portfolio
-document.querySelectorAll('#portfolio .view-label-btn').forEach(button => {
-    button.addEventListener('click', (e) => {
-        e.stopPropagation(); // Empêche la navigation par le lien
-
-        const card = button.closest('.card');
-        const cardLabel = card.querySelector('.card-label');
-
-        // Bascule l'affichage du label
-        if (cardLabel.classList.contains('show')) {
-            cardLabel.classList.remove('show');
-            cardLabel.style.display = 'none';
-            button.textContent = 'Voir les détails';
-        } else {
-            cardLabel.classList.add('show');
-            cardLabel.style.display = 'block';
-            button.textContent = 'Cacher les détails';
-        }
-    });
-});
-
 // Détecter si c'est un appareil tactile
 if ('ontouchstart' in document.documentElement) {
     document.body.classList.add('touch-device');
 }
 
-// Gestion des boutons "Voir les détails" pour Formation et Expérience
-const viewLabelButtons = document.querySelectorAll('#formation .view-label-btn, #experience .view-label-btn');
+// Gestion des boutons "Voir les détails" pour portfolio, formation et expérience
+const viewLabelButtons = document.querySelectorAll('.view-label-btn');
 let activeButton = null;
 
 viewLabelButtons.forEach(button => {
     button.addEventListener('click', (e) => {
         e.stopPropagation(); // Empêche la propagation de l'événement
 
-        const timelinePanel = button.closest('.timeline-panel');
-        const timelineBody = timelinePanel.querySelector('.timeline-body');
+        const parentElement = button.closest('.timeline-panel') || button.closest('.card');
+        const labelElement = parentElement.querySelector('.timeline-body') || parentElement.querySelector('.card-label');
 
         // Si un autre bouton est actif, on le réinitialise
         if (activeButton && activeButton !== button) {
-            const activePanel = activeButton.closest('.timeline-panel');
-            const activeBody = activePanel.querySelector('.timeline-body');
-            activeBody.style.display = 'none';
+            const activeParentElement = activeButton.closest('.timeline-panel') || activeButton.closest('.card');
+            const activeLabelElement = activeParentElement.querySelector('.timeline-body') || activeParentElement.querySelector('.card-label');
+            activeLabelElement.style.display = 'none';
             activeButton.textContent = 'Voir les détails';
         }
 
         // Bascule l'affichage du label
-        if (timelineBody.style.display === 'block') {
-            timelineBody.style.display = 'none';
+        if (labelElement.style.display === 'block') {
+            labelElement.style.display = 'none';
             button.textContent = 'Voir les détails';
             activeButton = null; // Plus de bouton actif
         } else {
-            timelineBody.style.display = 'block';
+            labelElement.style.display = 'block';
             button.textContent = 'Cacher les détails';
             activeButton = button; // Met à jour le bouton actif
         }
     });
 });
+
 
 
 
