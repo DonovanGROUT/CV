@@ -50,22 +50,27 @@ document.addEventListener('DOMContentLoaded', () => {
         $(".carousel").trigger("prev.owl.carousel");
     });
 
-    // Code pour les labels
-    document.querySelectorAll('.view-label-btn').forEach(button => {
-        button.addEventListener('click', (e) => {
-            e.stopPropagation(); // Empêche la navigation par le lien
+// Code pour les labels
+document.querySelectorAll('.view-label-btn').forEach(button => {
+    button.addEventListener('click', (e) => {
+        e.stopPropagation(); // Empêche la navigation par le lien
 
-            const card = button.closest('.timeline-panel') || button.closest('.card');
-            const cardLabel = card.querySelector('.timeline-body') || card.querySelector('.card-label');
+        const card = button.closest('.timeline-panel') || button.closest('.card');
+        const cardLabel = card.querySelector('.timeline-body') || card.querySelector('.card-label');
 
-            // Bascule l'affichage du label
-            if (cardLabel.style.display === 'block' || cardLabel.style.display === '') {
-                cardLabel.style.display = 'none';
-            } else {
-                cardLabel.style.display = 'block';
-            }
-        });
+        // Bascule l'affichage du label
+        if (cardLabel.classList.contains('show')) {
+            cardLabel.classList.remove('show');
+            cardLabel.style.display = 'none';
+            button.textContent = 'Voir les détails';
+        } else {
+            cardLabel.classList.add('show');
+            cardLabel.style.display = 'block';
+            button.textContent = 'Cacher les détails';
+        }
     });
+});
+
 
 
     // Mode clair/sombre

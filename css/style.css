@@ -426,9 +426,15 @@ section {
     transition: background 0.3s ease, transform 0.3s ease;
 }
 
-/* .view-label-btn {
-    display: block;
-} */
+.timeline-body {
+    position: relative;
+    z-index: 5; /* Texte en dessous du bouton */
+    pointer-events: none; /* Empêche les événements sur le texte quand il est masqué */
+}
+
+.timeline-body.show {
+    pointer-events: auto; /* Réactive les événements quand le texte est visible */
+}
 
 .view-label-btn:hover {
     background: rgba(0, 0, 0, 0.9); /* Changement de couleur au survol */
