@@ -10,6 +10,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const toggleSwitch = document.querySelector('#theme-toggle');
     const currentTheme = localStorage.getItem('theme') || 'light';
 
+    // Désactiver la restauration automatique du scroll
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
+
     // Code pour le carousel Owl
     $(".carousel").owlCarousel({
         margin: 10,
@@ -64,30 +69,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-// Mode clair/sombre
-
-if (currentTheme === 'dark') {
-    document.documentElement.setAttribute('data-theme', 'dark');
-    toggleSwitch.checked = true;
-}
-
-toggleSwitch.addEventListener('change', () => {
-    if (toggleSwitch.checked) {
+    // Mode clair/sombre
+    if (currentTheme === 'dark') {
         document.documentElement.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
-    } else {
-        document.documentElement.setAttribute('data-theme', 'light');
-        localStorage.setItem('theme', 'light');
+        toggleSwitch.checked = true;
     }
-});
 
+    toggleSwitch.addEventListener('change', () => {
+        if (toggleSwitch.checked) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+        }
+    });
 
-// Rafraîchissement de la page au clic sur le bouton Accueil
+    // Rafraîchissement de la page au clic sur le bouton Accueil
     if (homeButton) {
-        homeButton.addEventListener('click', () => location.reload());
+        homeButton.addEventListener('click', () => {
+            window.location.href = 'https://sitepro-donovangrout.netlify.app/';
+            setTimeout(() => window.scrollTo(0, 0), 100);
+        });
     }
 
-// Mettre à jour les liens actifs
+    // Mettre à jour les liens actifs
     const updateActiveLink = (links, currentId) => {
         links.forEach(link => {
             const href = link.getAttribute('href').substring(1);
@@ -95,7 +101,7 @@ toggleSwitch.addEventListener('change', () => {
         });
     };
 
-// Défilement fluide vers les sections
+    // Défilement fluide vers les sections
     const scrollToSection = (e) => {
         e.preventDefault();
         const targetId = e.currentTarget.getAttribute('href').substring(1);
@@ -114,7 +120,7 @@ toggleSwitch.addEventListener('change', () => {
     navLinks.forEach(link => link.addEventListener('click', scrollToSection));
     dropdownItems.forEach(item => item.addEventListener('click', scrollToSection));
 
-// Observer pour les sections visibles
+    // Observer pour les sections visibles
     const observerCallback = (entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -135,7 +141,7 @@ toggleSwitch.addEventListener('change', () => {
     progressBars.forEach(bar => observer.observe(bar));
     timelineItems.forEach(item => observer.observe(item));
 
-// Gestion du défilement de la fenêtre pour les sections
+    // Gestion du défilement de la fenêtre pour les sections
     const handleScroll = () => {
         let currentSection = '';
         sections.forEach(section => {
@@ -150,7 +156,7 @@ toggleSwitch.addEventListener('change', () => {
 
     window.addEventListener('scroll', handleScroll);
 
-// Formulaire
+    // Formulaire
 
     // Intl-Tel-Input Configuration
     const iti = window.intlTelInput(input, {
