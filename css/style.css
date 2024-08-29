@@ -772,7 +772,7 @@ form label {
     .view-label-btn {
         display: block; /* Affiché uniquement sur les appareils tactiles */
     }
-    .timeline-panel {
+    .timeline-item.timeline-panel {
         padding: 10px 20px 50px; /* Augmente le padding en bas pour les appareils tactiles */
     }
 }
