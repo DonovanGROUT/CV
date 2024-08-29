@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Code pour le carousel Owl
-    $(".carousel").owlCarousel({
+    $(".carousel.owl-carousel").owlCarousel({
         margin: 10,
         loop: true,
         autoplay: true,
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Rafraîchissement de la page au clic sur le bouton Accueil
     if (homeButton) {
         homeButton.addEventListener('click', () => {
-            window.location.href = 'https://sitepro-donovangrout.netlify.app/';
+            window.location.href = '/';
             setTimeout(() => window.scrollTo(0, 0), 100);
         });
     }
