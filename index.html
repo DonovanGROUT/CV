@@ -97,6 +97,38 @@
                 margin-bottom: 1rem;
             }
 
+            /* Footer + barre de réseaux sociaux */
+            footer {
+                background-color: transparent;
+                color: var(--text-color);
+                padding: 20px 0;
+            }
+
+            .social-sidebar {
+                position: fixed;
+                top: 50%;
+                transform: translateY(-50%);
+                left: 0;
+                background: var(--secondary-color);
+                padding: 8px;
+                border-radius: 0 5px 5px 0;
+            }
+
+            .social-sidebar a {
+                display: block;
+                color: var(--light-background);
+                font-size: 1.5em;
+                margin: 8px 0;
+                text-align: center;
+            }
+
+            .social-sidebar a:hover {
+                color: var(--primary-color);
+                transform: scale(1.05);
+                box-shadow: 0px 8px 16px var(--shadow-light);
+                transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
             /* Responsive */
             @media (max-width: 768px) {
                 .glob {
@@ -139,14 +171,6 @@
         <link rel="preload" href="https://code.jquery.com/jquery-3.7.1.min.js" as="script">
         <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" as="script">
         <!-- Scripts -->
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-              var link = document.createElement('link');
-              link.rel = 'stylesheet';
-              link.href = 'css/style.css?v=1.7.css';
-              document.head.appendChild(link);
-            });
-          </script>
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/intlTelInput.min.js" defer></script>
