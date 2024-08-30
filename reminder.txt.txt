@@ -1,0 +1,2 @@
+- Penser à mettre un nouveau numéro de version lorsqu'un changement majeur est fait. Le changer dans le head pour le css et le js (penser aussi au css dans les balises noscript)
+- Penser à exécuter npm run build:css à la racine du projet sur l'invite de commande pour réduire le CSS inutile et le minifier.
