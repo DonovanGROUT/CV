@@ -188,9 +188,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 .then(data => {
                     const countryCode = data.country ? data.country.toLowerCase() : "fr";
                     callback(countryCode);
+                    iti.setCountry(countryCode); // Forcer la mise à jour
                 })
                 .catch(() => {
                     callback("fr");
+                    iti.setCountry("fr"); // Valeur de repli
                 });
         },
         utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/utils.js"
