@@ -211,4 +211,33 @@ viewLabelButtons.forEach(button => {
         const fullNumber = iti.getNumber();
         input.value = fullNumber;
     });
+
+     // Stockage et restauration des données du formulaire :
+     if (form) {
+        // Chargement des données du formulaire
+        var savedData = JSON.parse(localStorage.getItem('formData'));
+        if (savedData) {
+            for (var key in savedData) {
+                var field = form.querySelector('[name="' + key + '"]');
+                if (field) {
+                    field.value = savedData[key];
+                }
+            }
+        }
+
+        // Sauvegarde des données du formulaire avant de quitter
+        form.addEventListener('input', function () {
+            var formData = new FormData(form);
+            var dataObject = {};
+            formData.forEach((value, key) => {
+                dataObject[key] = value;
+            });
+            localStorage.setItem('formData', JSON.stringify(dataObject));
+        });
+
+        // Nettoyage des données après soumission
+        form.addEventListener('submit', function () {
+            localStorage.removeItem('formData');
+        });
+    }
 });
