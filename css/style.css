@@ -21,6 +21,7 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
+    font-display: swap;
     background-color: #FFFFFF;
     color: var(--text-color);
     margin: 0;
