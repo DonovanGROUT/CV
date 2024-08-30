@@ -28,6 +28,9 @@ document.addEventListener('DOMContentLoaded', () => {
         onInitialized: function(event) {
             console.log("OwlCarousel initialized", event);
             console.log("Dots elements: ", $(".owl-dots").length);
+            $('.owl-dot').each(function(index) {
+                $(this).attr('aria-label', 'Aller à la slide ' + (index + 1));
+            });
         },
         responsive: {
             0: {
