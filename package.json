@@ -13,8 +13,7 @@
     "doc": "docs"
   },
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^6.0.0",
-    "critical": "^7.2.0"
+    "@fullhuman/postcss-purgecss": "^6.0.0"
   },
   "scripts": {
     "build:css": "postcss css/style.css -o dist/style.css"
