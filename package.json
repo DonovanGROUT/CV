@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "autoprefixer": "^10.4.20",
+    "cssnano": "^7.0.5",
+    "postcss": "^8.4.41",
+    "postcss-cli": "^11.0.0"
+  },
+  "name": "site-professionnel",
+  "version": "1.0.0",
+  "description": "Projet site professionnel avec CV, parcours et compétences.",
+  "main": "postcss.config.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^6.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:css": "postcss css/style.css -o dist/style.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
