@@ -31,6 +31,13 @@ document.addEventListener('DOMContentLoaded', () => {
             $('.owl-dot').each(function(index) {
                 $(this).attr('aria-label', 'Aller à la slide ' + (index + 1));
             });
+
+            // Application des styles pour l'accessibilité après l'initialisation
+            applyAccessibilityStyles();
+        },
+        onChanged: function(event) {
+            // Réappliquer les styles d'accessibilité après chaque changement de slide
+            applyAccessibilityStyles();
         },
         responsive: {
             0: {
@@ -53,42 +60,42 @@ document.addEventListener('DOMContentLoaded', () => {
         $(".carousel").trigger("prev.owl.carousel");
     });
 
-        // Détecter si c'est un appareil tactile
-        if ('ontouchstart' in document.documentElement) {
-            document.body.classList.add('touch-device');
-        }
+    // Détecter si c'est un appareil tactile
+    if ('ontouchstart' in document.documentElement) {
+        document.body.classList.add('touch-device');
+    }
 
-        // Gestion des boutons "Voir les détails" pour portfolio, formation et expérience
-        const viewLabelButtons = document.querySelectorAll('.view-label-btn');
-        let activeButton = null;
+    // Gestion des boutons "Voir les détails" pour portfolio, formation et expérience
+    const viewLabelButtons = document.querySelectorAll('.view-label-btn');
+    let activeButton = null;
 
-        viewLabelButtons.forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.stopPropagation(); // Empêche la propagation de l'événement
+    viewLabelButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.stopPropagation(); // Empêche la propagation de l'événement
 
-                const parentElement = button.closest('.timeline-panel') || button.closest('.card');
-                const labelElement = parentElement.querySelector('.timeline-body') || parentElement.querySelector('.card-label');
+            const parentElement = button.closest('.timeline-panel') || button.closest('.card');
+            const labelElement = parentElement.querySelector('.timeline-body') || parentElement.querySelector('.card-label');
 
-                // Si un autre bouton est actif, on le réinitialise
-                if (activeButton && activeButton !== button) {
-                    const activeParentElement = activeButton.closest('.timeline-panel') || activeButton.closest('.card');
-                    const activeLabelElement = activeParentElement.querySelector('.timeline-body') || activeParentElement.querySelector('.card-label');
-                    activeLabelElement.style.display = 'none';
-                    activeButton.textContent = 'Voir les détails';
-                }
+            // Si un autre bouton est actif, on le réinitialise
+            if (activeButton && activeButton !== button) {
+                const activeParentElement = activeButton.closest('.timeline-panel') || activeButton.closest('.card');
+                const activeLabelElement = activeParentElement.querySelector('.timeline-body') || activeParentElement.querySelector('.card-label');
+                activeLabelElement.style.display = 'none';
+                activeButton.textContent = 'Voir les détails';
+            }
 
-                // Bascule l'affichage du label
-                if (labelElement.style.display === 'block') {
-                    labelElement.style.display = 'none';
-                    button.textContent = 'Voir les détails';
-                    activeButton = null; // Plus de bouton actif
-                } else {
-                    labelElement.style.display = 'block';
-                    button.textContent = 'Cacher les détails';
-                    activeButton = button; // Met à jour le bouton actif
-                }
-            });
+            // Bascule l'affichage du label
+            if (labelElement.style.display === 'block') {
+                labelElement.style.display = 'none';
+                button.textContent = 'Voir les détails';
+                activeButton = null; // Plus de bouton actif
+            } else {
+                labelElement.style.display = 'block';
+                button.textContent = 'Cacher les détails';
+                activeButton = button; // Met à jour le bouton actif
+            }
         });
+    });
 
     // Mode clair/sombre
     if (currentTheme === 'dark') {
@@ -210,8 +217,8 @@ document.addEventListener('DOMContentLoaded', () => {
         input.value = fullNumber;
     });
 
-     // Stockage et restauration des données du formulaire :
-     if (form) {
+    // Stockage et restauration des données du formulaire :
+    if (form) {
         // Chargement des données du formulaire
         var savedData = JSON.parse(localStorage.getItem('formData'));
         if (savedData) {
@@ -238,4 +245,39 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.removeItem('formData');
         });
     }
+
+    // Fonction pour appliquer les styles d'accessibilité
+    function applyAccessibilityStyles() {
+        const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
+
+        document.querySelectorAll('.owl-dot').forEach(function(dot) {
+            dot.style.width = '24px';
+            dot.style.height = '24px';
+            dot.style.margin = '5px';
+            dot.style.display = 'inline-block';
+
+            const span = dot.querySelector('span');
+            if (span) {
+                span.style.width = '100%';
+                span.style.height = '100%';
+                span.style.display = 'block';
+                span.style.borderRadius = '50%';
+                // Appliquer une couleur différente pour le mode sombre
+                span.style.backgroundColor = isDarkMode ? '#3D63DD' : '#FF8552';
+            }
+        });
+
+        // Changer la couleur de fond du bouton actif
+        document.querySelectorAll('.owl-dot.active span').forEach(function(span) {
+            span.style.backgroundColor = '#457B9D';
+        });
+    }
+
+    // Appeler la fonction initialement et lors du changement de thème
+    applyAccessibilityStyles();
+
+    toggleSwitch.addEventListener('change', () => {
+        // Re-appliquer les styles après le changement de thème
+        applyAccessibilityStyles();
+    });
 });

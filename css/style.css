@@ -469,8 +469,8 @@ section {
 }
 
 .owl-dot {
-    height: 12px;
-    width: 12px;
+    height: 48px;
+    width: 48px;
     border-radius: 50%;
     cursor: pointer;
     outline: none;
@@ -478,7 +478,7 @@ section {
     background-color: var(--primary-color) !important;
     border: none;
     transition: all 0.3s ease;
-    box-shadow: 0px 2px 5px rgba(0,0,0,0.3)
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.3);
 }
 
 .owl-dot:hover,
