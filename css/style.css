@@ -979,6 +979,16 @@ form textarea:focus {
     outline: 2px solid var(--secondary-color);
 }
 
+[data-theme='dark'] .iti__country-list .iti__country {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+[data-theme='dark'] .iti__country-list .iti__country.iti__highlight {
+    background-color: var(--shadow-dark);
+    color: var(--text-color);
+}
+
 
 /* Adaptation de la barre de réseaux sociaux */
 
