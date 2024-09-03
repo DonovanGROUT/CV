@@ -5,7 +5,7 @@
 
 /* Variables CSS */
 :root {
-    --primary-color: #FF8552;
+    --primary-color: #FF6F61;/*A garder pour vérifier quelle couleur est la meilleure*/ /*#FF8552*/
     --secondary-color: #457B9D;
     --secondary-color-rgba: rgba(69, 123, 157, 0.3);
     --text-color: #333333;
@@ -94,7 +94,7 @@ button:hover,
 .btn-primary {
     background-color: var(--primary-color);
     border: 2px solid var(--text-color);
-    color: #FFFFFF;
+    color: var(--text-color);
     font-weight: bold;
     font-size: 1rem;
     padding: 5px 10px;
