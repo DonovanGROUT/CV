@@ -5,7 +5,7 @@
 
 /* Variables CSS */
 :root {
-    --primary-color: #FF6F61;/*A garder pour vérifier quelle couleur est la meilleure*/ /*#FF8552*/
+    --primary-color: #FF8552;/*A garder pour vérifier quelle couleur est la meilleure*/ /*FF6F61*/
     --secondary-color: #457B9D;
     --secondary-color-rgba: rgba(69, 123, 157, 0.3);
     --text-color: #333333;
