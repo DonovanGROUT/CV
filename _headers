@@ -8,3 +8,6 @@
   Cache-Control: public, max-age=31536000
   Link: </css/style.css>; rel=preload; as=style
   Link: </js/scripts.js>; rel=preload; as=script
+
+/images/*
+  Cache-Control: public, max-age=31536000
