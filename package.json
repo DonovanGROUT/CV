@@ -13,9 +13,16 @@
     "doc": "docs"
   },
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^6.0.0"
+    "@fullhuman/postcss-purgecss": "^6.0.0",
+    "clean-css-cli": "^5.6.3",
+    "html-minifier-terser": "^7.2.0",
+    "terser": "^5.31.6"
   },
   "scripts": {
+    "minify-html": "npx html-minifier-terser \"J:/Site professionnel/Site professionnel/index.html\" -o \"J:/Site professionnel/Site professionnel/index.min.html\" --collapse-whitespace --remove-comments --minify-css true --minify-js true && npx html-minifier-terser \"J:/Site professionnel/Site professionnel/remerciement-formulaire.html\" -o \"J:/Site professionnel/Site professionnel/remerciement-formulaire.min.html\" --collapse-whitespace --remove-comments --minify-css true --minify-js true",
+    "minify-css": "npx clean-css -o \"J:/Site professionnel/Site professionnel/dist/style.min.css\" \"J:/Site professionnel/Site professionnel/css/style.css\" && npx clean-css -o \"J:/Site professionnel/Site professionnel/dist/assets/css/intlTelInput.min.css\" \"J:/Site professionnel/Site professionnel/assets/css/intlTelInput.css\"",
+    "minify-js": "npx terser \"J:/Site professionnel/Site professionnel/assets/js/intlTelInput.js\" -o \"J:/Site professionnel/Site professionnel/dist/assets/js/intlTelInput.min.js\" --compress --mangle && npx terser \"J:/Site professionnel/Site professionnel/assets/js/utils.js\" -o \"J:/Site professionnel/Site professionnel/dist/assets/js/utils.min.js\" --compress --mangle && npx terser \"J:/Site professionnel/Site professionnel/js/scripts.js\" -o \"J:/Site professionnel/Site professionnel/dist/js/scripts.min.js\" --compress --mangle && npx terser \"J:/Site professionnel/Site professionnel/js/scripts-critical.js\" -o \"J:/Site professionnel/Site professionnel/dist/js/scripts-critical.min.js\" --compress --mangle && npx terser \"J:/Site professionnel/Site professionnel/js/scripts-non-critical.js\" -o \"J:/Site professionnel/Site professionnel/dist/js/scripts-non-critical.min.js\" --compress --mangle",
+    "build": "npm run minify-html && npm run minify-js",
     "build:css": "postcss css/style.css -o dist/style.css"
   },
   "keywords": [],
