@@ -1,24 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Code pour le mode clair/sombre
     const toggleSwitch = document.querySelector('#theme-toggle');
+    const rootElement = document.documentElement;
     const currentTheme = localStorage.getItem('theme') || 'light';
 
+    const setTheme = (theme) => {
+        rootElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+    };
+
     if (currentTheme === 'dark') {
-        document.documentElement.setAttribute('data-theme', 'dark');
+        setTheme('dark');
         toggleSwitch.checked = true;
     }
 
     toggleSwitch.addEventListener('change', () => {
-        if (toggleSwitch.checked) {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            localStorage.setItem('theme', 'dark');
-        } else {
-            document.documentElement.setAttribute('data-theme', 'light');
-            localStorage.setItem('theme', 'light');
-        }
+        setTheme(toggleSwitch.checked ? 'dark' : 'light');
     });
 
-    // Rafraîchissement de la page au clic sur le bouton Accueil
+    // Rafraîchir la page au clic sur le bouton Accueil
     const homeButton = document.querySelector('.navbar-brand');
     if (homeButton) {
         homeButton.addEventListener('click', () => {
@@ -27,4 +26,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-

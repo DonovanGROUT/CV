@@ -4,13 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('section');
     const progressBars = document.querySelectorAll('.progress-bar');
     const timelineItems = document.querySelectorAll('.timeline-item');
-    const homeButton = document.querySelector('.navbar-brand');
     const input = document.querySelector("#phone");
     const form = document.querySelector('form');
-    const toggleSwitch = document.querySelector('#theme-toggle');
-    const currentTheme = localStorage.getItem('theme') || 'light';
 
-    // Code pour le carousel Owl
     $(".carousel.owl-carousel").owlCarousel({
         margin: 10,
         loop: true,
@@ -23,10 +19,15 @@ document.addEventListener('DOMContentLoaded', () => {
         onInitialized: function(event) {
             console.log("OwlCarousel initialized", event);
             console.log("Dots elements: ", $(".owl-dots").length);
+
+            // Ajout des attributs aria-label aux boutons de navigation
             $('.owl-dot').each(function(index) {
-                $(this).attr('aria-label', 'Aller à la slide ' + (index + 1));
+                $(this).attr('aria-label', 'Diapositive ' + (index + 1));
             });
-            applyAccessibilityStyles();
+
+            // Ajout d'un aria-label aux boutons de navigation personnalisés
+            $(".custom-owl-prev").attr('aria-label', 'Diapositive précédente');
+            $(".custom-owl-next").attr('aria-label', 'Diapositive suivante');
         },
         onChanged: function(event) {
             applyAccessibilityStyles();
@@ -46,43 +47,32 @@ document.addEventListener('DOMContentLoaded', () => {
         $(".carousel").trigger("prev.owl.carousel");
     });
 
-    // Détecter si c'est un appareil tactile
+    // Détection des appareils tactiles
     if ('ontouchstart' in document.documentElement) {
         document.body.classList.add('touch-device');
     }
 
-    // Gestion des boutons "Voir les détails"
-    const viewLabelButtons = document.querySelectorAll('.view-label-btn');
-    let activeButton = null;
-
-    viewLabelButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const parentElement = button.closest('.timeline-panel') || button.closest('.card');
-            const labelElement = parentElement.querySelector('.timeline-body') || parentElement.querySelector('.card-label');
-            if (activeButton && activeButton !== button) {
-                const activeParentElement = activeButton.closest('.timeline-panel') || activeButton.closest('.card');
-                const activeLabelElement = activeParentElement.querySelector('.timeline-body') || activeParentElement.querySelector('.card-label');
-                activeLabelElement.style.display = 'none';
-                activeButton.textContent = 'Voir les détails';
-            }
-            if (labelElement.style.display === 'block') {
-                labelElement.style.display = 'none';
-                button.textContent = 'Voir les détails';
-                activeButton = null;
-            } else {
-                labelElement.style.display = 'block';
-                button.textContent = 'Cacher les détails';
-                activeButton = button;
+    // Fonctionnalité pour animer les barres de progression et la timeline
+    const observerCallback = (entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                if (entry.target.classList.contains('progress-bar')) {
+                    entry.target.style.width = entry.target.getAttribute('data-width');
+                } else if (entry.target.classList.contains('timeline-item')) {
+                    entry.target.classList.add('in-view');
+                }
             }
         });
-    });
+    };
 
-    // Mettre à jour les liens actifs
+    const sectionObserver = new IntersectionObserver(observerCallback, { threshold: 0.1 });
+    progressBars.forEach(bar => sectionObserver.observe(bar));
+    timelineItems.forEach(item => sectionObserver.observe(item));
+
+    // Mise à jour des liens actifs lors du scroll
     const updateActiveLink = (links, currentId) => {
         links.forEach(link => {
-            const href = link.getAttribute('href').substring(1);
-            link.classList.toggle('active', href === currentId);
+            link.classList.toggle('active', link.getAttribute('href').substring(1) === currentId);
         });
     };
 
@@ -91,9 +81,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const targetId = e.currentTarget.getAttribute('href').substring(1);
         const targetElement = document.getElementById(targetId);
         if (targetElement) {
-            const offset = document.querySelector('.navbar').offsetHeight;
             window.scrollTo({
-                top: targetElement.offsetTop - offset,
+                top: targetElement.offsetTop - document.querySelector('.navbar').offsetHeight,
                 behavior: 'smooth'
             });
             updateActiveLink(navLinks, targetId);
@@ -104,115 +93,33 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinks.forEach(link => link.addEventListener('click', scrollToSection));
     dropdownItems.forEach(item => item.addEventListener('click', scrollToSection));
 
-    const observerCallback = (entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                if (entry.target.classList.contains('progress-bar')) {
-                    const bar = entry.target;
-                    const targetWidth = bar.getAttribute('data-width');
-                    bar.style.width = targetWidth;
-                } else if (entry.target.classList.contains('timeline-item')) {
-                    entry.target.classList.add('in-view');
-                }
-            }
-        });
-    };
-
-    const observerOptions = { threshold: 0.1 };
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-    progressBars.forEach(bar => observer.observe(bar));
-    timelineItems.forEach(item => observer.observe(item));
-
-    const handleScroll = () => {
-        let currentSection = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - 60;
-            if (window.scrollY >= sectionTop) {
-                currentSection = section.getAttribute('id');
-            }
-        });
-        updateActiveLink(navLinks, currentSection);
-        updateActiveLink(dropdownItems, currentSection);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    // Intl-Tel-Input Configuration
-    const iti = window.intlTelInput(input, {
-        initialCountry: "auto",
-        geoIpLookup(callback) {
-            fetch('https://ipinfo.io?token=2ee5851481d61d')
+    // Initialisation de intl-tel-input immédiatement (pas de lazy loading)
+    if (input) {
+        const iti = window.intlTelInput(input, {
+            initialCountry: "auto",
+            geoIpLookup: callback => fetch('https://ipinfo.io?token=2ee5851481d61d')
                 .then(response => response.json())
-                .then(data => {
-                    const countryCode = data.country ? data.country.toLowerCase() : "fr";
-                    callback(countryCode);
-                    iti.setCountry(countryCode);
-                })
-                .catch(() => {
-                    callback("fr");
-                    iti.setCountry("fr");
-                });
-        },
-        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/utils.js"
-    });
-
-    input.addEventListener("countrychange", () => {
-        const maxLength = iti.getSelectedCountryData().maxNumberLength;
-        input.maxLength = maxLength ? maxLength : 15;
-    });
-
-    form.addEventListener('submit', (event) => {
-        const fullNumber = iti.getNumber();
-        input.value = fullNumber;
-    });
-
-    if (form) {
-        var savedData = JSON.parse(localStorage.getItem('formData'));
-        if (savedData) {
-            for (var key in savedData) {
-                var field = form.querySelector('[name="' + key + '"]');
-                if (field) {
-                    field.value = savedData[key];
-                }
-            }
-        }
-        form.addEventListener('input', function () {
-            var formData = new FormData(form);
-            var dataObject = {};
-            formData.forEach((value, key) => {
-                dataObject[key] = value;
-            });
-            localStorage.setItem('formData', JSON.stringify(dataObject));
+                .then(data => callback(data.country.toLowerCase()))
+                .catch(() => callback("fr")),
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/utils.js"
         });
-        form.addEventListener('submit', function () {
-            localStorage.removeItem('formData');
+
+        input.addEventListener("countrychange", () => {
+            input.maxLength = iti.getSelectedCountryData().maxNumberLength || 15;
+        });
+
+        form.addEventListener('submit', () => {
+            input.value = iti.getNumber();
         });
     }
 
+    // Appliquer les styles d'accessibilité
     function applyAccessibilityStyles() {
         const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
-        document.querySelectorAll('.owl-dot').forEach(function(dot) {
-            dot.style.width = '24px';
-            dot.style.height = '24px';
-            dot.style.margin = '5px';
-            dot.style.display = 'inline-block';
-            const span = dot.querySelector('span');
-            if (span) {
-                span.style.width = '100%';
-                span.style.height = '100%';
-                span.style.display = 'block';
-                span.style.borderRadius = '50%';
-                span.style.backgroundColor = isDarkMode ? '#3D63DD' : '#FF8552';
-            }
-        });
-        document.querySelectorAll('.owl-dot.active span').forEach(function(span) {
-            span.style.backgroundColor = '#457B9D';
+        document.querySelectorAll('.owl-dot span').forEach(span => {
+            span.style.backgroundColor = isDarkMode ? '#3D63DD' : '#FF8552';
         });
     }
 
     applyAccessibilityStyles();
-    toggleSwitch.addEventListener('change', () => {
-        applyAccessibilityStyles();
-    });
 });
