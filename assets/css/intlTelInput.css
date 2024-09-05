@@ -46,7 +46,7 @@
 .iti input.iti__tel-input[type=tel] {
   position: relative;
   z-index: 0;
-  margin: 0 !important;
+  padding-left: 40px!important;
 }
 .iti__country-container {
   position: absolute;
