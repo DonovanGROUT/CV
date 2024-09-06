@@ -137,7 +137,6 @@ document.addEventListener('DOMContentLoaded', () => {
     input.addEventListener("countrychange", () => {
         const maxLength = iti.getSelectedCountryData().maxNumberLength;
         input.maxLength = maxLength ? maxLength : 15;
-        fixAriaAttributes(); // Met à jour les attributs ARIA après le changement de pays
     });
 
     // Gestion de la soumission du formulaire
