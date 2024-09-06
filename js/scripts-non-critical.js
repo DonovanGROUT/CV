@@ -92,15 +92,13 @@ document.addEventListener('DOMContentLoaded', () => {
     function fixAriaAttributes() {
         const flags = document.querySelectorAll('.iti__selected-flag');
         flags.forEach(flag => {
-            // Vérifie si l'élément est interactif ou décoratif
-            if (flag.querySelector('button') || flag.querySelector('a')) {
-                // Assure que l'élément a un aria-label et un rôle approprié
-                flag.setAttribute('role', 'presentation');
-                flag.setAttribute('aria-label', 'Drapeau sélectionné');
-            } else {
-                // Assure que l'élément a un aria-label approprié si nécessaire
-                flag.setAttribute('aria-label', 'Drapeau sélectionné');
-            }
+            // Assure que les attributs ARIA sont corrects
+            flag.setAttribute('role', 'combobox');
+            flag.setAttribute('aria-controls', 'iti-0__country-listbox');
+            flag.setAttribute('aria-owns', 'iti-0__country-listbox');
+            flag.setAttribute('aria-expanded', 'false'); // Valeur correcte dépend du contexte
+            flag.setAttribute('aria-activedescendant', 'iti-0__item-fr-preferred');
+            flag.setAttribute('aria-label', 'Drapeau sélectionné');
         });
     }
 
