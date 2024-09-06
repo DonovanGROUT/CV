@@ -21,12 +21,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Ajout des attributs aria-label aux boutons de navigation
             $('.owl-dot').each(function(index) {
-                $(this).attr('aria-label', 'Diapositive ' + (index + 1));
+                $(this).attr('aria-label', 'Projet ' + (index + 1));
             });
 
             // Ajout d'un aria-label aux boutons de navigation personnalisés
-            $(".custom-owl-prev").attr('aria-label', 'Diapositive précédente');
-            $(".custom-owl-next").attr('aria-label', 'Diapositive suivante');
+            $(".custom-owl-prev").attr('aria-label', 'Projet précédent');
+            $(".custom-owl-next").attr('aria-label', 'Projet suivant');
         },
         onChanged: function(event) {
             applyAccessibilityStyles();
@@ -86,6 +86,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
     navLinks.forEach(link => link.addEventListener('click', scrollToSection));
     dropdownItems.forEach(item => item.addEventListener('click', scrollToSection));
+
+    // Gestion des boutons "Voir les détails" pour portfolio, formation et expérience
+    const viewLabelButtons = document.querySelectorAll('.view-label-btn');
+    let activeButton = null;
+
+    viewLabelButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.stopPropagation(); // Empêche la propagation de l'événement
+
+            const parentElement = button.closest('.timeline-panel') || button.closest('.card');
+            const labelElement = parentElement.querySelector('.timeline-body') || parentElement.querySelector('.card-label');
+
+            // Si un autre bouton est actif, on le réinitialise
+            if (activeButton && activeButton !== button) {
+                const activeParentElement = activeButton.closest('.timeline-panel') || activeButton.closest('.card');
+                const activeLabelElement = activeParentElement.querySelector('.timeline-body') || activeParentElement.querySelector('.card-label');
+                activeLabelElement.style.display = 'none';
+                activeButton.textContent = 'Voir les détails';
+            }
+
+            // Bascule l'affichage du label
+            if (labelElement.style.display === 'block') {
+                labelElement.style.display = 'none';
+                button.textContent = 'Voir les détails';
+                activeButton = null; // Plus de bouton actif
+            } else {
+                labelElement.style.display = 'block';
+                button.textContent = 'Cacher les détails';
+                activeButton = button; // Met à jour le bouton actif
+            }
+        });
+    });
 
     // Fonction pour corriger les attributs ARIA
     function fixAriaAttributes() {
