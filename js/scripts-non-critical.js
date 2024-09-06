@@ -87,68 +87,63 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinks.forEach(link => link.addEventListener('click', scrollToSection));
     dropdownItems.forEach(item => item.addEventListener('click', scrollToSection));
 
-// Gestion des boutons "Voir les détails"
-const viewLabelButtons = document.querySelectorAll('.view-label-btn');
-let activeButton = null;
+    // Gestion des boutons "Voir les détails"
+    const viewLabelButtons = document.querySelectorAll('.view-label-btn');
+    let activeButton = null;
 
-// Détecte si l'appareil est tactile
-const isTouchDevice = 'ontouchstart' in document.documentElement;
+    // Détecte si l'appareil est tactile
+    const isTouchDevice = 'ontouchstart' in document.documentElement;
 
-// Fonction pour masquer le texte et réinitialiser les boutons
-function resetActiveButton() {
-    if (activeButton) {
-        const activeParentElement = activeButton.closest('.timeline-panel') || activeButton.closest('.card');
-        const activeLabelElement = activeParentElement.querySelector('.timeline-body') || activeParentElement.querySelector('.card-label');
-        activeLabelElement.style.display = 'none';
-        activeButton.textContent = 'Voir les détails';
-        activeButton = null;
+    // Fonction pour masquer le texte et réinitialiser les boutons
+    function resetActiveButton() {
+        if (activeButton) {
+            const activeParentElement = activeButton.closest('.timeline-panel') || activeButton.closest('.card');
+            const activeLabelElement = activeParentElement.querySelector('.timeline-body') || activeParentElement.querySelector('.card-label');
+            activeLabelElement.style.display = 'none';
+            activeButton.textContent = 'Voir les détails';
+            activeButton = null;
+        }
     }
-}
 
-// Ajout d'un écouteur sur les événements Owl Carousel pour réinitialiser les boutons lorsque le slide change
-$('.owl-carousel').on('changed.owl.carousel', function() {
-    resetActiveButton();
-});
+    if (isTouchDevice) {
+        // Pour les appareils tactiles : gestion du clic sur le bouton
+        viewLabelButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const parentElement = button.closest('.timeline-panel') || button.closest('.card');
+                const labelElement = parentElement.querySelector('.timeline-body') || parentElement.querySelector('.card-label');
 
-if (isTouchDevice) {
-    // Pour les appareils tactiles : gestion du clic sur le bouton
-    viewLabelButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-            e.stopPropagation();
+                // Si un autre bouton est déjà actif, on le réinitialise
+                if (activeButton && activeButton !== button) {
+                    resetActiveButton();
+                }
+
+                // Affiche ou cache le texte associé au bouton
+                if (labelElement.style.display === 'block') {
+                    labelElement.style.display = 'none';
+                    button.textContent = 'Voir les détails';
+                } else {
+                    labelElement.style.display = 'block';
+                    button.textContent = 'Cacher les détails';
+                    activeButton = button;
+                }
+            });
+        });
+    } else {
+        // Pour les appareils non tactiles : le texte s'affiche au survol
+        viewLabelButtons.forEach(button => {
             const parentElement = button.closest('.timeline-panel') || button.closest('.card');
             const labelElement = parentElement.querySelector('.timeline-body') || parentElement.querySelector('.card-label');
 
-            // Si un autre bouton est déjà actif, on le réinitialise
-            if (activeButton && activeButton !== button) {
-                resetActiveButton();
-            }
-
-            // Affiche ou cache le texte associé au bouton
-            if (labelElement.style.display === 'block') {
-                labelElement.style.display = 'none';
-                button.textContent = 'Voir les détails';
-            } else {
+            parentElement.addEventListener('mouseenter', () => {
                 labelElement.style.display = 'block';
-                button.textContent = 'Cacher les détails';
-                activeButton = button;
-            }
-        });
-    });
-} else {
-    // Pour les appareils non tactiles : le texte s'affiche au survol
-    viewLabelButtons.forEach(button => {
-        const parentElement = button.closest('.timeline-panel') || button.closest('.card');
-        const labelElement = parentElement.querySelector('.timeline-body') || parentElement.querySelector('.card-label');
+            });
 
-        parentElement.addEventListener('mouseenter', () => {
-            labelElement.style.display = 'block';
+            parentElement.addEventListener('mouseleave', () => {
+                labelElement.style.display = 'none';
+            });
         });
-
-        parentElement.addEventListener('mouseleave', () => {
-            labelElement.style.display = 'none';
-        });
-    });
-}
+    }
 
 
     // Initialisation de intl-tel-input
