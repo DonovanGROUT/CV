@@ -47,11 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
         $(".carousel").trigger("prev.owl.carousel");
     });
 
-    // Détection des appareils tactiles
-    if ('ontouchstart' in document.documentElement) {
-        document.body.classList.add('touch-device');
-    }
-
     // Fonctionnalité pour animer les barres de progression et la timeline
     const observerCallback = (entries) => {
         entries.forEach(entry => {
