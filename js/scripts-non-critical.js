@@ -88,6 +88,18 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinks.forEach(link => link.addEventListener('click', scrollToSection));
     dropdownItems.forEach(item => item.addEventListener('click', scrollToSection));
 
+    // Fonction pour corriger les attributs ARIA
+    function fixAriaAttributes() {
+        const flags = document.querySelectorAll('.iti__selected-flag');
+        flags.forEach(flag => {
+            // Modifie ou supprime les attributs ARIA problématiques
+            // Par exemple, tu pourrais retirer des attributs invalides
+            flag.removeAttribute('aria-label'); // Retirer un attribut ARIA spécifique
+            // Ou tu pourrais ajouter des attributs ARIA valides
+            flag.setAttribute('aria-label', 'Drapeau sélectionné'); // Ajouter un attribut ARIA valide
+        });
+    }
+
     // Initialisation de intl-tel-input
     const iti = window.intlTelInput(input, {
         initialCountry: "auto",
@@ -98,10 +110,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     const countryCode = data.country ? data.country.toLowerCase() : "fr";
                     callback(countryCode);
                     iti.setCountry(countryCode); // Forcer la mise à jour
+                    // Corriger les attributs ARIA après l'initialisation
+                    fixAriaAttributes();
                 })
                 .catch(() => {
                     callback("fr");
                     iti.setCountry("fr"); // Valeur de repli
+                    // Corriger les attributs ARIA après l'initialisation
+                    fixAriaAttributes();
                 });
         },
         utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/utils.js"
@@ -117,6 +133,8 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', (event) => {
         const fullNumber = iti.getNumber();
         input.value = fullNumber;
+        // Corriger les attributs ARIA avant l'envoi
+        fixAriaAttributes();
     });
 
      // Stockage et restauration des données du formulaire :
