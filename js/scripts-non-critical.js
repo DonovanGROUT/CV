@@ -105,6 +105,11 @@ function resetActiveButton() {
     }
 }
 
+// Ajout d'un écouteur sur les événements Owl Carousel pour réinitialiser les boutons lorsque le slide change
+$('.owl-carousel').on('changed.owl.carousel', function() {
+    resetActiveButton();
+});
+
 if (isTouchDevice) {
     // Pour les appareils tactiles : gestion du clic sur le bouton
     viewLabelButtons.forEach(button => {
