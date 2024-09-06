@@ -106,7 +106,6 @@ document.addEventListener('DOMContentLoaded', () => {
         form.addEventListener('submit', (e) => {
             // Mettre à jour la valeur du champ téléphone avant l'envoi du formulaire
             input.value = iti.getNumber();
-            console.log("Numéro avant soumission : ", input.value); // Affiche le numéro pour déboguer
         });
     }
 
