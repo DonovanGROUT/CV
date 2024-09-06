@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinks.forEach(link => link.addEventListener('click', scrollToSection));
     dropdownItems.forEach(item => item.addEventListener('click', scrollToSection));
 
-    // Initialisation de intl-tel-input immédiatement (pas de lazy loading)
+    // Initialisation de intl-tel-input
     if (input) {
         const iti = window.intlTelInput(input, {
             initialCountry: "auto",
@@ -96,15 +96,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 .then(response => response.json())
                 .then(data => callback(data.country.toLowerCase()))
                 .catch(() => callback("fr")),
-            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/utils.js"
+            utilsScript: "dist/utils.min.js"
         });
 
         input.addEventListener("countrychange", () => {
             input.maxLength = iti.getSelectedCountryData().maxNumberLength || 15;
         });
 
-        form.addEventListener('submit', () => {
+        form.addEventListener('submit', (e) => {
+            // Mettre à jour la valeur du champ téléphone avant l'envoi du formulaire
             input.value = iti.getNumber();
+            console.log("Numéro avant soumission : ", input.value); // Affiche le numéro pour déboguer
         });
     }
 
