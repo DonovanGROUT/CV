@@ -87,65 +87,32 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinks.forEach(link => link.addEventListener('click', scrollToSection));
     dropdownItems.forEach(item => item.addEventListener('click', scrollToSection));
 
-    // Gestion des boutons "Voir les détails" pour portfolio, formation et expérience
+    // Gestion des boutons "Voir les détails"
     const viewLabelButtons = document.querySelectorAll('.view-label-btn');
     let activeButton = null;
 
     viewLabelButtons.forEach(button => {
         button.addEventListener('click', (e) => {
-            e.stopPropagation(); // Empêche la propagation de l'événement
-
+            e.stopPropagation();
             const parentElement = button.closest('.timeline-panel') || button.closest('.card');
             const labelElement = parentElement.querySelector('.timeline-body') || parentElement.querySelector('.card-label');
-
-            // Si un autre bouton est actif, on le réinitialise
             if (activeButton && activeButton !== button) {
                 const activeParentElement = activeButton.closest('.timeline-panel') || activeButton.closest('.card');
                 const activeLabelElement = activeParentElement.querySelector('.timeline-body') || activeParentElement.querySelector('.card-label');
                 activeLabelElement.style.display = 'none';
                 activeButton.textContent = 'Voir les détails';
             }
-
-            // Bascule l'affichage du label
             if (labelElement.style.display === 'block') {
                 labelElement.style.display = 'none';
                 button.textContent = 'Voir les détails';
-                activeButton = null; // Plus de bouton actif
+                activeButton = null;
             } else {
                 labelElement.style.display = 'block';
                 button.textContent = 'Cacher les détails';
-                activeButton = button; // Met à jour le bouton actif
+                activeButton = button;
             }
         });
     });
-
-    // Fonction pour corriger les attributs ARIA
-    function fixAriaAttributes() {
-        const flags = document.querySelectorAll('.iti__selected-flag');
-        const countryList = document.querySelector('.iti__country-list');
-
-        flags.forEach(flag => {
-            // Assure que le rôle est correct
-            flag.setAttribute('role', 'combobox');
-
-            // Vérifie l'ID de la liste contrôlée
-            const countryListId = 'iti-0__country-listbox'; // Vérifie que cet ID est correct
-            flag.setAttribute('aria-controls', countryListId);
-            flag.setAttribute('aria-owns', countryListId);
-
-            // Dynamique pour aria-expanded
-            const isExpanded = countryList && countryList.classList.contains('open');
-            flag.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
-
-            // Mise à jour dynamique pour aria-activedescendant
-            const activeCountryData = iti.getSelectedCountryData();
-            const activeCountryId = activeCountryData.iso2 ? `iti-0__item-${activeCountryData.iso2}-preferred` : '';
-            flag.setAttribute('aria-activedescendant', activeCountryId || '');
-
-            // Assure une valeur d'aria-label appropriée
-            flag.setAttribute('aria-label', 'Drapeau sélectionné');
-        });
-    }
 
     // Initialisation de intl-tel-input
     const iti = window.intlTelInput(input, {
@@ -157,12 +124,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     const countryCode = data.country ? data.country.toLowerCase() : "fr";
                     callback(countryCode);
                     iti.setCountry(countryCode);
-                    fixAriaAttributes(); // Utilise fixAriaAttributes directement après l'initialisation
                 })
                 .catch(() => {
                     callback("fr");
                     iti.setCountry("fr");
-                    fixAriaAttributes();
                 });
         },
         utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/utils.js"
@@ -179,7 +144,6 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', (event) => {
         const fullNumber = iti.getNumber();
         input.value = fullNumber;
-        fixAriaAttributes(); // Met à jour les attributs ARIA avant l'envoi
     });
 
     // Stockage et restauration des données du formulaire
