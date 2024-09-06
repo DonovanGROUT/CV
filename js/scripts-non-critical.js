@@ -91,13 +91,23 @@ document.addEventListener('DOMContentLoaded', () => {
     function fixAriaAttributes() {
         const flags = document.querySelectorAll('.iti__selected-flag');
         flags.forEach(flag => {
-            // Assure que les attributs ARIA sont corrects
+            // Assure que le rôle est correct
             flag.setAttribute('role', 'combobox');
+
+            // Vérifie l'ID de la liste contrôlée
             flag.setAttribute('aria-controls', 'iti-0__country-listbox');
             flag.setAttribute('aria-owns', 'iti-0__country-listbox');
-            // La valeur 'aria-expanded' dépend de l'état de l'élément
-            flag.setAttribute('aria-expanded', flag.classList.contains('expanded') ? 'true' : 'false'); // Remplace 'expanded' par la classe appropriée si nécessaire
-            flag.setAttribute('aria-activedescendant', iti.getSelectedCountryData().iso2 ? `iti-0__item-${iti.getSelectedCountryData().iso2}-preferred` : '');
+
+            // Dynamique pour aria-expanded
+            const isExpanded = document.querySelector('.iti__country-list').classList.contains('open'); // Utilise la classe appropriée pour vérifier l'état
+            flag.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+
+            // Mise à jour dynamique pour aria-activedescendant
+            const activeCountryData = iti.getSelectedCountryData();
+            const activeCountryId = activeCountryData.iso2 ? `iti-0__item-${activeCountryData.iso2}-preferred` : '';
+            flag.setAttribute('aria-activedescendant', activeCountryId || '');
+
+            // Assure une valeur d'aria-label appropriée
             flag.setAttribute('aria-label', 'Drapeau sélectionné');
         });
     }
