@@ -474,8 +474,8 @@ section {
 }
 
 .owl-dot {
-    height: 48px;
-    width: 48px;
+    height: 24px;
+    width: 24px;
     border-radius: 50%;
     cursor: pointer;
     outline: none;
