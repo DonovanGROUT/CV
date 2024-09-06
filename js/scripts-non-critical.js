@@ -92,11 +92,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function fixAriaAttributes() {
         const flags = document.querySelectorAll('.iti__selected-flag');
         flags.forEach(flag => {
-            // Modifie ou supprime les attributs ARIA problématiques
-            // Par exemple, tu pourrais retirer des attributs invalides
-            flag.removeAttribute('aria-label'); // Retirer un attribut ARIA spécifique
-            // Ou tu pourrais ajouter des attributs ARIA valides
-            flag.setAttribute('aria-label', 'Drapeau sélectionné'); // Ajouter un attribut ARIA valide
+            // Vérifier et corriger les attributs ARIA
+            // Assurer que l'élément a un aria-label valide
+            flag.setAttribute('role', 'presentation'); // Rôle de présentation pour les éléments décoratifs
+            flag.setAttribute('aria-hidden', 'true'); // Indiquer aux technologies d'assistance que cet élément est décoratif
         });
     }
 
@@ -137,8 +136,8 @@ document.addEventListener('DOMContentLoaded', () => {
         fixAriaAttributes();
     });
 
-     // Stockage et restauration des données du formulaire :
-     if (form) {
+    // Stockage et restauration des données du formulaire :
+    if (form) {
         // Chargement des données du formulaire
         var savedData = JSON.parse(localStorage.getItem('formData'));
         if (savedData) {
