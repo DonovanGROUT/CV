@@ -90,16 +90,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Fonction pour corriger les attributs ARIA
     function fixAriaAttributes() {
         const flags = document.querySelectorAll('.iti__selected-flag');
+        const countryList = document.querySelector('.iti__country-list');
+
         flags.forEach(flag => {
             // Assure que le rôle est correct
             flag.setAttribute('role', 'combobox');
 
             // Vérifie l'ID de la liste contrôlée
-            flag.setAttribute('aria-controls', 'iti-0__country-listbox');
-            flag.setAttribute('aria-owns', 'iti-0__country-listbox');
+            const countryListId = 'iti-0__country-listbox'; // Vérifie que cet ID est correct
+            flag.setAttribute('aria-controls', countryListId);
+            flag.setAttribute('aria-owns', countryListId);
 
             // Dynamique pour aria-expanded
-            const isExpanded = document.querySelector('.iti__country-list').classList.contains('open'); // Utilise la classe appropriée pour vérifier l'état
+            const isExpanded = countryList && countryList.classList.contains('open');
             flag.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
 
             // Mise à jour dynamique pour aria-activedescendant
