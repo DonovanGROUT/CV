@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav-link');
     const dropdownItems = document.querySelectorAll('.dropdown-item');
-    const sections = document.querySelectorAll('section');
     const progressBars = document.querySelectorAll('.progress-bar');
     const timelineItems = document.querySelectorAll('.timeline-item');
     const input = document.querySelector("#phone");
@@ -96,8 +95,9 @@ document.addEventListener('DOMContentLoaded', () => {
             flag.setAttribute('role', 'combobox');
             flag.setAttribute('aria-controls', 'iti-0__country-listbox');
             flag.setAttribute('aria-owns', 'iti-0__country-listbox');
-            flag.setAttribute('aria-expanded', 'false'); // Valeur correcte dépend du contexte
-            flag.setAttribute('aria-activedescendant', 'iti-0__item-fr-preferred');
+            // La valeur 'aria-expanded' dépend de l'état de l'élément
+            flag.setAttribute('aria-expanded', flag.classList.contains('expanded') ? 'true' : 'false'); // Remplace 'expanded' par la classe appropriée si nécessaire
+            flag.setAttribute('aria-activedescendant', iti.getSelectedCountryData().iso2 ? `iti-0__item-${iti.getSelectedCountryData().iso2}-preferred` : '');
             flag.setAttribute('aria-label', 'Drapeau sélectionné');
         });
     }
@@ -111,14 +111,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 .then(data => {
                     const countryCode = data.country ? data.country.toLowerCase() : "fr";
                     callback(countryCode);
-                    iti.setCountry(countryCode); // Forcer la mise à jour
-                    // Corriger les attributs ARIA après l'initialisation
-                    fixAriaAttributes();
+                    iti.setCountry(countryCode);
+                    fixAriaAttributes(); // Utilise fixAriaAttributes directement après l'initialisation
                 })
                 .catch(() => {
                     callback("fr");
-                    iti.setCountry("fr"); // Valeur de repli
-                    // Corriger les attributs ARIA après l'initialisation
+                    iti.setCountry("fr");
                     fixAriaAttributes();
                 });
         },
@@ -129,17 +127,17 @@ document.addEventListener('DOMContentLoaded', () => {
     input.addEventListener("countrychange", () => {
         const maxLength = iti.getSelectedCountryData().maxNumberLength;
         input.maxLength = maxLength ? maxLength : 15;
+        fixAriaAttributes(); // Met à jour les attributs ARIA après le changement de pays
     });
 
     // Gestion de la soumission du formulaire
     form.addEventListener('submit', (event) => {
         const fullNumber = iti.getNumber();
         input.value = fullNumber;
-        // Corriger les attributs ARIA avant l'envoi
-        fixAriaAttributes();
+        fixAriaAttributes(); // Met à jour les attributs ARIA avant l'envoi
     });
 
-    // Stockage et restauration des données du formulaire :
+    // Stockage et restauration des données du formulaire
     if (form) {
         // Chargement des données du formulaire
         var savedData = JSON.parse(localStorage.getItem('formData'));

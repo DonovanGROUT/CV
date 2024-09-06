@@ -401,9 +401,9 @@
                                 <label for="name">Nom :</label>
                                 <input type="text" id="name" name="name" class="form-control" required>
                             </div>
-                            <div class="form-group" id="phoneForm">
-                                <label for="phone">Téléphone :</label>
-                                <input type="tel" id="phone" name="phone" class="form-control iti__tel-input" size="100" placeholder="06 12 34 56 78">
+                            <div class="form-group" id="phoneForm" role="group">
+                                <label for="phone" id="phoneLabel">Téléphone :</label>
+                                <input type="tel" id="phone" name="phone" class="form-control iti__tel-input" size="100" placeholder="06 12 34 56 78" aria-labelledby="phoneLabel">
                             </div>
                             <div class="form-group" id="surnameForm">
                                 <label for="surname">Prénom :</label>
