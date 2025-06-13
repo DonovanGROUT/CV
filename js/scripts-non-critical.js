@@ -15,12 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
         dots: true,
         nav: false,
         navText: ['←', '→'],
-        onInitialized: function(event) {
-            console.log("OwlCarousel initialized", event);
-            console.log("Dots elements: ", $(".owl-dots").length);
+        onInitialized: function (event) {
 
             // Ajout des attributs aria-label aux boutons de navigation
-            $('.owl-dot').each(function(index) {
+            $('.owl-dot').each(function (index) {
                 $(this).attr('aria-label', 'Projet ' + (index + 1));
             });
 
@@ -28,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
             $(".custom-owl-prev").attr('aria-label', 'Projet précédent');
             $(".custom-owl-next").attr('aria-label', 'Projet suivant');
         },
-        onChanged: function(event) {
+        onChanged: function (event) {
             applyAccessibilityStyles();
         },
         responsive: {
@@ -38,11 +36,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    $(".custom-owl-next").click(function() {
+    $(".custom-owl-next").click(function () {
         $(".carousel").trigger("next.owl.carousel");
     });
 
-    $(".custom-owl-prev").click(function() {
+    $(".custom-owl-prev").click(function () {
         $(".carousel").trigger("prev.owl.carousel");
     });
 
@@ -71,8 +69,15 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const scrollToSection = (e) => {
+        const href = e.currentTarget.getAttribute('href');
+        
+        // Ignorer les liens externes (qui ne commencent pas par #)
+        if (!href.startsWith('#')) {
+            return; // Laisser le navigateur gérer le lien normalement
+        }
+        
         e.preventDefault();
-        const targetId = e.currentTarget.getAttribute('href').substring(1);
+        const targetId = href.substring(1);
         const targetElement = document.getElementById(targetId);
         if (targetElement) {
             window.scrollTo({
@@ -175,6 +180,26 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', (event) => {
         const fullNumber = iti.getNumber();
         input.value = fullNumber;
+        
+        // Vérification si nous sommes en environnement local
+        if (window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost') {
+            // En local, empêcher la soumission normale et rediriger
+            event.preventDefault();
+            
+            // Valider que la case RGPD est cochée
+            const rgpdConsent = document.getElementById('rgpd-consent');
+            if (rgpdConsent && !rgpdConsent.checked) {
+                alert('Veuillez accepter les conditions de confidentialité pour continuer.');
+                return;
+            }
+            
+            // Nettoyer les données stockées
+            localStorage.removeItem('formData');
+            
+            // Rediriger vers la page de remerciement
+            window.location.href = 'remerciement-formulaire.html';
+        }
+        // En production (Netlify), laisser le formulaire se soumettre normalement
     });
 
     // Stockage et restauration des données du formulaire

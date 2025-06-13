@@ -1,7 +1,6 @@
 /* Global */
 *, *::before, *::after {
     box-sizing: border-box;
-}
 
 /* Variables CSS */
 :root {
@@ -16,7 +15,7 @@
     --shadow-light: rgba(0, 0, 0, 0.1);
     --shadow-dark: rgba(0, 0, 0, 0.3);
 }
-/*Test*/
+
 /* Global */
 
 body {
@@ -34,8 +33,6 @@ body {
     -webkit-background-size: cover;
     -webkit-background-attachment: fixed;
     -webkit-background-position: top center;
-/*     background-blend-mode: overlay;
-    background-color: rgba(255, 255, 0, 0.1); /* Jaune avec une certaine transparence */
 }
 
 /* Hack pour iOS uniquement */
@@ -615,6 +612,391 @@ form label {
 }
 
 
+/* Styles pour les éléments RGPD - Nouvelle disposition - V2.1 Important Fix */
+#rgpdConsent {
+    margin: 30px 0;
+    width: 100%;
+    max-width: none;
+}
+
+/* Carte d'informations RGPD */
+.rgpd-info-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 133, 82, 0.2);
+}
+
+.rgpd-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.rgpd-header h4 {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.rgpd-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.rgpd-summary {
+    text-align: center;
+    padding: 16px;
+    background: rgba(76, 175, 80, 0.1);
+    border-radius: 12px;
+    border-left: 4px solid #4CAF50;
+}
+
+.rgpd-summary p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--text-color);
+    text-align: center;
+}
+
+/* Accordéon pour les détails */
+.rgpd-accordion {
+    background: rgba(33, 150, 243, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.rgpd-accordion summary {
+    padding: 12px 16px;
+    background: rgba(33, 150, 243, 0.1);
+    cursor: pointer;
+    font-weight: 700 !important;
+    color: var(--primary-color);
+    border: none;
+    outline: none;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.rgpd-accordion summary:hover {
+    background: rgba(33, 150, 243, 0.2);
+    transform: scale(1.05);
+}
+
+.rgpd-accordion-content {
+    padding: 16px;
+    background: white;
+}
+
+.rgpd-accordion-content p {
+    margin: 0 0 12px 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    text-align: left;
+}
+
+.rgpd-accordion-content p:last-child {
+    margin-bottom: 0;
+}
+
+.rgpd-accordion-content a {
+    color: var(--primary-color) !important;
+    text-decoration: none;
+    font-weight: 700 !important;
+    transition: all 0.3s ease;
+}
+
+.rgpd-accordion-content a:hover {
+    color: var(--secondary-color) !important;
+    text-decoration: underline;
+    transform: scale(1.1);
+    display: inline-block;
+}
+
+/* Lien politique */
+.rgpd-policy-link {
+    text-align: center;
+}
+
+.policy-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 700 !important;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.policy-btn:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    color: white !important;
+}
+
+/* Section d'action */
+.rgpd-action-section {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(76, 175, 80, 0.2);
+}
+
+.consent-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.consent-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 0 1 auto;
+    min-width: 250px;
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+    min-width: 140px;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(135deg, #45a049, #4CAF50);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+.submit-btn span {
+    margin-right: 8px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .consent-row {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+    
+    .consent-checkbox {
+        justify-content: center;
+        min-width: auto;
+    }
+    
+    .submit-btn {
+        width: 100%;
+    }
+    
+    .rgpd-info-card,
+    .rgpd-action-section {
+        padding: 20px;
+    }
+}
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    justify-content: flex-start;
+    margin-top: 25px;
+    width: 100%;
+}
+
+/* Checkbox personnalisée */
+#rgpd-consent {
+    display: none; /* Cache la checkbox native */
+}
+
+.custom-checkbox {
+    width: 24px;
+    height: 24px;
+    border: 3px solid var(--primary-color);
+    border-radius: 6px;
+    background-color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.custom-checkbox:hover {
+    transform: scale(1.1);
+    box-shadow: 0 2px 8px rgba(255, 133, 82, 0.4);
+}
+
+#rgpd-consent:checked + .custom-checkbox {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+#rgpd-consent:checked + .custom-checkbox::after {
+    content: "✓";
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.checkbox-label {
+    font-size: 0.95rem;
+    color: var(--text-color);
+    cursor: pointer;
+    font-weight: 500;
+    margin: 0;
+    white-space: nowrap;
+}
+
+/* Amélioration pour mobile */
+@media (max-width: 768px) {
+    #rgpdConsent {
+        padding: 20px 15px;
+        margin: 25px 0;
+    }
+    
+    .rgpd-text-center {
+        font-size: 0.9rem;
+        line-height: 1.7;
+    }
+    
+    .checkbox-submit-container {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .checkbox-container {
+        gap: 6px;
+        justify-content: flex-start;
+    }
+    
+    .custom-checkbox {
+        width: 22px;
+        height: 22px;
+    }
+    
+    .checkbox-label {
+        font-size: 0.9rem;
+        text-align: left;
+    }
+    
+    .privacy-policy-link {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        margin: 10px 0;
+    }
+    
+    .btn-primary {
+        width: auto;
+        padding: 12px 30px;
+        margin: 0 auto;
+    }
+}
+
+.rgpd-notice {
+    font-size: 0.9rem;
+    margin: 20px 0;
+    padding: 10px;
+    background-color: rgba(240, 240, 240, 0.5);
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Styles pour les éléments RGPD en mode sombre */
+[data-theme="dark"] .rgpd-info-card {
+    background: rgba(33, 37, 41, 0.95);
+    border-color: rgba(255, 133, 82, 0.3);
+}
+
+[data-theme="dark"] .rgpd-header h4 {
+    color: var(--primary-color);
+}
+
+[data-theme="dark"] .rgpd-summary {
+    background: rgba(76, 175, 80, 0.15);
+    color: #e6edf3;
+    text-align: center;
+}
+
+[data-theme="dark"] .rgpd-accordion {
+    background: rgba(33, 150, 243, 0.1);
+}
+
+[data-theme="dark"] .rgpd-accordion summary {
+    background: rgba(33, 150, 243, 0.15);
+    color: var(--primary-color);
+    text-align: center;
+    font-weight: 700 !important;
+}
+
+[data-theme="dark"] .rgpd-accordion summary:hover {
+    background: rgba(33, 150, 243, 0.25);
+    transform: scale(1.05);
+}
+
+[data-theme="dark"] .rgpd-accordion-content {
+    background: rgba(33, 37, 41, 0.8);
+    color: #e6edf3;
+}
+
+[data-theme="dark"] .rgpd-accordion-content p {
+    text-align: left;
+}
+
+[data-theme="dark"] .rgpd-accordion-content a {
+    color: var(--primary-color) !important;
+    font-weight: 700 !important;
+}
+
+[data-theme="dark"] .rgpd-accordion-content a:hover {
+    color: var(--secondary-color) !important;
+    transform: scale(1.1);
+    display: inline-block;
+}
+
+[data-theme="dark"] .rgpd-action-section {
+    background: rgba(33, 37, 41, 0.9);
+    border-color: rgba(76, 175, 80, 0.3);
+}
+
+[data-theme="dark"] .custom-checkbox {
+    background-color: rgba(33, 37, 41, 0.9);
+    border-color: var(--primary-color);
+}
+
+[data-theme="dark"] #rgpd-consent:checked + .custom-checkbox {
+    background-color: var(--primary-color);
+}
+
+[data-theme="dark"] .checkbox-label {
+    color: #e6edf3;
+}
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .glob {
@@ -697,14 +1079,24 @@ form label {
         grid-row: 6;
     }
 
-    button[type="submit"] {
+    #rgpdConsent {
         grid-row: 7;
-        justify-self: center;
+        grid-column: span 1;
+        width: 100%;
+        text-align: center;
     }
 
-    #theme-toggle {
-        padding: 5px 10px;
-        font-size: 0.85rem;
+    .checkbox-submit-container {
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        align-items: center;
+    }
+
+    .btn-primary {
+        width: auto;
+        padding: 12px 30px;
+        margin: 0 auto;
     }
 }
 
@@ -751,9 +1143,17 @@ form label {
         grid-column: span 2;
     }
 
-    button[type="submit"] {
-        grid-column: span 2;
-        justify-self: center;
+    .checkbox-submit-container {
+        flex-direction: row;
+        gap: 30px;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .btn-primary {
+        width: auto;
+        padding: 12px 30px;
     }
 }
 
@@ -794,6 +1194,7 @@ form label {
         display: block; /* Affiché uniquement sur les appareils tactiles */
     }
 }
+
 
 
 
@@ -870,7 +1271,6 @@ form textarea:focus {
 
 /* Sticky Navbar Offset */
 :target:before {
-    /* content: ""; */
     display: block;
     height: 80px;
     margin-top: -80px;
@@ -890,7 +1290,6 @@ form textarea:focus {
 }
 
 [data-theme="dark"] body::before {
-    /* content: ''; */
     position: fixed;
     top: 0;
     left: 0;
