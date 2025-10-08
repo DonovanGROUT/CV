@@ -25,7 +25,7 @@
     "minify-css-style": "postcss css/style.css -o dist/style.css && postcss dist/style.css --use postcss-clean -o dist/style.min.css",
     "minify-css-owl": "postcss assets/css/owl.carousel.min.css -o dist/owl.carousel.css && postcss dist/owl.carousel.css --use postcss-clean -o dist/owl.carousel.min.css",
     "minify-js": "npx terser \"assets/js/intlTelInput.js\" -o \"dist/intlTelInput.min.js\" --compress --mangle && npx terser \"js/scripts.js\" -o \"dist/scripts.min.js\" --compress --mangle && npx terser \"js/scripts-critical.js\" -o \"dist/scripts-critical.min.js\" --compress --mangle && npx terser \"js/scripts-non-critical.js\" -o \"dist/scripts-non-critical.min.js\" --compress --mangle && npx terser \"assets/js/owl.carousel.min.js\" -o \"dist/owl.carousel.min.js\" --compress --mangle",
-    "build": "npm run minify-html && npm run minify-css-style && npm run minify-css-owl && npm run minify-js"
+    "build": "mkdir -p dist && npm run minify-html && npm run minify-css-style && npm run minify-css-owl && npm run minify-js"
   },
   "keywords": [],
   "author": "",
