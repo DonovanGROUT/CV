@@ -1,6 +1,5 @@
 # Fichiers et dossiers à ignorer pour un projet Node.js
 node_modules/
-dist/
 .env
 .DS_Store
 npm-debug.log*
@@ -13,9 +12,6 @@ coverage/
 Thumbs.db
 Desktop.ini
 
-# Ignorer les fichiers de build
-build/
-
 # Ignorer les fichiers temporaires
 *.tmp
 *.swp
@@ -24,7 +20,3 @@ build/
 # Ignorer les fichiers de configuration d'éditeur
 .vscode/
 .idea/
-
-# Ignorer les fichiers de production
-*.min.js
-*.min.css
