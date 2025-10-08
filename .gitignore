@@ -20,3 +20,13 @@ Desktop.ini
 # Ignorer les fichiers de configuration d'éditeur
 .vscode/
 .idea/
+
+# Fichiers générés/minifiés
+dist/
+*.min.html
+
+# Fichiers temporaires et de conversion d'images
+reminder.txt
+assets/img/*-original.webp
+images/*-optimized.webp
+
