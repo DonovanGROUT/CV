@@ -1,3 +1,12 @@
+/* Correction pour l'affichage des images du portfolio : toujours entières, non déformées */
+.portfolio-img {
+    object-fit: contain;
+    aspect-ratio: 16/9;
+    width: 100%;
+    height: auto;
+    background: #222;
+    display: block;
+}
 /* Global */
 *, *::before, *::after {
     box-sizing: border-box;
