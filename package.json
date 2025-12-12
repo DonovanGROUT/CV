@@ -9,6 +9,7 @@
   "dependencies": {
     "autoprefixer": "^10.4.20",
     "cssnano": "^7.0.5",
+    "glob": "^13.0.0",
     "nanoid": "^3.3.11"
   },
   "devDependencies": {
