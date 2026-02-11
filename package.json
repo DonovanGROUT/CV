@@ -17,17 +17,17 @@
     "clean-css-cli": "^5.6.3",
     "html-minifier-terser": "^7.2.0",
     "postcss": "^8.5.6",
-    "postcss-clean": "^1.2.0",
     "postcss-cli": "^11.0.0",
+    "serve": "^14.2.5",
     "terser": "^5.31.6"
   },
   "scripts": {
-    "minify-html": "npx html-minifier-terser \"index.html\" -o \"dist/index.html\" --collapse-whitespace --remove-comments --minify-css true --minify-js true && npx html-minifier-terser \"politique-confidentialite.html\" -o \"dist/politique-confidentialite.html\" --collapse-whitespace --remove-comments --minify-css true --minify-js true && npx html-minifier-terser \"remerciement-formulaire.html\" -o \"dist/remerciement-formulaire.html\" --collapse-whitespace --remove-comments --minify-css true --minify-js true",
-    "minify-css-style": "postcss css/style.css -o dist/style.css && postcss dist/style.css --use postcss-clean -o dist/style.min.css",
+    "minify-html": "pnpm exec html-minifier-terser \"index.html\" -o \"dist/index.html\" --collapse-whitespace --remove-comments --minify-css true --minify-js true && pnpm exec html-minifier-terser \"politique-confidentialite.html\" -o \"dist/politique-confidentialite.html\" --collapse-whitespace --remove-comments --minify-css true --minify-js true && pnpm exec html-minifier-terser \"remerciement-formulaire.html\" -o \"dist/remerciement-formulaire.html\" --collapse-whitespace --remove-comments --minify-css true --minify-js true",
+    "minify-css-style": "postcss css/style.css -o dist/style.css && postcss dist/style.css --use cssnano -o dist/style.min.css",
     "minify-css-owl": "cp assets/css/owl.carousel.min.css dist/owl.carousel.min.css",
-    "minify-js": "npx terser \"assets/js/intlTelInput.js\" -o \"dist/intlTelInput.min.js\" --compress --mangle && npx terser \"js/scripts-critical.js\" -o \"dist/scripts-critical.min.js\" --compress --mangle && npx terser \"js/scripts-non-critical.js\" -o \"dist/scripts-non-critical.min.js\" --compress --mangle && npx terser \"assets/js/owl.carousel.min.js\" -o \"dist/owl.carousel.min.js\" --compress --mangle",
+    "minify-js": "pnpm exec terser \"assets/js/intlTelInput.js\" -o \"dist/intlTelInput.min.js\" --compress --mangle && pnpm exec terser \"js/scripts-critical.js\" -o \"dist/scripts-critical.min.js\" --compress --mangle && pnpm exec terser \"js/scripts-non-critical.js\" -o \"dist/scripts-non-critical.min.js\" --compress --mangle && pnpm exec terser \"assets/js/owl.carousel.min.js\" -o \"dist/owl.carousel.min.js\" --compress --mangle",
     "copy-assets": "cp -r images dist/ && cp -r assets/img dist/ && cp -r docs dist/ && cp assets/css/intlTelInput.css dist/ && cp assets/css/intlTelInput.min.css dist/ && cp assets/css/owl.carousel.css dist/ && cp assets/css/owl.carousel.min.css dist/ && cp assets/js/intlTelInput.js dist/ && cp assets/js/intlTelInput.min.js dist/ && cp assets/js/owl.carousel.js dist/ && cp assets/js/owl.carousel.min.js dist/ && cp _headers dist/ && cp politique-confidentialite.html dist/ && cp remerciement-formulaire.html dist/ || true",
-    "build": "mkdir -p dist && npm run minify-html && npm run minify-css-style && npm run minify-css-owl && npm run minify-js && npm run copy-assets"
+    "build": "mkdir -p dist && pnpm minify-html && pnpm minify-css-style && pnpm minify-css-owl && pnpm minify-js && pnpm copy-assets"
   },
   "keywords": [],
   "author": "",
