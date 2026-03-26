@@ -32,12 +32,12 @@
   },
   "keywords": [],
   "author": "",
-
   "pnpm": {
     "overrides": {
       "minimatch": ">=10.2.3",
       "ajv": ">=8.18.0",
-      "svgo": ">=4.0.1"
+      "svgo": ">=4.0.1",
+      "yaml": ">=2.8.3"
     }
   },
   "license": "ISC"
