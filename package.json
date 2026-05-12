@@ -39,7 +39,8 @@
       "svgo": ">=4.0.1",
       "yaml": ">=2.8.3",
       "brace-expansion": ">=5.0.5",
-      "fast-uri": "3.1.2"
+      "fast-uri": "3.1.2",
+      "postcss": "8.5.10"
     }
   },
   "license": "ISC"
