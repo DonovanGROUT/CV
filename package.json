@@ -35,6 +35,9 @@
   "pnpm": {
     "overrides": {
       "minimatch": ">=10.2.3",
+      "source-map-js": ">=1.2.2",
+      "compression": ">=1.8.2",
+      "postcss-selector-parser": ">=7.1.6",
       "ajv": ">=8.18.0",
       "svgo": ">=4.1.0",
       "colord": ">=2.9.4",
