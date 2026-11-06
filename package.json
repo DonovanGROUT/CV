@@ -14,7 +14,6 @@
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^8.0.0",
-    "clean-css-cli": "^5.6.3",
     "html-minifier-terser": "^7.2.0",
     "postcss": "^8.5.6",
     "postcss-cli": "^11.0.0",
@@ -34,7 +33,7 @@
   "author": "",
   "pnpm": {
     "overrides": {
-      "minimatch": ">=10.2.3",
+      "minimatch": ">=11.0.1",
       "source-map-js": ">=1.2.2",
       "compression": ">=1.8.2",
       "postcss-selector-parser": ">=7.1.6",
